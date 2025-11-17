@@ -1,0 +1,36 @@
+@use "../abstracts/_bundle.scss" as abs;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Bootstrap의 제목 태그에 설정된 기본 margin을 오버라이딩
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    @include abs.responsivePaddingY();
+}
+
+.section-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.max {
+    @each $label, $bp in abs.$breakpoints {
+        &-#{$bp} {
+            @include abs.responsiveShow($bp);
+        }
+    }
+}
+

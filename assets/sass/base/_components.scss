@@ -1,0 +1,15 @@
+@use "../abstracts/_bundle.scss" as abs;
+
+.cta {
+
+    @each $bp, $width in (large: 29.7rem, medium: 24.5rem, small: 22.5rem) {
+        @media (max-width: map-get(abs.$breakpoints, $bp)) {
+            width: $width;
+        }
+    }
+
+    @include abs.fontStyle(label, label1, 500, 1.4, -0rem, map-get(abs.$colors, primary));
+
+    width: 31.3rem;
+    border-radius: 5rem;
+}
