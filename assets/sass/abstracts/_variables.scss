@@ -15,8 +15,10 @@ $colors: (
 
 // --------------- font-size ---------------
 $pc-laptop-title5: 2.6rem;
+$pc-laptop-body3: 1.8rem;
 $pc-laptop-label1: 1.8rem;
 $pc-laptop-label2: 1.4rem;
+$tablet-mobile-body3: 1.6rem;
 $tablet-mobile-button: 1.8rem;
 $tablet-mobile-label1: 1.6rem;
 
@@ -35,7 +37,7 @@ $font-size: (
         body: (
             body1: 3rem,
             body2: 2.4rem,
-            body3: 2rem,
+            body3: $pc-laptop-body3,
             body4: 1.6rem
         ),
 
@@ -64,7 +66,7 @@ $font-size: (
         body: (
             body1: 2.8rem,
             body2: 2rem,
-            body3: 1.8rem,
+            body3: $pc-laptop-body3,
             // body4: 1.6rem
         ),
 
@@ -93,7 +95,7 @@ $font-size: (
         body: (
             body1: 2.2rem,
             body2: 1.8rem,
-            body3: 1.6rem,
+            body3: $tablet-mobile-body3,
             // body4: 1.6rem
         ),
 
@@ -122,7 +124,7 @@ $font-size: (
         body: (
             body1: 2rem,
             body2: 1.6rem,
-            body3: 1.6rem,
+            body3: $tablet-mobile-body3,
             // body4: 1.6rem
         ),
 

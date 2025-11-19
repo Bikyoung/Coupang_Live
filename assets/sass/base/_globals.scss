@@ -20,6 +20,8 @@ section {
 }
 
 .section-inner {
+    @include abs.responsiveGap();
+
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -49,14 +49,18 @@
 // --------------- vision ---------------
 .vision {
 
-    &__container {
-        @include abs.responsivePaddingX();
+    @include abs.responsivePaddingX();
 
-        &--bottom {
-            top: 100%;
+    &__container {
+        
+        > * {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
-
+    
     &__title {
         @include abs.responsiveFontSize(title, hugeTitle);
     }
@@ -70,8 +74,18 @@
         background-repeat: no-repeat;
         border-radius: 50rem;
     }
-}
 
+    &__desc {
+        @include abs.fontStyle(body, body3, 400, 1.5, -0.01em, map-get(abs.$colors, navy));
+
+        opacity: 1;
+        .no-mobile {
+            @media (max-width: 479px) {
+                display: none;
+            }
+        }
+    }
+}
 
 
 
