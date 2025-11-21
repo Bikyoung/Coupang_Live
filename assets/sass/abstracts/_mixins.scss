@@ -72,15 +72,24 @@
     }
 }
 
-// 반응형별로 width, height를 자동 재정의하는 mixin
-@mixin responsiveSize($pc: (w, h), $laptop: (w, h), $tablet: (w, h), $mobile: (w, h)) {
-    width: map-get($pc, w);
-    height: map-get($pc, h);
+// 반응형별로 width를 자동 재정의하는 mixin
+@mixin responsiveWidth($pc, $laptop, $tablet, $mobile) {
+    width: $pc;
 
-    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+    @each $bp, $width in (large: $pc, medium: $tablet, small: $mobile) {
         @media (max-width: map-get(vars.$breakpoints, $bp)) {
-            width: map-get($device, w);
-            height: map-get($device, h);
+            width: $width;
+        }
+    }
+}
+
+// 반응형별로 height를 자동 재정의하는 mixin
+@mixin responsiveHeight($pc, $laptop, $tablet, $mobile) {
+    height: $pc;
+
+    @each $bp, $height in (large: $laptop, medium: $tablet, small: $mobile) {
+        @media (max-width: map-get(vars.$breakpoints, $bp)) {
+            height: $height;
         }
     }
 }

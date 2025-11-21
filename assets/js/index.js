@@ -1,3 +1,4 @@
+// ------------------------------ vision ------------------------------ 
 // .vision__title이 스크롤에 맞춰 아래에서 올라오며 fade-in
 const fadeInVisionTitle = gsap.from(".vision__title", {
     y: "100%",
@@ -25,7 +26,7 @@ const fadeOutVisionTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: ".vision__middle",
         start: "top 50%",
-        end: "+=500",
+        end: "+=400",
         scrub: 3
     }
 });
@@ -36,6 +37,55 @@ fadeOutVisionTimeline.to(".vision__title", {
 fadeOutVisionTimeline.to(".vision__title", {
     autoAlpha: 0
 }, 0);
+
+// ------------------------------ difference ------------------------------ 
+// .difference__contents의 height를 반응형별로 재정의
+const differenceContents = document.querySelector(".difference__contents");
+
+function setHeight() {
+    let paddingTop = "60px";
+
+    if(window.matchMedia("(max-width: 1023px) and (min-width: 768px)").matches) {
+        paddingTop = "50px";
+    } else if(window.matchMedia("(max-width: 767px)").matches) {
+        paddingTop = "40px";
+    }
+
+    differenceContents.style.height = `calc(100vh - ${paddingTop})`;
+}
+
+setHeight();    // 페이지 첫 로드 시 실행
+window.addEventListener("resize", setHeight);
+  
+// .difference__item들이 스크롤에 맞춰 순차적으로 보여지는 timeline
+const differenceTimeline = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".difference__contents",
+        start: "top top",
+        end: "+=1500",
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1
+    }
+});
+
+differenceTimeline
+    .to({}, { duration: 0.3})   // .difference__item--01이 보여지는 시간을 확보
+    .set(".difference__item--01", { autoAlpha: 0})
+    .set(".difference__item--02", { autoAlpha: 1})
+
+    .to({}, { duration: 0.3})
+    .set(".difference__item--02", { autoAlpha: 0})
+    .set(".difference__item--03", { autoAlpha: 1})
+
+    // .difference__item--03이 보여짐과 동시에 timeline이 종료되는 것을 방지하여 .difference__item--03이 보여지는 시간을 확보
+    .to({}, { duration: 0.3});  
+
+
+
+
+
+
 
 
 

@@ -5,6 +5,10 @@
 
     @include abs.responsivePaddingY($pc: (pt: 15rem, pb: 0), $laptop: (pt: 12rem, pb: 0), $tablet: (pt: 10rem, pb: 0), $mobile: (pt: 8rem, pb: 0));
     background-color: map-get(abs.$colors, navy);
+
+    * {
+        text-align: center;
+    }
     
     &__container {
         @include abs.responsiveGap(6rem, 5rem, 4rem, 4rem);
@@ -51,6 +55,10 @@
 
     @include abs.responsivePaddingX();
 
+    * {
+        text-align: center;
+    }
+
     &__container {
         
         > * {
@@ -66,7 +74,8 @@
     }
 
     &__image {
-        @include abs.responsiveSize($pc: (w: 35rem, h: 50rem), $laptop: (w: 31rem, h: 42rem), $tablet: (w: 25rem, h: 35rem), $mobile: (w: 25rem, h: 35rem));
+        @include abs.responsiveWidth(35rem, 31rem, 25rem, 25rem);
+        @include abs.responsiveHeight(50rem, 42rem, 35rem, 35rem);
 
         background-image: url("../images/vision_image.webp");
         background-size: cover;
@@ -83,6 +92,76 @@
             @media (max-width: 479px) {
                 display: none;
             }
+        }
+    }
+}
+
+// --------------- difference ---------------
+.difference {
+
+    @include abs.responsivePaddingX();
+
+    * {
+        text-align: center;
+    }
+
+    &__container {
+        gap: 0;
+    }
+
+    &__contents {
+        @include abs.responsivePaddingY($pc: (pt: 6rem, pb: 0rem), $laptop: (pt: 5rem, pb: 0), $tablet: (pt: 4rem, pb: 0), $mobile: (pt: 4rem, pb: 0rem));
+    }
+
+    &__item {
+
+        @include abs.responsiveGap(4rem, 3rem, 4rem, 4rem);
+
+        width: 100%; 
+        height: 100%;   
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 3rem;
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &--01 {
+            background-image: url("../images/difference_01.webp");
+        }
+
+        &--02 {
+            background-image: url("../images/difference_02.webp");
+        }
+
+        &--03 {
+            background-image: url("../images/difference_03.webp");
+        }
+
+        &-title {
+            @include abs.fontStyle(title, title4, 600, 1.3, 0, map-get(abs.$colors, white)); 
+        }
+
+        &-desc {
+            @include abs.fontStyle(body, body2, 400, 1.4, 0, map-get(abs.$colors, white));  
+        }
+
+        &-title, &-desc {
+            position: relative;
+            z-index: 5;
+        }
+
+        &::before {
+            content: "";
+            background: rgba(0,0,0,0.5);
+            border-radius: 3rem;
+            position: absolute;
+            inset: 0;
+            z-index: 4;
         }
     }
 }
