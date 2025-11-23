@@ -39,10 +39,10 @@ fadeOutVisionTimeline.to(".vision__title", {
 }, 0);
 
 // ------------------------------ difference ------------------------------ 
-// .difference__contents의 height를 반응형별로 재정의
-const differenceContents = document.querySelector(".difference__contents");
+// .difference__Items의 height를 설정하는 함수
+const differenceItems = document.querySelector(".difference__items");
 
-function setHeight() {
+function setHeightDifferenceItems() {
     let paddingTop = "60px";
 
     if(window.matchMedia("(max-width: 1023px) and (min-width: 768px)").matches) {
@@ -51,26 +51,26 @@ function setHeight() {
         paddingTop = "40px";
     }
 
-    differenceContents.style.height = `calc(100vh - ${paddingTop})`;
+    differenceItems.style.height = `calc(100vh - 2 * ${paddingTop})`;
 }
-
-setHeight();    // 페이지 첫 로드 시 실행
-window.addEventListener("resize", setHeight);
   
 // .difference__item들이 스크롤에 맞춰 순차적으로 보여지는 timeline
 const differenceTimeline = gsap.timeline({
     scrollTrigger: {
         trigger: ".difference__contents",
         start: "top top",
-        end: "+=1500",
-        scrub: 1,
+        endTrigger: ".difference__item--03",
+        end: "bottom top",
         pin: true,
-        anticipatePin: 1
+        pinSpacing: true,
+        anticipatePin: 1,
+        scrub: 1,
+        markers: true,
     }
 });
 
 differenceTimeline
-    .to({}, { duration: 0.3})   // .difference__item--01이 보여지는 시간을 확보
+    .to({}, { duration: 0.2})   // .difference__item--01이 보여지는 시간을 확보
     .set(".difference__item--01", { autoAlpha: 0})
     .set(".difference__item--02", { autoAlpha: 1})
 
@@ -81,9 +81,55 @@ differenceTimeline
     // .difference__item--03이 보여짐과 동시에 timeline이 종료되는 것을 방지하여 .difference__item--03이 보여지는 시간을 확보
     .to({}, { duration: 0.3});  
 
+// ------------------------------ explore ------------------------------
+const exploreSeller = document.querySelector(".explore__seller");
+const exploreContents = document.querySelector(".explore__contents");
+
+// .exploreContents의 height를 설정하는 함수
+function setHeightExploreContents() {
+    exploreContents.style.height = `${2* exploreSeller.offsetHeight}px`;
+}
+
+// .explore__seller와 .explore__creator가 반응형에 따라 스크롤에 맞춰 translate 되는 timeline
+ScrollTrigger.matchMedia({
+
+    "(min-width: 1024px)" : function() {
+        const exploreTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".explore",
+                start: "20% top",
+                end: "+=600",
+            }
+        });
+        
+        exploreTimeline
+            .from(".explore__seller", { x: "-10%" }, 0)
+            .from(".explore__creator", { x: "10%" }, 0);
+    },
+
+    "(max-width: 1023px)" : function() {
+        const exploreTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".explore",
+                start: "10% top",
+                end: "+=100",
+            }
+        });
+
+        exploreTimeline.from(".explore__creator", { y: "10%"});
+    }
+});
 
 
+// 페이지 첫 로드 시 실행
+setHeightDifferenceItems();
+setHeightExploreContents();
 
+// 화면 해상도가 변경될 때 .difference__item과 .explore__contents의 height를 재계산
+window.addEventListener("resize", () => {
+    setHeightDifferenceItems();
+    setHeightExploreContents();
+});
 
 
 

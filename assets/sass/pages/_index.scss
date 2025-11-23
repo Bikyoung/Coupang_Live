@@ -94,6 +94,10 @@
             }
         }
     }
+
+    &__top, &__middle {
+        will-change: transform;
+    }
 }
 
 // --------------- difference ---------------
@@ -111,6 +115,7 @@
 
     &__contents {
         @include abs.responsivePaddingY($pc: (pt: 6rem, pb: 0rem), $laptop: (pt: 5rem, pb: 0), $tablet: (pt: 4rem, pb: 0), $mobile: (pt: 4rem, pb: 0rem));
+
     }
 
     &__item {
@@ -129,6 +134,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        will-change: transform;
 
         &--01 {
             background-image: url("../images/difference_01.webp");
@@ -164,6 +170,132 @@
             z-index: 4;
         }
     }
+}
+
+// --------------- explore ---------------
+.explore {
+    background-color: map-get(abs.$colors, black);
+    $padding-lg: 6rem;
+    $padding-md: 5rem;
+    $padding-sm: 4rem;
+
+    * {
+        color: map-get(abs.$colors, white);
+    }
+    
+    &__contents {
+        @media (max-width: map-get(abs.$breakpoints, large)) {
+            flex-direction: column;
+        }
+
+        > * {
+            @include abs.responsiveHeight(90vh, 50vh, 50vh, 50vh);
+
+            padding: $padding-lg;
+            @media (max-width: map-get(abs.$breakpoints, large)) {
+                padding: $padding-md;
+            }
+            @media (max-width: map-get(abs.$breakpoints, medium)) {
+                padding: $padding-sm;
+            }
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+            }
+        }
+    }
+    
+    &__seller {
+        clip-path: polygon(0% 0%, 60% 0%, 40% 100%, 0% 100%);
+        background-image: url("../images/explore_seller.webp");
+
+        @media (max-width: map-get(abs.$breakpoints, large)) {
+            clip-path: none;
+        }
+
+        &::before {
+            clip-path: polygon(0% 0%, 60% 0%, 40% 100%, 0% 100%);
+            background: rgba(0,0,0,0.7);
+
+            @media (max-width: map-get(abs.$breakpoints, large)) {
+                clip-path: none;
+            }
+        }
+    }
+
+    &__creator {
+        position: absolute;
+        inset: 0;
+        clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 40% 100%);
+        background-image: url("../images/explore_creator.webp");
+
+        @media (max-width: map-get(abs.$breakpoints, large)) {
+            top: 50%;
+            left: 0;
+            clip-path: none;
+        }
+
+        &::before {
+            clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 40% 100%);
+            background: rgba(0,0,0,0.65);
+
+            @media (max-width: map-get(abs.$breakpoints, large)) {
+                clip-path: none;
+            }
+        }
+
+        &-text {
+            right: $padding-lg;
+            bottom: $padding-lg;
+
+            @media (max-width: map-get(abs.$breakpoints, large)) {
+                right: $padding-md;
+                bottom: $padding-md;
+            }
+
+            @media (max-width: map-get(abs.$breakpoints, medium)) {
+                right: $padding-sm;
+                bottom: $padding-sm;
+            }
+        }
+    }
+
+    &__text {
+        @include abs.responsiveGap(3rem, 2.5rem, 2rem, 2rem);
+
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__desc {
+        @include abs.fontStyle(body, body1, 500, 1.4, 0, map-get(abs.$colors, white));
+    }
+
+    &__cta {
+        @include abs.fontStyle(button, button2, 500, 1.4, 0, map-get(abs.$colors, white));
+        @include abs.responsivePaddingX($pc: (pl: 2.5rem, pr: 2.5rem), $laptop: (pl: 2.5rem, pr: 2.5rem), $tablet: (pl: 2.5rem, pr: 2.5rem), $mobile: (pl: 2rem, pr: 2rem));
+        @include abs.responsivePaddingY($pc: (pt: 1.5rem, pb: 1.5rem), $laptop: (pt: 1.5rem, pb: 1.5rem), $tablet: (pt: 1rem, pb: 1rem), $mobile: (pt: 1rem, pb: 1rem));
+        @include abs.responsiveGap($pc: 1rem, $laptop: 1rem, $tablet: 0.5rem, $mobile: 0.5rem);
+
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        border: 1px solid map-get(abs.$colors, white);
+        border-radius: 5rem;
+        background-color: map-get(abs.$colors, gray);
+    }
+}
+
+// --------------- review ---------------
+.review {
+    height: 2000px;
 }
 
 

@@ -9,7 +9,9 @@ $breakpoints: (
 $colors: (
     primary: #F7552F,
     navy: #000715,
+    gray: #4E4E4E,
     white: #FFFFFF,
+    black: #00040C
 
 );
 
@@ -28,14 +30,14 @@ $font-size: (
         title: (
             title1: 5.8rem,
             title2: 5.8rem,
-            title3: 5.4rem,
+            title3: 5.2rem,
             title4: 4rem,
             title5: $pc-laptop-title5,
             hugeTitle: 7rem
         ),
         
         body: (
-            body1: 3rem,
+            body1: 2.8rem,
             body2: 2rem,
             body3: $pc-laptop-body3,
             body4: 1.6rem
@@ -64,7 +66,7 @@ $font-size: (
         ),
         
         body: (
-            body1: 2.8rem,
+            body1: 2.6rem,
             body2: 2rem,
             body3: $pc-laptop-body3,
             // body4: 1.6rem
