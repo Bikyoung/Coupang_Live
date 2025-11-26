@@ -39,9 +39,9 @@ fadeOutVisionTimeline.to(".vision__title", {
 }, 0);
 
 // ------------------------------ difference ------------------------------ 
-// .difference__Items의 height를 설정하는 함수
 const differenceItems = document.querySelector(".difference__items");
 
+// 해상도의 너비가 1023px 이하일 때, .difference__Items의 height를 설정하는 함수
 function setHeightDifferenceItems() {
     let paddingTop = "60px";
 
@@ -64,9 +64,7 @@ const differenceTimeline = gsap.timeline({
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
-        scrub: 1,
-        markers: true,
-    }
+        scrub: 1    }
 });
 
 differenceTimeline
@@ -87,7 +85,9 @@ const exploreContents = document.querySelector(".explore__contents");
 
 // .exploreContents의 height를 설정하는 함수
 function setHeightExploreContents() {
-    exploreContents.style.height = `${2* exploreSeller.offsetHeight}px`;
+    if(window.matchMedia("(max-width: 1023px)").matches) {
+        exploreContents.style.height = `${2* exploreSeller.offsetHeight}px`;
+    }
 }
 
 // .explore__seller와 .explore__creator가 반응형에 따라 스크롤에 맞춰 translate 되는 timeline
@@ -119,6 +119,82 @@ ScrollTrigger.matchMedia({
         exploreTimeline.from(".explore__creator", { y: "10%"});
     }
 });
+
+// ------------------------------ review ------------------------------
+let reviewSwiper = new Swiper(".reviewSwiper", {
+    slidesPerView: 1,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+    },
+
+    breakpoints: {
+        480: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+        },
+
+        640: {
+            slidesPerView: 1.5,
+            spaceBetween: 30,
+        },
+
+        768: {
+            slidesPerView: 1.5,
+            spaceBetween: 60,
+        },
+
+        800: {
+            slidesPerView: 1.5,
+            spaceBetween: 80,
+        },
+
+        960: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+        },
+
+        1024: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+        },
+
+        1280: {
+            slidesPerView: 2.5,
+            spaceBetween: 36,
+        },
+
+        1440: {
+            slidesPerView: 3,
+            spaceBetween: 115,
+        }
+    }
+  });
+
+// .reviewSwiper__slide-play 클릭 시 #reviewModal 열림
+const reviewPlayBtns = document.querySelectorAll(".reviewSwiper__slide-play");
+const youtubePlayer = document.querySelector("#youtubePlayer");
+const reviewModalEl = document.querySelector("#reviewModal");
+const reviewModal = new bootstrap.Modal(reviewModalEl);
+
+reviewPlayBtns.forEach((reviewPlayBtn) => {
+    reviewPlayBtn.addEventListener("click", () => {
+        let youtubeSrc = reviewPlayBtn.dataset.youtubeSrc;
+
+        youtubePlayer.setAttribute("src", youtubeSrc);
+        reviewModal.show();
+    });
+});
+
+
+
+
+
+
+
+
+
+
 
 
 // 페이지 첫 로드 시 실행

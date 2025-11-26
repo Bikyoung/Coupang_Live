@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap 링크 연결 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" type="text/css">
+    <!-- font-awesome 링크 연결 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Swiper 링크 연결 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
     <link rel="stylesheet" href="./assets/css/main.css" type="text/css">
     <title>쿠팡 라이브</title>
 </head>
@@ -119,7 +122,7 @@
         
                 <!-- --------------- vision --------------- -->
                 <section class="vision">
-                    <div class="section-inner vision__container">
+                    <div class="section-inner container-default vision__container">
                         <!-- vision -->
                         <div class="vh-100 d-flex justify-content-center align-items-center vision__top">
                             <h2 class="vision__title">
@@ -223,9 +226,72 @@
 
                 <!-- --------------- review --------------- -->
                 <section class="review">
-                    
+                    <div class="section-inner container-default review__container">
+                        <h2 class="text-center review__title">
+                            쿠팡 라이브에서<br class="max-479px"> 시작된 도전이<br>
+                            변화를 만들어냅니다
+                        </h2>
+                        <div class="w-100 d-flex align-items-center review__contents">
+                            <div class="position-relative swiper-button-prev"></div>
+                            <div class="swiper reviewSwiper">
+                                <div class="swiper-wrapper">
+                                  <div class="swiper-slide reviewSwiper__slide reviewSwiper__slide--01">
+                                    <img src="./assets/images/review_01.webp">
+                                    <button type="button" class="reviewSwiper__slide-play" data-bs-toggle="modal" 
+                                            data-bs-target="#reviewModal" data-youtube-src="https://www.youtube.com/embed/S6-QcMHqG2c" >
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>
+                                    <div class="reviewSwiper__slide-text">
+                                        <p class="reviewSwiper__slide-label">판매자</p>
+                                        <p class="reviewSwiper__slide-title">
+                                            첫 달 라이브,<br>
+                                            3개월 매출 돌파
+                                        </p>
+                                        <p class="reviewSwiper__slide-author">
+                                            - 제니하우스, 장상민 과장 -
+                                        </p>
+                                    </div>
+                                  </div>
+                                  <div class="swiper-slide reviewSwiper__slide reviewSwiper__slide--02">
+                                    <img src="./assets/images/review_02.webp">
+                                    <button type="button" class="reviewSwiper__slide-play" data-bs-toggle="modal" 
+                                            data-bs-target="#reviewModal" data-youtube-src="https://www.youtube.com/embed/wGbpGxupJo8?start=1">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>                                    
+                                    <div class="reviewSwiper__slide-text">
+                                        <p class="reviewSwiper__slide-label">크리에이터</p>
+                                        <p class="reviewSwiper__slide-title">
+                                            1년 만에<br>
+                                            직장인에서 쇼호스트로
+                                        </p>
+                                        <p class="reviewSwiper__slide-author">
+                                            - 쿠팡 크리에이터, 은요엘 -
+                                        </p>
+                                    </div>
+                                  </div>
+                                  <div class="swiper-slide reviewSwiper__slide reviewSwiper__slide--03">
+                                    <img src="./assets/images/review_03.webp">
+                                    <button type="button" class="reviewSwiper__slide-play" data-bs-toggle="modal" 
+                                            data-bs-target="#reviewModal" data-youtube-src="https://www.youtube.com/embed/Edw9ThvGevM">
+                                        <i class="fa-solid fa-play"></i>
+                                    </button>                                    
+                                    <div class="reviewSwiper__slide-text">
+                                        <p class="reviewSwiper__slide-label">크리에이터</p>
+                                        <p class="reviewSwiper__slide-title">
+                                            육아하며 방송하고,<br> 
+                                            성장의 기회까지
+                                        </p>
+                                        <p class="reviewSwiper__slide-author">
+                                            - 쿠팡 크리에이터, 이유있는추천(잇추) -                              
+                                        </p>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="position-relative swiper-button-next"></div>
+                        </div>
+                    </div>
                 </section>
-
             </main>
             
             <footer>
@@ -234,7 +300,23 @@
         </div>
     </div>
 
-
+    <!-- --------------- modal --------------- -->
+    <div class="modal" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel">
+        <div class="modal-lg modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="visually-hidden modal-title" id="reviewModalLabel">
+                        유튜브 영상 재생창
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="position-relative modal-body">
+                    <iframe id="youtubePlayer" class="w-100 h-100 position-absolute top-0 start-0" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <!-- <p>모달창</p> -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -247,6 +329,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <!-- ScrollSmoother 링크 연결 -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+    <!-- Swiper 링크 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>    
     <script src="./assets/js/common.js"></script>
     <script src="./assets/js/index.js"></script>
 </body>

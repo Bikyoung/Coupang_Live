@@ -53,14 +53,13 @@
 // --------------- vision ---------------
 .vision {
 
-    @include abs.responsivePaddingX();
-
     * {
         text-align: center;
     }
 
     &__container {
         
+        max-width: 1440px;
         > * {
             width: 100%;
             display: flex;
@@ -295,11 +294,96 @@
 
 // --------------- review ---------------
 .review {
-    height: 2000px;
+    &__contents {
+        @include abs.responsiveGap(3rem, 3rem, 3rem, 1.5rem);
+    }
+
+    .reviewSwiper {
+        &__slide {
+            aspect-ratio: 3 / 4;
+            min-height: 50rem;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+                border-radius: 2rem;
+                background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,7,21,0.7));
+            }
+
+            > img {
+                width: 100%;
+                height: 100%;
+                border-radius: 2rem;
+                object-fit: cover;
+            }
+
+            &-play {
+                border: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 2;
+                transform: translate(-50%, -50%);
+                background-color: transparent;
+
+                > i::before {
+                    font-size: 4.4rem;
+                    color: rgba(255,255,255,0.5);
+                }
+
+                &:hover > i::before {
+                    color: rgba(255,255,255,1.0);
+                }
+            }
+
+            &-text{
+                position: absolute;
+                left: 2.5rem;
+                bottom: 2rem;
+                z-index: 2;
+            }
+
+            &-label {
+                @include abs.fontStyle(label, label1, 500, 1.3, 0, map-get(abs.$colors, light-orange));
+                
+                width: fit-content;
+                padding: 0.5rem 1.5rem;
+                border-radius: 5rem;
+                box-shadow: inset 0 0 0 0.2rem map-get(abs.$colors, light-orange); 
+            }
+
+            &-title {
+                @include abs.fontStyle(title, title5, 700, 1.3, 0, map-get(abs.$colors, white));
+
+                margin-top: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            &-author {
+                @include abs.fontStyle(label, label2, 400, 1.4, 0, map-get(abs.$colors, light-gray));
+
+            }
+        }
+    }
+}
+
+.swiper-button-prev, .swiper-button-next {
+    color: map-get(abs.$colors, black);
+}
+
+// --------------- modal ---------------
+.modal {
+    &-body {
+        padding-bottom: 56.25%; // 모달 창의 비율을 16:9로 설정
+        height: 0;
+    }
 }
 
 
-
+  
 
 @keyframes marqueeAnimation {
     0% {
