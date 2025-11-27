@@ -1,3 +1,34 @@
+// ------------------------------ hero ------------------------------
+const marquee = document.querySelector(".marquee");
+const marqueeTrack = document.querySelector(".marquee__track");
+
+// 페이지 내 모든 리소스가 로드되면 실행
+window.addEventListener("load", () => {
+    const fadeInHeroTimeline = gsap.timeline();
+
+    // .hero__title이 첫번째로 fade-in
+    fadeInHeroTimeline.fromTo(".hero__title", 
+        { scale: 0.7, autoAlpha: 0 }, 
+        { scale: 1, autoAlpha: 1, duration: 1.2, ease: "ease" })
+    // .hero__cta가 두번째로 fade-in 
+    .fromTo(".hero__cta", 
+        { scale: 0.7, autoAlpha: 0} , 
+        { scale: 1, autoAlpha: 1, duration: 0.5, ease: "ease" })
+    // .marquee가 세번째로 fade-in
+    .fromTo(".marquee", 
+        { autoAlpha: 0 }, 
+        { autoAlpha: 1 })
+    // .marquee의 fade-in과 0.2초 겹치며 tiltAnimation 실행
+    .add(() => {
+        marquee.style.animation = "tiltAnimation 1.8s forwards"; 
+    }, "<0.2")
+    // .marquee__track에 marqueeAnimation 실행
+    .add(() => {
+        marqueeTrack.style.animation = "marqueeAnimation 35s linear infinite";
+    });
+});
+
+
 // ------------------------------ vision ------------------------------ 
 // .vision__title이 스크롤에 맞춰 아래에서 올라오며 fade-in
 const fadeInVisionTitle = gsap.from(".vision__title", {

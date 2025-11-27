@@ -1,7 +1,6 @@
 @use "../abstracts/_bundle.scss" as abs;
 
 .cta {
-
     @each $bp, $width in (large: 29.7rem, medium: 24.5rem, small: 22.5rem) {
         @media (max-width: map-get(abs.$breakpoints, $bp)) {
             width: $width;

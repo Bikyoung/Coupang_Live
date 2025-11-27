@@ -2,7 +2,6 @@
 
 // --------------- hero ---------------
 .hero {
-
     @include abs.responsivePaddingY($pc: (pt: 15rem, pb: 0), $laptop: (pt: 12rem, pb: 0), $tablet: (pt: 10rem, pb: 0), $mobile: (pt: 8rem, pb: 0));
     background-color: map-get(abs.$colors, navy);
 
@@ -15,8 +14,10 @@
     }
 
     &__title {
-        
         @include abs.fontStyle(title, title1, 500, 1.3, -0.01rem, map-get(abs.$colors, white));
+
+        opacity: 0;
+
 
         &--highlight {
             font-weight: 700;
@@ -28,24 +29,43 @@
         
         @include abs.responsiveGap(6rem, 3rem, 2rem, 1.5rem);
 
-        .cta--seller {
-            color: map-get(abs.$colors, white);
-            background-color: map-get(abs.$colors, primary);
-        }
+        .hero__cta {
+            opacity: 0;
 
-        .cta--creator {
-            box-shadow: inset 0 0 0 0.2rem map-get(abs.$colors, primary);
+            &--seller {
+                color: map-get(abs.$colors, white);
+                background-color: map-get(abs.$colors, primary);
+
+                &:hover {
+                    background-color: map-get(abs.$colors, primary-hover);
+                }
+            }
+
+            &--creator {
+                box-shadow: inset 0 0 0 0.2rem map-get(abs.$colors, primary);
+
+                &:hover {
+                    color: map-get(abs.$colors, primary-hover);
+                    box-shadow: inset 0 0 0 0.2rem map-get(abs.$colors, primary-hover);
+                }
+            }
         }
     }
 
     .marquee {
-
-        transform: rotate(-32deg) rotateX(26deg) rotateY(25deg) skewX(8deg) skewY(11deg);
+        opacity: 0;
+        will-change: transform;
 
         &__track {
             width: max-content;
             gap: 1.5rem;
-            animation: marqueeAnimation 45s linear infinite;
+        }
+
+        &__item {
+            & > img {
+                display: block;
+                width: clamp(20rem, 18.846rem + 3.205vw, 25rem);
+            }
         }
     }
 }
@@ -382,7 +402,14 @@
     }
 }
 
-
+@keyframes tiltAnimation {
+    0% {
+        transform: rotate(0) rotateX(0) rotateY(0) skewX(0) skewY(10);
+    }
+    100% {
+        transform: rotate(-32deg) rotateX(26deg) rotateY(25deg) skewX(8deg) skewY(11deg);
+    }
+}
   
 
 @keyframes marqueeAnimation {
@@ -390,6 +417,6 @@
         transform: translateX(0); 
     }
     100% {
-       transform: translateX(calc(-100%/3)); 
+       transform: translateX(calc(-100% / 3)); 
     }
 }

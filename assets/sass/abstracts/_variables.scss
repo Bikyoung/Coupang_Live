@@ -8,6 +8,7 @@ $breakpoints: (
 // --------------- colors ---------------
 $colors: (
     primary: #F7552F,
+    primary-hover: #FF7A31,
     navy: #000715,
     gray: #4E4E4E,
     light-orange: #FF883F,
@@ -30,7 +31,7 @@ $font-size: (
     // ---------- pc ----------
     pc: (
         title: (
-            title1: 5.8rem,
+            title1: 5.4rem,
             title2: 5.8rem,
             title3: 5.2rem,
             title4: 4rem,
@@ -59,7 +60,7 @@ $font-size: (
     // ---------- laptop ----------
     laptop: (
         title: (
-            title1: 4.8rem,
+            title1: 4.6rem,
             // title2: ,
             title3: 4.5rem,
             title4: 3rem,
@@ -88,7 +89,7 @@ $font-size: (
     // ---------- tablet ----------
     tablet: (
         title: (
-            title1: 4.4rem,
+            title1: 4.2rem,
             // title2: ,
             title3: 3.6rem,
             title4: 2.6rem,
