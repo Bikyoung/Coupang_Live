@@ -89,7 +89,7 @@
     }
     
     &__title {
-        @include abs.responsiveFontSize(title, hugeTitle);
+        font-size: clamp(3.6rem, 2.931rem + 1.859vw, 6.5rem);
     }
 
     &__image {
@@ -114,8 +114,7 @@
         }
     }
 
-    &__top, &__middle {
-        will-change: transform;
+    &__top {
     }
 }
 

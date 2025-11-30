@@ -1,0 +1,26 @@
+@use "../abstracts/_bundle.scss" as abs;
+
+// --------------- results ---------------
+.results {
+    &__lists {
+        @include abs.responsiveGap(12rem, 10rem, 10rem, 10rem);    
+    }
+
+    &__list {
+        text-align: center;
+
+        .text {
+            @include abs.fontStyle(title, title3, 700, 1.3, 0, map-get(abs.$colors, navy));
+        }
+
+        @media (max-width: 1439px) {
+            flex-direction: column;
+
+            .image {
+                position: absolute;
+                top: 0;
+                transform: translateY(-100%);
+            }
+        }
+    }
+}
