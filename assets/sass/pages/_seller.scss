@@ -24,3 +24,99 @@
         }
     }
 }
+
+// --------------- liveType ---------------
+.liveType {
+
+    &__tab {
+        @include abs.fontStyle(button, button1, 700, 1.4, 0, map-get(abs.$colors, light-gray));
+
+        display: flex;
+        flex: 1;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 0.2rem solid map-get(abs.$colors, light-gray);
+
+        &::before, &::after {
+            content: "";
+            flex: 1;
+        }
+
+        &.on {
+            color: map-get(abs.$colors, blue);
+            border-bottom: 0.2rem solid map-get(abs.$colors, blue);
+        }
+    }
+
+    &__content {
+        @include abs.responsiveGap(6rem, 5rem, 6rem, 6rem);
+        @include abs.responsiveMarginTop(-6rem, -5rem, -2rem, -2rem);
+
+        display: none;
+
+        &.on {
+            display: flex;
+        }
+        
+        @media (max-width: 1439px) {
+            flex-direction: column;
+
+            .liveType__text {
+
+                > * {
+                    text-align: center;
+                }
+
+                li {
+                    width: fit-content;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+    &__image {
+        width: fit-content;
+        position: relative;
+
+        .live-image {
+            width: clamp(18rem, 16.385rem + 4.487vw, 25rem);
+        }
+        
+        .circle-image {
+            width: clamp(25rem, 22.692rem + 6.41vw, 35rem);
+            height: clamp(25rem, 22.692rem + 6.41vw, 35rem);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            z-index: -1;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__title {
+        @include abs.fontStyle(body, body1, 700, 1.3, -0.005rem, map-get(abs.$colors, navy));
+    }
+
+    &__feature {
+        @include abs.fontStyle(body, body4, 500, 1.4, 0, map-get(abs.$colors, blue));
+
+        margin-bottom: 3rem;
+    }
+
+    &__desc {
+        @include abs.fontStyle(body, body3, 400, 1.4, -0.05rem, map-get(abs.$colors, navy));
+
+        margin-bottom: 1.5rem;
+    }
+
+    &__subDesc {
+        li {
+            @include abs.fontStyle(body, body4, 400, 1.5, 0, map-get(abs.$colors, gray));
+
+            list-style-type: disc;
+            margin-left: 2rem;
+        }
+    }
+}

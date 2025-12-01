@@ -78,3 +78,22 @@ resultsAnimationTimeline
     .to(".results__list--03 .image", {
         height: 0
     });
+
+// ------------------------------ liveType ------------------------------
+const liveTypeTabList = document.querySelectorAll(".liveType__tab");
+const liveTypeContentList = document.querySelectorAll(".liveType__content");
+
+// 각 .liveType__tab 클릭 시, 적절한 해당 콘텐츠 표시 
+liveTypeTabList.forEach((tab, index) => {
+    tab.addEventListener("click", () => {
+        liveTypeTabList.forEach((t) => {
+            t.classList.remove("on");
+        });
+        tab.classList.add("on");
+
+        liveTypeContentList.forEach((c) => {
+            c.classList.remove("on");
+        });
+        liveTypeContentList[index].classList.add("on");
+    });
+});

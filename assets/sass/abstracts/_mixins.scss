@@ -46,6 +46,19 @@
     }
 }
 
+// 반응형별로 margin-top을 자동 재정의하는 mixin
+@mixin responsiveMarginTop(
+    $pc, $laptop, $tablet, $mobile) {
+
+    margin-top: $pc; 
+
+    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+        @media (max-width: map-get(vars.$breakpoints, $bp)) {
+            margin-top: $device;
+        }
+    }
+}
+
 // 반응형별로 좌우 padding을 자동 재정의하는 mixin
 @mixin responsivePaddingX(
     $pc: (pl: 8rem, pr: 8rem), $laptop: (pl: 3.2rem, pr: 3.2rem), $tablet: (pl: 1.6rem, pr: 1.6rem), $mobile: (pl: 1.6rem, pr: 1.6rem)) {
