@@ -52,6 +52,7 @@ ScrollTrigger.create({
 
 // .vision__title이 스크롤에 맞춰 fade-out
 const fadeOutVisionTitle = gsap.to(".vision__title", {
+    // height: 0,
     scale: 0,
     autoAlpha: 0,
     immediateRender: false,
@@ -60,6 +61,7 @@ const fadeOutVisionTitle = gsap.to(".vision__title", {
         start: "top 60%",
         end: "bottom 20%",
         scrub: 1.5,
+        // scrub: 0.5,
     }
 });
 

@@ -16,6 +16,11 @@ a {
   text-decoration: none;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 li {
   list-style: none;
 }
@@ -999,6 +1004,7 @@ a {
 }
 .results__list {
   text-align: center;
+  transform-origin: top center;
 }
 .results__list .text {
   font-size: 5.2rem;
@@ -1225,5 +1231,224 @@ a {
 @media (max-width: 479px) {
   .liveType__subDesc li {
     font-size: 1.3rem;
+  }
+}
+
+.accordion {
+  flex-direction: column;
+  width: 100%;
+}
+.accordion-item {
+  display: flex;
+  flex-direction: column;
+}
+.accordion-header {
+  width: 100%;
+}
+.accordion-header button {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: #00040C;
+  width: 100%;
+  padding: 3rem;
+  position: relative;
+  text-orientation: upright;
+}
+@media (max-width: 1023px) {
+  .accordion-header button {
+    font-size: 2.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .accordion-header button {
+    font-size: 2.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .accordion-header button {
+    font-size: 2.2rem;
+  }
+}
+.accordion-header button::after, .accordion-header button:not(.collapsed)::after {
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 0;
+  letter-spacing: 0;
+  color: #00040C;
+  background: none !important;
+  height: 0;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  right: 3rem;
+  transform: translateY(-50%);
+}
+@media (max-width: 1023px) {
+  .accordion-header button::after, .accordion-header button:not(.collapsed)::after {
+    font-size: 2.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .accordion-header button::after, .accordion-header button:not(.collapsed)::after {
+    font-size: 2.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .accordion-header button::after, .accordion-header button:not(.collapsed)::after {
+    font-size: 2.2rem;
+  }
+}
+.accordion-header button::after {
+  content: "+";
+}
+.accordion-header button:not(.collapsed)::after {
+  content: "-";
+}
+.accordion-body {
+  gap: 6rem;
+  flex-direction: column;
+  align-items: start;
+  padding: 2.4rem;
+}
+@media (max-width: 1023px) {
+  .accordion-body {
+    gap: 6rem;
+  }
+}
+@media (max-width: 767px) {
+  .accordion-body {
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 479px) {
+  .accordion-body {
+    gap: 1rem;
+  }
+}
+.accordion-body__container {
+  gap: 3rem;
+  flex-direction: column;
+  align-items: start;
+}
+@media (max-width: 1023px) {
+  .accordion-body__container {
+    gap: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .accordion-body__container {
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 479px) {
+  .accordion-body__container {
+    gap: 1rem;
+  }
+}
+.accordion-body h4 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #00040C;
+}
+@media (max-width: 1023px) {
+  .accordion-body h4 {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 767px) {
+  .accordion-body h4 {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 479px) {
+  .accordion-body h4 {
+    font-size: 1.4rem;
+  }
+}
+.accordion-body ul {
+  padding-left: 4rem;
+}
+.accordion-body li {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.005rem;
+  color: #4E4E4E;
+  list-style-type: disc;
+}
+@media (max-width: 1023px) {
+  .accordion-body li {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .accordion-body li {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .accordion-body li {
+    font-size: 1.3rem;
+  }
+}
+@media (min-width: 1440px) {
+  .accordion {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .accordion-item {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .accordion-header {
+    width: fit-content;
+  }
+  .accordion-header button {
+    writing-mode: vertical-rl;
+    height: 43.6rem;
+  }
+  .accordion-header button::after, .accordion-header button:not(.collapsed)::after {
+    width: 0;
+    top: 89%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  .accordion-body {
+    width: 100%;
+  }
+  .accordion-collapse {
+    display: block !important;
+    height: 43.6rem !important;
+    transition: none !important;
+    overflow: hidden;
+  }
+  .accordion-collapse.collapse {
+    width: 0;
+  }
+  .accordion-collapse.show {
+    width: fit-content;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 768px) {
+  .accordion-body {
+    flex-direction: row;
+    padding: 3rem;
+  }
+  .accordion-body__container--left::after {
+    content: "";
+    width: 0.1rem;
+    height: 100%;
+    background-color: #C0C0C0;
+    position: absolute;
+    top: 0;
+    right: -3rem;
   }
 }/*# sourceMappingURL=main.css.map */

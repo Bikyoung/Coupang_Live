@@ -26,7 +26,7 @@ const resultsAnimationTimeline = gsap.timeline({
         trigger: ".results__lists",
         start: "top 60%",
         // end: "bottom 30%",
-        end: "+=800",
+        end: "+=1005",
         scrub: 2
     }
 }); 
@@ -97,3 +97,4 @@ liveTypeTabList.forEach((tab, index) => {
         liveTypeContentList[index].classList.add("on");
     });
 });
+
