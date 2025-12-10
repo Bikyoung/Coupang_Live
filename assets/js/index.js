@@ -126,7 +126,7 @@ ScrollTrigger.matchMedia({
         const exploreTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: ".explore",
-                start: "20% top",
+                start: "12% top",
                 end: "+=600",
             }
         });

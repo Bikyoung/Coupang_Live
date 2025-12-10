@@ -1,5 +1,57 @@
 @use "../abstracts/_bundle.scss" as abs;
 
+// --------------- hero--sub ---------------
+.hero {
+    &--sub {
+        @include abs.responsivePaddingY(
+            $pc: (pt: 22rem, pb: 12rem), $laptop: (pt: 10rem, pb: 10rem), $tablet: (pt: 8rem, pb: 8rem), $mobile: (pt: 8rem, pb: 8rem));
+
+        background-color: map-get(abs.$colors, white);
+        position: relative;
+    }
+
+    &__bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        border-bottom-left-radius: 10vw;
+        
+        &--seller {
+            background-image: url("../images/seller-hero.webp");
+
+            &::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                border-bottom-left-radius: 10vw;
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+            }
+        }
+    }
+
+    &__container--sub {
+        position: relative;
+        z-index: 3;
+    }
+
+    &__title--sub {
+        @include abs.fontStyle(title, title3, 500, 1.3, -0.01rem, map-get(abs.$colors, white));
+        opacity: 1;
+    }
+
+    .cta-seller {
+        color: map-get(abs.$colors, white);
+        background-color: map-get(abs.$colors, blue);
+    }
+
+}
+
 // --------------- results ---------------
 .results {
     &__lists {

@@ -78,3 +78,9 @@ section {
     justify-content: center;
     align-items: center;
 }
+
+.bg-center {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

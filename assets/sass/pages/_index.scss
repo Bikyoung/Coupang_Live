@@ -2,8 +2,10 @@
 
 // --------------- hero ---------------
 .hero {
-    @include abs.responsivePaddingY($pc: (pt: 15rem, pb: 0), $laptop: (pt: 12rem, pb: 0), $tablet: (pt: 10rem, pb: 0), $mobile: (pt: 8rem, pb: 0));
-    background-color: map-get(abs.$colors, navy);
+    &--index {
+        @include abs.responsivePaddingY($pc: (pt: 15rem, pb: 0), $laptop: (pt: 12rem, pb: 0), $tablet: (pt: 10rem, pb: 0), $mobile: (pt: 8rem, pb: 0));
+        background-color: map-get(abs.$colors, navy);
+    }
 
     * {
         text-align: center;
@@ -113,9 +115,6 @@
             }
         }
     }
-
-    &__top {
-    }
 }
 
 // --------------- difference ---------------
@@ -138,7 +137,7 @@
 
     &__item {
 
-        @include abs.responsiveGap(4rem, 3rem, 4rem, 4rem);
+        @include abs.responsiveGap(6rem, 3rem, 4rem, 4rem);
 
         width: 100%; 
         height: 100%;   
