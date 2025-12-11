@@ -253,6 +253,32 @@ a {
   }
 }
 
+.cta-sub {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0rem;
+  color: #F7552F;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  border-radius: 5rem;
+}
+@media (max-width: 1023px) {
+  .cta-sub {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 767px) {
+  .cta-sub {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 479px) {
+  .cta-sub {
+    font-size: 1.6rem;
+  }
+}
+
 .hero--index {
   padding-top: 15rem;
   padding-bottom: 0;
@@ -1339,7 +1365,6 @@ a {
   width: 100%;
   padding: 3rem;
   position: relative;
-  text-orientation: upright;
 }
 @media (max-width: 1023px) {
   .accordion-header button {

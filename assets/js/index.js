@@ -61,7 +61,6 @@ const fadeOutVisionTitle = gsap.to(".vision__title", {
         start: "top 60%",
         end: "bottom 20%",
         scrub: 1.5,
-        // scrub: 0.5,
     }
 });
 
@@ -93,7 +92,8 @@ const differenceTimeline = gsap.timeline({
         pin: true,
         pinSpacing: true,
         anticipatePin: 1,
-        scrub: 1    }
+        scrub: 1    
+    }
 });
 
 differenceTimeline

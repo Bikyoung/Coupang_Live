@@ -12,3 +12,11 @@
     width: 31.3rem;
     border-radius: 5rem;
 }
+
+.cta-sub {
+    @include abs.fontStyle(label, label1, 500, 1.4, -0rem, map-get(abs.$colors, primary));
+
+    padding-left: 6rem;
+    padding-right: 6rem;
+    border-radius: 5rem;
+}

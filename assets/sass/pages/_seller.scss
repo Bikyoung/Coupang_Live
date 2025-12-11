@@ -196,7 +196,6 @@
             width: 100%;
             padding: 3rem;
             position: relative;
-            text-orientation: upright;  // 글자를 똑바로 세움
 
             &::after, &:not(.collapsed)::after {
                 @include abs.fontStyle(title, title5, 700, 0, 0, map-get(abs.$colors, black));
