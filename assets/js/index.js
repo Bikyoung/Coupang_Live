@@ -108,6 +108,8 @@ differenceTimeline
     // .difference__item--03이 보여짐과 동시에 timeline이 종료되는 것을 방지하여 .difference__item--03이 보여지는 시간을 확보
     .to({}, { duration: 0.3});  
 
+
+
 // ------------------------------ explore ------------------------------
 const exploreSeller = document.querySelector(".explore__seller");
 const exploreContents = document.querySelector(".explore__contents");
@@ -128,6 +130,8 @@ ScrollTrigger.matchMedia({
                 trigger: ".explore",
                 start: "12% top",
                 end: "+=600",
+                ease: "power2.inOut",
+                toggleActions: "play none none reset"
             }
         });
         
@@ -142,6 +146,8 @@ ScrollTrigger.matchMedia({
                 trigger: ".explore",
                 start: "10% top",
                 end: "+=100",
+                ease: "power2.inOut",
+                toggleActions: "play none none reset"
             }
         });
 

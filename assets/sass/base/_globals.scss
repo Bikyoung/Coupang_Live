@@ -34,11 +34,11 @@ button {
 }
 
 section {
-    @include abs.responsivePaddingY();
+    @include abs.responsivePaddingY($pc: 12rem, $laptop: 10rem, $tablet: 8rem, $mobile: 8rem);
 }
 
 .section-inner {
-    @include abs.responsiveGap();
+    @include abs.responsiveGap($pc: 12rem, $laptop: 10rem, $tablet: 8rem, $mobile: 8rem);
 
     margin: 0 auto;
     display: flex;
@@ -48,7 +48,7 @@ section {
 }
 
 .container-default {
-    @include abs.responsivePaddingX();
+    @include abs.responsivePaddingX($pc: 8rem, $laptop: 3.2rem, $tablet: 1.6rem, $mobile: 1.6rem);
 
     width: 100%;
     max-width: 1440px;

@@ -16,3 +16,11 @@ h2 {
 a {
     color: transparent;
 }
+
+.hero__title--sub {
+    @include abs.fontStyle(title, title3, 600, 1.2, -0.01rem, map-get(abs.$colors, white));
+}
+
+::placeholder, select {
+    @include abs.fontStyle(body, body4, 400, 0, 0, map-get(abs.$colors, gray));
+}

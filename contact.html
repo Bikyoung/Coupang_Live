@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 링크 연결 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" type="text/css">
+    <!-- font-awesome 링크 연결 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/main.css" type="text/css">
+    <title>쿠팡 라이브</title>
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <main>
+        <section class="w-100 contact">
+            <div class="container-fluid section-inner container-default contact__container">
+                <!-- title-wrapper -->
+                <div class="d-flex container__left">
+                    <div class="flex-center contact__title-wrapper">
+                        <h1 class="contact__title">
+                            궁금한 점이 있으신가요?
+                        </h1>
+                        <p class="mb-0 contact__subtitle">
+                            궁금한 점이 있다면 언제든지 문의 사항을 남겨주세요.<br>
+                            업무시간 외에는 상담이 어려울 수 있습니다.
+                        </p>
+                    </div>
+                    <div class="bg-center contact__image"></div>
+                </div>
+                <!-- input-form -->
+                <form class="flex-center container__right contact__form" novalidate>
+                    <div class="flex-center contact__form--top">
+                        <!-- category -->
+                        <label for="category">
+                            <span>
+                                Category
+                            </span>
+                            <select id="category" name="category" required>
+                                <option disabled="true" selected>항목을 선택해주세요</option>
+                                <option value="seller">판매자</option>
+                                <option value="creator">크리에이터</option>
+                            </select>
+                        </label>
+                        <!-- name -->
+                        <label for="name">
+                            <span>
+                                Name
+                            </span>
+                            <input id="name" type="text" name="name" autocomplete="name" placeholder="이름 또는 업체명을 입력해주세요" required>
+                        </label>
+                    </div>
+                    <div class="flex-center contact__form--middle">
+                        <!-- email -->
+                        <label for="email">
+                            <span>
+                                Email
+                            </span>
+                            <input type="email" name="email" autocomplete="email" placeholder="이메일을 입력해주세요" required>
+                        </label>
+                        <!-- phone -->
+                        <label for="phone">
+                            <span>
+                                Phone
+                            </span>
+                            <input id="phone" type="tel" name="phone" inputmode="numeric" pattern="010[0-9]{8}" autocomplete="tel" placeholder="연락처를 입력해주세요 (숫자만)" required>
+                        </label>
+                    </div>
+                    <!-- detail -->
+                    <div class="contact__form--bottom">
+                        <label for="detail-content" class="w-100 flex-center detail">
+                            <span>
+                                Detail
+                            </span>
+                            <textarea id="detail-content" class="w-100" name="detail-content" placeholder="문의할 내용을 입력해주세요"></textarea>
+                        </label>
+                    </div>
+                    <!-- agreement -->
+                    <div class="w-100 flex-center agreement">
+                        <p class="label">Agreements</p>
+                        <div class="flex-center agreement__content">
+                            <div>
+                                <p class="title">
+                                    개인정보의 수집 및 이용목적
+                                </p>
+                                <p class="desc">
+                                    당사는 고객 문의사항에 대한 답변을 드리기 위한 목적으로 귀하의 개인정보를 수집·이용합니다. 
+                                </p>
+                            </div>
+                            <div>
+                                <p class="title">
+                                    수집하는 개인정보의 항목
+                                </p>
+                                <p class="desc">
+                                    당사는 고객 문의사항에 대한 답변을 드리기 위한 목적으로 귀하의 개인정보를 수집·이용합니다. 
+                                </p>
+                            </div>
+                            <div>
+                                <p class="title">
+                                    수집한 개인정보의 보유 및 이용기간
+                                </p>
+                                <p class="desc">
+                                    당사는 개인정보 수집 및 이용에 관한 동의 후 3년간 보유하고 이후 해당 정보를 지체없이 파기합니다.<br>
+                                    단, 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 관계법령이 정한 일정한 기간동안 개인정보를 보관합니다.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex-center agreement__check">
+                            <i class="fa-regular fa-square-check"></i>
+                            <p class="mb-0">동의합니다</p>
+                        </div>
+                        <button type="submit">
+                            문의하기
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <!-- Bootstrap 링크 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery 링크 연결 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/contact.js"></script>
+</body>
+</html>
