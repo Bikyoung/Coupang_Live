@@ -17,7 +17,6 @@
         top: 0;
         left: 0;
         z-index: 1;
-        border-bottom-left-radius: 10vw;
         
         &--seller {
             background-image: url("../images/seller_hero.webp");
@@ -26,8 +25,7 @@
                 content: "";
                 width: 100%;
                 height: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                border-bottom-left-radius: 10vw;
+                background: rgba(0, 0, 0, 0.8);
                 position: absolute;
                 inset: 0;
                 z-index: 2;
@@ -46,27 +44,32 @@
 
     .cta-seller {
         color: map-get(abs.$colors, white);
-        background-color: map-get(abs.$colors, blue);
+        background-color: map-get(abs.$colors, blue-100);
     }
 
 }
 
 // --------------- results ---------------
 .results {
-    &__lists {
-        @include abs.responsiveGap(12rem, 10rem);    
+    &__title {
+        @include abs.fontStyle(title, title2, 700, 1.2, 0, map-get(abs.$colors, navy));
     }
 
     &__list {
+        
+        height: clamp(11.2rem, 9.139rem + 4.303vw, 17.4rem);
         text-align: center;
         transform-origin: top center;
 
         .text {
-            @include abs.fontStyle(title, title3, 700, 1.3, 0, map-get(abs.$colors, navy));
+            @include abs.fontStyle(title, title2, 700, 1.3, 0, map-get(abs.$colors, navy));
+
+            white-space: nowrap;
         }
 
         @media (max-width: 1439px) {
             flex-direction: column;
+            margin-top: 8rem;
 
             .image {
                 position: absolute;
@@ -97,8 +100,8 @@
         }
 
         &.on {
-            color: map-get(abs.$colors, blue);
-            border-bottom: 0.2rem solid map-get(abs.$colors, blue);
+            color: map-get(abs.$colors, blue-100);
+            border-bottom: 0.2rem solid map-get(abs.$colors, blue-100);
         }
     }
 
@@ -110,22 +113,6 @@
 
         &.on {
             display: flex;
-        }
-        
-        @media (max-width: 1439px) {
-            flex-direction: column;
-
-            .liveType__text {
-
-                > * {
-                    text-align: center;
-                }
-
-                li {
-                    width: fit-content;
-                    margin: 0 auto;
-                }
-            }
         }
     }
 
@@ -149,160 +136,195 @@
         }
     }
 
-    &__title {
-        @include abs.fontStyle(body, body1, 700, 1.3, -0.005rem, map-get(abs.$colors, navy));
+    &__text {
+        flex-direction: column;
+        align-items: start;
     }
 
     &__feature {
-        @include abs.fontStyle(body, body4, 500, 1.4, 0, map-get(abs.$colors, blue));
+        @include abs.fontStyle(body, body4, 500, 1.4, 0, map-get(abs.$colors, blue-100));
 
-        margin-bottom: 3rem;
+        width: fit-content;
+        padding: 0.8rem 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 1rem;
+        background-color: map-get(abs.$colors, blue-50);
+    }
+
+    &__title {
+        @include abs.fontStyle(title, title5, 700, 1.3, -0.005rem, map-get(abs.$colors, navy));
+
+        margin-bottom: 4rem;
     }
 
     &__desc {
-        @include abs.fontStyle(body, body3, 400, 1.4, -0.05rem, map-get(abs.$colors, navy));
+        @include abs.fontStyle(body, body3, 500, 1.4, 0, map-get(abs.$colors, navy));
 
         margin-bottom: 1.5rem;
     }
 
     &__subDesc {
         li {
-            @include abs.fontStyle(body, body4, 400, 1.5, 0, map-get(abs.$colors, gray-150));
-
-            list-style-type: disc;
-            margin-left: 2rem;
+            @include abs.fontStyle(body, body5, 400, 1.5, 0, map-get(abs.$colors, gray-150));
         }
+    }
+
+    @media (max-width: map-get(abs.$breakpoints, large)) {
+
+        &__content {
+            flex-direction: column;
+        }
+
+        .liveType {
+            
+            &__text {
+                align-items: center;
+    
+                > * {
+                    text-align: left;
+                }
+    
+                li {
+                    width: fit-content;
+                }
+            }
+
+            &__desc {
+                text-align: center;
+            }
+        }
+        
     }
 }
 
 // --------------- guide ---------------
-.accordion {
-    flex-direction: column;
-    width: 90%;
+// .accordion {
+//     flex-direction: column;
+//     width: 90%;
 
-    &-item {
-        display: flex;
-        flex-direction: column;
-    }
+//     &-item {
+//         display: flex;
+//         flex-direction: column;
+//     }
 
-    &-header {
-        width: 100%;
+//     &-header {
+//         width: 100%;
 
-        button {
-            @include abs.fontStyle(title, title5, 600, 1.2, 0, map-get(abs.$colors, black));
+//         button {
+//             @include abs.fontStyle(title, title5, 600, 1.2, 0, map-get(abs.$colors, black));
 
-            width: 100%;
-            padding: 3rem;
-            position: relative;
+//             width: 100%;
+//             padding: 3rem;
+//             position: relative;
 
-            &::after, &:not(.collapsed)::after {
-                @include abs.fontStyle(title, title5, 600, 0, 0, map-get(abs.$colors, black));
+//             &::after, &:not(.collapsed)::after {
+//                 @include abs.fontStyle(title, title5, 600, 0, 0, map-get(abs.$colors, black));
 
-                background: none !important;
-                height: 0;
-                margin: 0;
-                position: absolute;
-                top: 50%;
-                right: 3rem;
-                transform: translateY(-50%);
-            }
+//                 background: none !important;
+//                 height: 0;
+//                 margin: 0;
+//                 position: absolute;
+//                 top: 50%;
+//                 right: 3rem;
+//                 transform: translateY(-50%);
+//             }
 
-            // 아코디언이 닫힌 상태(collapsed)
-            &::after {
-                content: "+";
-            }
+//             // 아코디언이 닫힌 상태(collapsed)
+//             &::after {
+//                 content: "+";
+//             }
 
-            // 아코디언이 열린 상태
-            &:not(.collapsed) {
-                background-color: #F9FDFF;
-                &::after {
-                    content: "-";
-                }
-            }
-        }
-    }
+//             // 아코디언이 열린 상태
+//             &:not(.collapsed) {
+//                 background-color: #F9FDFF;
+//                 &::after {
+//                     content: "-";
+//                 }
+//             }
+//         }
+//     }
 
-    &-body {
-        @include abs.responsiveGap(6rem, 6rem, 1.5rem, 1rem);
+//     &-body {
+//         @include abs.responsiveGap(6rem, 6rem, 1.5rem, 1rem);
 
-        // width: 100%;
-        flex-direction: column;
-        align-items: start;
-        padding: 2.4rem;
-        background-color: #F9FDFF;
+//         // width: 100%;
+//         flex-direction: column;
+//         align-items: start;
+//         padding: 2.4rem;
+//         background-color: #F9FDFF;
 
-        &__container {
-            @include abs.responsiveGap(3rem, 3rem, 1.5rem, 1rem);
+//         &__container {
+//             @include abs.responsiveGap(3rem, 3rem, 1.5rem, 1rem);
 
-            flex-direction: column;
-            align-items: start;
-        }
+//             flex-direction: column;
+//             align-items: start;
+//         }
 
-        h4 {
-            @include abs.fontStyle(body, body2, 600, 1.4, 0, map-get(abs.$colors, black));
-        }
+//         h4 {
+//             @include abs.fontStyle(body, body2, 600, 1.4, 0, map-get(abs.$colors, black));
+//         }
 
-        ul {
-            padding-left: 4rem;
-        }
+//         ul {
+//             padding-left: 4rem;
+//         }
 
-        li {
-            @include abs.fontStyle(body, body4, 400, 1.5, -0.005rem, map-get(abs.$colors, gray-150));
+//         li {
+//             @include abs.fontStyle(body, body4, 400, 1.5, -0.005rem, map-get(abs.$colors, gray-150));
 
-            list-style-type: disc;
+//             list-style-type: disc;
             
-            &::marker {
-                color: map-get(abs.$colors, gray-150);
-            }
-        }
+//             &::marker {
+//                 color: map-get(abs.$colors, gray-150);
+//             }
+//         }
 
-        img {
-            width: 100rem;
-            margin-top: 2rem;
-        }
+//         img {
+//             width: 100rem;
+//             margin-top: 2rem;
+//         }
 
-        .coupang-site {
-            color: map-get(abs.$colors, blue);
-            text-decoration: underline;
-        }
+//         .coupang-site {
+//             color: map-get(abs.$colors, blue-100);
+//             text-decoration: underline;
+//         }
 
-    }
+//     }
 
-    @media (min-width: 1440px) {
-        justify-content: center;
+//     @media (min-width: 1440px) {
+//         justify-content: center;
 
-        &-item {
-            align-items: stretch;
-        }
+//         &-item {
+//             align-items: stretch;
+//         }
 
-        &-body {
-            width: 100%;
-        }
+//         &-body {
+//             width: 100%;
+//         }
 
-        &-collapse {
-            display: block !important;
-            transition: none !important;
-            overflow: hidden;
+//         &-collapse {
+//             display: block !important;
+//             transition: none !important;
+//             overflow: hidden;
 
-            &.collapse {
-                height: 0;
-            }
+//             &.collapse {
+//                 height: 0;
+//             }
 
-            &.show {
-                height: fit-content;
-                display: flex !important;
-                justify-content: center;
-                align-items: center;
-            }
-        }
-    }
+//             &.show {
+//                 height: fit-content;
+//                 display: flex !important;
+//                 justify-content: center;
+//                 align-items: center;
+//             }
+//         }
+//     }
 
-    @media (min-width: 768px) {
-        &-body {
-            padding: 3rem;
-        }
-    }
-}
+//     @media (min-width: 768px) {
+//         &-body {
+//             padding: 3rem;
+//         }
+//     }
+// }
 
 
 // @media (min-width: 1024px) {

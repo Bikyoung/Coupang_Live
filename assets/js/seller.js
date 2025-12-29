@@ -23,25 +23,25 @@ resultsPinTimeline
 // .results__list들이 스크롤에 맞춰 순차적으로 확대 -> 축소되는 효과
 const resultsAnimationTimeline = gsap.timeline({
     scrollTrigger: {
-        trigger: ".results__lists",
-        start: "top 60%",
-        // end: "bottom 30%",
-        end: "+=1005",
-        scrub: 2
+        trigger: ".results__bottom",
+        start: "top center",
+        end: "bottom 40%",
+        scrub: 2,
     }
 }); 
 
 resultsAnimationTimeline
     .to(".results__title", {
         scale: 0,
-        autoAlpha: 0
+        autoAlpha: 0,
     })
     .to(".results__list--01", {
         scale: 0.8,
-        autoAlpha: 1
+        autoAlpha: 1,
+        ease: "power2.inOut"
     }, "<")
     .to(".results__list--01 .image", {
-        height: "10rem"
+        height: "11rem"
     }, "<")
     .to(".results__list--01", {
         scale: 0.6,
@@ -55,7 +55,7 @@ resultsAnimationTimeline
         autoAlpha: 1
     }, "<")
     .to(".results__list--02 .image", {
-        height: "9rem"
+        height: "11rem"
     }, "<")
     .to(".results__list--02", {
         scale: 0.6,
@@ -69,7 +69,7 @@ resultsAnimationTimeline
         autoAlpha: 1
     }, "<")
     .to(".results__list--03 .image", {
-        height: "10rem"
+        height: "12rem"
     }, "<")
     .to(".results__list--03", {
         scale: 0.6,
