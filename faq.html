@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 링크 연결 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" type="text/css">
+    <!-- font-awesome 링크 연결 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/main.css" type="text/css">
+    <title>쿠팡 라이브</title>
+</head>
+<body>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <header>
+
+            </header>
+        
+            <main class="section-inner container-default faq">
+                <!-- faq__title -->
+                <h1 class="section__title faq__title">
+                    자주 묻는 질문
+                </h1>
+                <div class="w-100 flex-center faq__content">
+                    <!-- faq__filter -->
+                    <div class="w-100 d-flex faq__filter">
+                        <!-- faq__tabs -->
+                        <div class="flex-center faq__tabs" role="tablist" aria-label="FAQ 카테고리">
+                            <div class="flex-center faq__tabs--first">
+                                <button class="faq__tab" role="tab" aria-selected="true">전체</button>
+                                <button class="faq__tab" role="tab" aria-selected="false">쿠팡 라이브</button>
+                                <button class="faq__tab" role="tab" aria-selected="false">크리에이터 마켓플레이스</button>
+                            </div>
+                            <div class="flex-center faq__tabs--secondary">
+                                <button class="faq__tab" role="tab" aria-selected="false">판매자</button>
+                                <button class="faq__tab" role="tab" aria-selected="false">크리에이터</button>
+                            </div>
+                        </div>
+                        <!-- faq__input -->
+                        <form class="flex-center faq__search">
+                            <label for="faq__input" class="blind">FAQ 검색어 입력</label>
+                            <input type="text" id="faq__input" class="faq__input" placeholder="검색어를 입력해 주세요" autocomplete="off">
+                            <div class="position-relative button__container">
+                                <button type="submit" class="position-absolute button__submit">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                                <button type="reset" class="position-absolute d-none button__reset">
+                                    <i class="fa-solid fa-x"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- faq__list -->
+                    <ul class="w-100 accordion faq__list" id="faqAccordion">
+                    </ul>
+                    <!-- faq__pagination -->
+                    <nav aria-label="Page navigation">
+                        <ul class="flex-center pagination pagination-lg faq__pagination">
+                        </ul>
+                    </nav>
+                </div>
+            </main>
+        
+            <footer>
+        
+            </footer>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap 링크 연결 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery 링크 연결 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./assets/js/faq.js"></script>
+</body>
+</html>

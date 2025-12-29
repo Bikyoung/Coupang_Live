@@ -195,7 +195,7 @@
         flex-direction: column;
 
         span {
-            @include abs.fontStyle(body, body5, 400, 1.4, 0, map-get(abs.$colors, gray-100));
+            @include abs.fontStyle(body, body6, 400, 1.4, 0, map-get(abs.$colors, gray-100));
 
             margin-bottom: 0.4rem;
         }

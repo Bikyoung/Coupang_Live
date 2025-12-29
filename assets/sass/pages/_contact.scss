@@ -31,10 +31,6 @@
         }
     }
 
-    &__title {
-        @include abs.fontStyle(title, title3, 700, 1.3, 0, map-get(abs.$colors, navy));
-    }
-
     &__subtitle {
         @include abs.fontStyle(body, body3, 400, 1.3, 0, map-get(abs.$colors, gray-150));
     }
@@ -117,10 +113,18 @@
         }
 
         input, select, textarea {
-            @include abs.fontStyle(body, body4, 400, 1.3, -0.01rem, map-get(abs.$colors, gray-150));
+            @include abs.fontStyle(body, body4, 400, 1.3, -0.01rem, map-get(abs.$colors, black));
 
             border: none;
             border-bottom: 0.1rem solid map-get(abs.$colors, gray-100);
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: map-get(abs.$colors, gray-150);
+            }
         }
 
         .agreement {
@@ -148,7 +152,7 @@
                 }
     
                 .desc {
-                    @include abs.fontStyle(body, body5, 400, 1.4, 0, map-get(abs.$colors, gray-150));
+                    @include abs.fontStyle(body, body6, 400, 1.4, 0, map-get(abs.$colors, gray-150));
                 }
             }
     
@@ -182,7 +186,7 @@
             width: 100%;
             padding: 1.5rem 0;
             border-radius: 10rem;
-            background-color: map-get(abs.$colors, black);
+            background-color: map-get(abs.$colors, navy);
             transition: all 0.3s ease-in-out;
 
             &:hover {

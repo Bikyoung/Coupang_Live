@@ -10,10 +10,11 @@ $colors: (
     primary: #F7552F,
     primary-hover: #FF7A31,
     navy: #000715,
-    gray-50: #F6F6F6,
+    gray-50: #F4F5F9,
     gray-100: #C0C0C0,
     gray-150: #4E4E4E,
-    blue: #2F50F7,
+    blue-50: #D3E8F9,
+    blue-100: #2F50F7,
     light-orange: #FF883F,
     white: #FFFFFF,
     black: #00040C
@@ -23,10 +24,12 @@ $colors: (
 $pc-laptop-title5: 2.6rem;
 $pc-laptop-body3: 1.8rem;
 $pc-laptop-body4: 1.6rem;
-$pc-laptop-body5: 1.3rem;
+$pc-laptop-body5: 1.4rem;
+$pc-laptop-body6: 1.3rem;
 $pc-laptop-label1: 1.8rem;
 $pc-laptop-label2: 1.4rem;
-$tablet-mobile-body5: 1.2rem;
+$tablet-mobile-body5: 1.3rem;
+$tablet-mobile-body6: 1.2rem;
 $tablet-mobile-button: 1.8rem;
 $tablet-mobile-label1: 1.6rem;
 
@@ -35,8 +38,7 @@ $font-size: (
     pc: (
         title: (
             title1: 5.4rem,
-            title2: 5.8rem,
-            title3: 4.2rem,
+            title2: 4.2rem,
             title4: 3.4rem,
             title5: $pc-laptop-title5,
             hugeTitle: 6.5rem
@@ -47,7 +49,8 @@ $font-size: (
             body2: 2rem,
             body3: $pc-laptop-body3,
             body4: $pc-laptop-body4,
-            body5: $pc-laptop-body5
+            body5: $pc-laptop-body5,
+            body6: $pc-laptop-body6
         ),
 
         button: (
@@ -65,8 +68,7 @@ $font-size: (
     laptop: (
         title: (
             title1: 4.6rem,
-            // title2: ,
-            title3: 4rem,
+            title2: 4rem,
             title4: 3rem,
             title5: $pc-laptop-title5,
             hugeTitle: 6rem
@@ -77,7 +79,8 @@ $font-size: (
             body2: 2rem,
             body3: $pc-laptop-body3,
             body4: $pc-laptop-body4,
-            body5: $pc-laptop-body5
+            body5: $pc-laptop-body5,
+            body6: $pc-laptop-body6
         ),
 
         button: (
@@ -95,8 +98,7 @@ $font-size: (
     tablet: (
         title: (
             title1: 4.2rem,
-            // title2: ,
-            title3: 3.6rem,
+            title2: 3.6rem,
             title4: 2.6rem,
             title5: 2.4rem,
             hugeTitle: 4.8rem
@@ -107,7 +109,8 @@ $font-size: (
             body2: 1.8rem,
             body3: 1.6rem,
             body4: 1.4rem,
-            body5: $tablet-mobile-body5
+            body5: $tablet-mobile-body5,
+            body6: $tablet-mobile-body6
         ),
 
         button: (
@@ -125,8 +128,7 @@ $font-size: (
     mobile: (
         title: (
             title1: 3.2rem,
-            // title2: ,
-            title3: 2.8rem,
+            title2: 2.8rem,
             title4: 2.2rem,
             title5: 2.2rem,
             hugeTitle: 3.6rem
@@ -136,8 +138,9 @@ $font-size: (
             body1: 2rem,
             body2: 1.6rem,
             body3: 1.4rem,
-            body4: 1.3rem,
-            body5: $tablet-mobile-body5
+            body4: 1.4rem,
+            body5: $tablet-mobile-body5,
+            body6: $tablet-mobile-body6
         ),
 
         button: (

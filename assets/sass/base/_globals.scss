@@ -84,3 +84,15 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+// 웹 접근성을 준수하면서(스크린 리더가 해당 dom요소를 읽을 수 있음), 시각적으로는 숨김
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+}

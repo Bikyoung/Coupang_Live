@@ -9,8 +9,8 @@ body {
     font-family: "Pretendard", sans-serif;
 }
 
-h2 {
-    @include abs.fontStyle(title, title3, 700, 1.3, 0, map-get(abs.$colors, navy));
+.section__title {
+    @include abs.fontStyle(title, title2, 700, 1.3, 0, map-get(abs.$colors, navy));
 } 
 
 a {
@@ -18,7 +18,7 @@ a {
 }
 
 .hero__title--sub {
-    @include abs.fontStyle(title, title3, 600, 1.2, -0.01rem, map-get(abs.$colors, white));
+    @include abs.fontStyle(title, title2, 700, 1.2, -0.01rem, map-get(abs.$colors, white));
 }
 
 ::placeholder, select {
