@@ -1,4 +1,4 @@
-import { footerLoader } from "./footer.js";
+import { loadComponent } from "./componentLoader.js";
 
 if(typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
     gsap.registerPlugin("ScrollTrigger, ScrollSmoother");
@@ -13,7 +13,10 @@ if(typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
     });
 }
 
-footerLoader();
+["header", "footer"].forEach(
+    (component) => {loadComponent(component);}
+)
+
 
 
 
