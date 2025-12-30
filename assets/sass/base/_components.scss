@@ -20,3 +20,109 @@
     padding-right: 6rem;
     border-radius: 5rem;
 }
+
+// footer 영역
+.footer {
+    @include abs.responsivePaddingY(6rem, 5rem, 4rem);  
+
+    background-color: map-get(abs.$colors, gray-50);
+    
+    &__container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: start;
+    }
+    
+    .icon__container {
+        width: fit-content;
+        gap: 4rem;
+    }
+    
+    .content {
+        display: flex;
+
+        &__01 {
+            gap: 11rem;
+        }
+
+        &__02 {
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        > div {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+    }
+
+    span {
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: map-get(abs.$colors, gray-150);
+    }
+
+    @media (max-width: 1440px) {
+        &__container {
+            width: fit-content;
+            flex-direction: column;
+            gap: 5rem;
+            margin: 0 auto;
+        }
+
+        .content {
+            gap: 0;
+
+            &__left {
+                width: 35.4rem;
+            }
+
+            &__01 {
+                flex-direction: row;
+    
+                > div {
+                    align-items: start;
+                }
+            }
+
+            &__02 {
+                width: 100%;
+                flex-direction: row;
+            }
+
+        }
+    }
+
+    @media (max-width: map-get(abs.$breakpoints, medium)) {
+        &__container {
+            align-items: start;
+            margin: 0;
+        }
+
+        .content {
+            &__left {
+                width: fit-content;
+            }
+
+            &__01 {
+                gap: 4rem;
+            }
+
+            &__02 {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+        }
+    }
+
+    @media (max-width: map-get(abs.$breakpoints, small)) {
+        .content {
+            &__01 {
+                flex-direction: column;
+                gap: 4rem;
+            }
+        }
+    }
+}
