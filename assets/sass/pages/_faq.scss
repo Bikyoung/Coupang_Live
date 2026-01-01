@@ -1,8 +1,6 @@
 @use "../abstracts/bundle" as abs;
 
 .faq {
-    @include abs.responsivePaddingY($pc: 12rem, $laptop: 10rem, $tablet: 8rem, $mobile: 8rem);
-
     &__content {
         @include abs.responsiveGap(6rem, 5rem, 4rem);
 

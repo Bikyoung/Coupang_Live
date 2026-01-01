@@ -96,3 +96,7 @@ section {
     clip: rect(0, 0, 0, 0);
     clip-path: inset(50%);
 }
+
+.header-under {
+    @include abs.responsivePaddingY($pc: (pt: calc(15rem + 7.6rem), pb: 0), $laptop: (pt: calc(12rem + 7.6rem), pb: 0), $tablet: (pt: calc(10rem + 6rem), pb: 0), $mobile: (pt: calc(8rem + 5rem), pb: 0));
+}

@@ -173,6 +173,35 @@ section {
   clip-path: inset(50%);
 }
 
+.header-under {
+  padding-top: 22.6rem;
+  padding-bottom: 0;
+  /* null 체크
+      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  /* null 체크
+      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  /* null 체크
+      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+}
+@media (max-width: 1023px) {
+  .header-under {
+    padding-top: 19.6rem;
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 767px) {
+  .header-under {
+    padding-top: 16rem;
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 479px) {
+  .header-under {
+    padding-top: 13rem;
+    padding-bottom: 0;
+  }
+}
+
 @font-face {
   font-family: "Pretendard";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2") format("woff2");
@@ -321,7 +350,7 @@ a {
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 1.4;
-  letter-spacing: 0rem;
+  letter-spacing: 0;
   color: #F7552F;
   padding-left: 6rem;
   padding-right: 6rem;
@@ -340,6 +369,158 @@ a {
 @media (max-width: 479px) {
   .cta-sub {
     font-size: 1.6rem;
+  }
+}
+
+.header {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  /* null 체크
+      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  /* null 체크
+      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  /* null 체크
+      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  top: 0;
+  z-index: 10;
+  background-color: transparent;
+  justify-content: space-between;
+  border-bottom: 0.1rem solid #4E4E4E;
+}
+@media (max-width: 1023px) {
+  .header {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+.header__container {
+  margin: 0 auto;
+}
+.header img {
+  width: 20rem;
+}
+.header nav {
+  gap: 4rem;
+  padding: 0;
+  justify-content: end;
+}
+@media (max-width: 1023px) {
+  .header nav {
+    gap: 2rem;
+  }
+}
+.header nav a {
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  color: #FFFFFF;
+}
+@media (max-width: 1023px) {
+  .header nav a {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 767px) {
+  .header nav a {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 479px) {
+  .header nav a {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 767px) {
+  .header__container {
+    justify-content: space-between;
+  }
+  .header img {
+    width: 18rem;
+  }
+  .header nav {
+    display: none;
+  }
+}
+
+.m-nav {
+  background-color: #00040C;
+}
+.m-nav__container {
+  margin: 0 auto;
+}
+.m-nav__container-top {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  /* null 체크
+      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  /* null 체크
+      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  /* null 체크
+      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  justify-content: space-between;
+}
+@media (max-width: 1023px) {
+  .m-nav__container-top {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .m-nav__container-top {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+.m-nav__container-bottom {
+  gap: 4rem;
+  flex: 1;
+}
+.m-nav__container-bottom a {
+  font-size: 2.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  color: #FFFFFF;
+}
+@media (max-width: 1023px) {
+  .m-nav__container-bottom a {
+    font-size: 2.4rem;
+  }
+}
+@media (max-width: 767px) {
+  .m-nav__container-bottom a {
+    font-size: 2.2rem;
+  }
+}
+@media (max-width: 479px) {
+  .m-nav__container-bottom a {
+    font-size: 2rem;
+  }
+}
+.m-nav img {
+  width: 18rem;
+}
+
+.menu-toggle {
+  width: 4rem;
+  height: 4rem;
+  justify-content: end;
+}
+.menu-toggle img {
+  width: 2.5rem;
+}
+@media (max-width: 479px) {
+  .menu-toggle img {
+    width: 15rem;
   }
 }
 
@@ -444,33 +625,7 @@ a {
 }
 
 .hero--index {
-  padding-top: 15rem;
-  padding-bottom: 0;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
   background-color: #000715;
-}
-@media (max-width: 1023px) {
-  .hero--index {
-    padding-top: 12rem;
-    padding-bottom: 0;
-  }
-}
-@media (max-width: 767px) {
-  .hero--index {
-    padding-top: 10rem;
-    padding-bottom: 0;
-  }
-}
-@media (max-width: 479px) {
-  .hero--index {
-    padding-top: 8rem;
-    padding-bottom: 0;
-  }
 }
 .hero * {
   text-align: center;
@@ -1560,34 +1715,6 @@ a {
   }
 }
 
-.faq {
-  padding-top: 12rem;
-  padding-bottom: 12rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-}
-@media (max-width: 1023px) {
-  .faq {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
-  }
-}
-@media (max-width: 767px) {
-  .faq {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-}
-@media (max-width: 479px) {
-  .faq {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-}
 .faq__content {
   gap: 6rem;
   flex-direction: column;

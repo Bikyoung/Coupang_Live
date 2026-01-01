@@ -1,13 +1,18 @@
-<header>
-    <div class="logo">
-        <a href="/">
-            <img src="./assets/images/logo.webp" alt="로고 이미지">
-        </a>
+<header class="w-100 position-absolute header">
+    <div class="flex-center container-default header__container">
+        <div class="logo">
+            <a href="/" aria-label="홈페이지로 이동">
+                <img src="./assets/images/logo.webp" alt="로고 이미지">
+            </a>
+        </div>
+        <nav class="flex-center container-default" aria-label="주요 메뉴">
+            <a href="./seller.html" data-menu="seller">판매자</a>
+            <a href="./creator.html" data-menu="creator">크리에이터</a>
+            <a href="./faq.html" data-menu="faq">자주 묻는 질문</a>
+            <a href="./contact.html" data-menu="contact">문의하기</a>
+        </nav>    
+        <button class="flex-center menu-toggle hamburger-btn">
+            <img src="./assets/images/hamburger_icon.webp" class="max-767px" alt="햄버거 버튼">
+        </button>
     </div>
-    <nav class="container-default">
-        <a href="./seller.html">판매자</a>
-        <a href="./seller.html">크리에이터</a>
-        <a href="./seller.html">자주 묻는 질문</a>
-        <a href="./seller.html">문의하기</a>
-    </nav>    
 </header>

@@ -8,14 +8,14 @@
     <link rel="stylesheet" href="./assets/css/main.css">
     <title>쿠팡 라이브</title>
 </head>
-<body>
+<body data-page="seller">
     <div id="smooth-wrapper">
         <div id="smooth-content">
             <div class="header-load"></div>
         
             <main>
                 <!-- --------------- hero --------------- -->
-                <section class="hero hero--sub">
+                <section class="header-under hero hero--sub">
                     <div class="bg-center hero__bg hero__bg--seller">
                     </div>            
                     <div class="section-inner container-default hero__container hero__container--sub">
@@ -540,11 +540,14 @@
                 
             </main>
         
-            <footer>
-        
-            </footer>
+            <div class="footer-load"></div>
         </div>
     </div>
+
+    <!-- --------------- m-nav --------------- -->
+    <div class="m-nav-load"></div>
+
+
 
     <!-- Bootstrap 링크 연결 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
@@ -556,7 +559,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
     <!-- jQuery 링크 연결 -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="./assets/js/common.js"></script>
+    <script type="module" src="./assets/js/common.js"></script>
     <script src="./assets/js/seller.js"></script>
 </body>
 </html>

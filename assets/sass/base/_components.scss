@@ -14,12 +14,107 @@
 }
 
 .cta-sub {
-    @include abs.fontStyle(label, label1, 500, 1.4, -0rem, map-get(abs.$colors, primary));
+    @include abs.fontStyle(label, label1, 500, 1.4, 0, map-get(abs.$colors, primary));
 
     padding-left: 6rem;
     padding-right: 6rem;
     border-radius: 5rem;
 }
+
+// header 영역
+.header {
+    @include abs.responsivePaddingY(2rem, 2rem, 1rem);
+
+    top: 0;
+    z-index: 10;
+    background-color: transparent;
+    justify-content: space-between;
+    border-bottom: 0.1rem solid map-get(abs.$colors, gray-150);
+
+    &__container {
+        margin: 0 auto;
+    }
+
+    img {
+        width: 20rem;
+    }
+
+    nav {
+        @include abs.responsiveGap(4rem, 2rem);
+
+        padding: 0;
+        justify-content: end;
+
+        a {
+            @include abs.fontStyle(body, body3, 500, 1.4, 0, map-get(abs.$colors, white));
+            
+            color: map-get(abs.$colors, white);
+        }
+    }
+
+    @media (max-width: map-get(abs.$breakpoints, medium)) {
+        &__container {
+            justify-content: space-between;
+        }
+
+        img {
+            width: 18rem;
+        }
+
+        nav {
+            display: none;
+        }
+    }
+}
+
+// m-nav 영역
+.m-nav {
+    background-color: map-get(abs.$colors, black);
+
+    &__container {
+        margin: 0 auto;
+    }
+    
+    &__container-top {
+        @include abs.responsivePaddingY(2rem, 2rem, 1rem);
+
+        justify-content: space-between;
+    }
+
+    &__container-bottom {
+        gap: 4rem;
+        flex: 1;
+
+        a {
+            @include abs.fontStyle(body, body1, 500, 1.4, 0, map-get(abs.$colors, white));
+
+            color: map-get(abs.$colors, white);
+        }
+    } 
+
+    img {
+        width: 18rem;
+    }
+}
+
+// header와 .m-nav의 공통 스타일
+.menu-toggle {
+    width: 4rem;
+    height: 4rem;
+    justify-content: end;
+
+    img {
+        width: 2.5rem;
+    }
+
+    @media (max-width: map-get(abs.$breakpoints, small)) {
+        img {
+            width: 15rem;
+        }
+    }
+}
+
+
 
 // footer 영역
 .footer {
