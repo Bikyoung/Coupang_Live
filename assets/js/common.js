@@ -30,7 +30,9 @@ async function init() {
             });
         }
 
-        
+        // init() 함수의 실행 완료를 알리는 이벤트 객체의 생성 및 브라우저에 전파
+        window.dispatchEvent(new CustomEvent("commonInitDone"));
+
     } catch(error) {
         console.error("header와 footer 로드 실패", error);
     }
