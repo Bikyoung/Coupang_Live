@@ -26,12 +26,13 @@ $pc-laptop-body3: 1.8rem;
 $pc-laptop-body4: 1.6rem;
 $pc-laptop-body5: 1.4rem;
 $pc-laptop-body6: 1.3rem;
+$pc-laptop-button3: 1.4rem;
 $pc-laptop-label1: 1.8rem;
 $pc-laptop-label2: 1.4rem;
 $tablet-mobile-body5: 1.3rem;
 $tablet-mobile-body6: 1.2rem;
 $tablet-mobile-button: 1.8rem;
-$tablet-mobile-label1: 1.6rem;
+   $tablet-mobile-label1: 1.6rem;
 
 $font-size: (
     // ---------- pc ----------
@@ -55,7 +56,8 @@ $font-size: (
 
         button: (
             button1: 2.4rem,
-            button2: 1.8rem
+            button2: 1.8rem,
+            button3: 1.4rem
         ),
 
         label: (
@@ -85,7 +87,8 @@ $font-size: (
 
         button: (
             button1: 2.2rem,
-            button2: 2rem
+            button2: 1.8rem,
+            button3: 1.4rem
         ),
 
         label: (
@@ -115,7 +118,8 @@ $font-size: (
 
         button: (
             button1: $tablet-mobile-button,
-            button2: $tablet-mobile-button
+            button2: $tablet-mobile-button,
+            button3: 1.3rem
         ),
 
         label: (
@@ -145,7 +149,8 @@ $font-size: (
 
         button: (
             button1: $tablet-mobile-button,
-            button2: $tablet-mobile-button
+            button2: $tablet-mobile-button,
+            button3: 1.2rem
         ),
 
         label: (

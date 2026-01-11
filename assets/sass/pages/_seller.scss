@@ -1,348 +1,78 @@
 @use "../abstracts/_bundle.scss" as abs;
 
-// --------------- hero--sub ---------------
-.hero {
-    &--sub {
-        @include abs.responsivePaddingY(
-            $pc: (pt: 22rem, pb: 12rem), $laptop: 10rem, $tablet: 8rem);
+body[data-page="seller"] {
 
-        background-color: map-get(abs.$colors, white);
-        position: relative;
-    }
+    // --------------- hero--sub ---------------
+    .hero {
+        &__bg {        
+            &--seller {
+                background-image: url("../images/seller_hero.webp");
 
-    &__bg {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        
-        &--seller {
-            background-image: url("../images/seller_hero.webp");
-
-            &::before {
-                content: "";
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.8);
-                position: absolute;
-                inset: 0;
-                z-index: 2;
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.8);
+                    position: absolute;
+                    inset: 0;
+                    z-index: 2;
+                }
             }
         }
-    }
 
-    &__container--sub {
-        position: relative;
-        z-index: 3;
-    }
-
-    &__title--sub {
-        opacity: 1;
-    }
-
-    .cta-seller {
-        color: map-get(abs.$colors, white);
-        background-color: map-get(abs.$colors, blue-100);
-    }
-
-}
-
-// --------------- results ---------------
-.results {
-    &__title {
-        @include abs.fontStyle(title, title2, 700, 1.2, 0, map-get(abs.$colors, navy));
-    }
-
-    &__list {
-        
-        height: clamp(11.2rem, 9.139rem + 4.303vw, 17.4rem);
-        text-align: center;
-        transform-origin: top center;
-
-        .text {
-            @include abs.fontStyle(title, title2, 700, 1.3, 0, map-get(abs.$colors, navy));
-
-            white-space: nowrap;
+        .cta-seller {
+            background-color: map-get(abs.$colors, blue-100);
         }
+    }
+    
+    // --------------- liveType ---------------
+    .liveType {
+
+        &__tab {
+            &.on {
+                color: map-get(abs.$colors, blue-100);
+                border-bottom: 0.2rem solid map-get(abs.$colors, blue-100);
+            }
+        }
+
+        &__feature {
+            @include abs.fontStyle(body, body4, 500, 1.4, 0, map-get(abs.$colors, blue-100));
+
+            background-color: map-get(abs.$colors, blue-50);
+        }
+    }
+
+    // --------------- guide ---------------
+    .guide-card__container {
+        grid-template-columns: repeat(4, 1fr);
 
         @media (max-width: 1439px) {
-            flex-direction: column;
-            margin-top: 8rem;
-
-            .image {
-                position: absolute;
-                top: 0;
-                transform: translateY(-100%);
-            }
-        }
-    }
-}
-
-
-
-// --------------- liveType ---------------
-.liveType {
-
-    &__tab {
-        @include abs.fontStyle(button, button1, 700, 1.4, 0, map-get(abs.$colors, gray-100));
-
-        display: flex;
-        flex: 1;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        border-bottom: 0.2rem solid map-get(abs.$colors, gray-100);
-
-        &::before, &::after {
-            content: "";
-            flex: 1;
+            grid-template-rows: repeat(2, 1fr); 
+            grid-template-columns: repeat(2, 1fr); 
         }
 
-        &.on {
-            color: map-get(abs.$colors, blue-100);
-            border-bottom: 0.2rem solid map-get(abs.$colors, blue-100);
+        @media (max-width: map-get(abs.$breakpoints, small)) {
+            grid-template-rows: repeat(4, 1fr); 
         }
     }
 
-    &__content {
-        @include abs.responsiveGap(6rem, 5rem, 6rem);
-        @include abs.responsiveMarginTop(-6rem, -5rem, -2rem, -2rem);
+    .guide-card {
+        &:nth-child(2n - 1) {
+            background-image: url("../images/guide_seller_01.webp");
 
-        display: none;
-
-        &.on {
-            display: flex;
-        }
-    }
-
-    &__image {
-        width: fit-content;
-        position: relative;
-
-        .live-image {
-            width: clamp(18rem, 16.385rem + 4.487vw, 25rem);
-        }
-        
-        .circle-image {
-            width: clamp(25rem, 22.692rem + 6.41vw, 35rem);
-            height: clamp(25rem, 22.692rem + 6.41vw, 35rem);
-            border-radius: 50%;
-            position: absolute;
-            top: 50%;
-            right: 0;
-            z-index: -1;
-            transform: translateY(-50%);
-        }
-    }
-
-    &__text {
-        flex-direction: column;
-        align-items: start;
-    }
-
-    &__feature {
-        @include abs.fontStyle(body, body4, 500, 1.4, 0, map-get(abs.$colors, blue-100));
-
-        width: fit-content;
-        padding: 0.8rem 1.5rem;
-        margin-bottom: 1.5rem;
-        border-radius: 1rem;
-        background-color: map-get(abs.$colors, blue-50);
-    }
-
-    &__title {
-        @include abs.fontStyle(title, title5, 700, 1.3, -0.005rem, map-get(abs.$colors, navy));
-
-        margin-bottom: 4rem;
-    }
-
-    &__desc {
-        @include abs.fontStyle(body, body3, 500, 1.4, 0, map-get(abs.$colors, navy));
-
-        margin-bottom: 1.5rem;
-    }
-
-    &__subDesc {
-        li {
-            @include abs.fontStyle(body, body5, 400, 1.5, 0, map-get(abs.$colors, gray-150));
-        }
-    }
-
-    @media (max-width: map-get(abs.$breakpoints, large)) {
-
-        &__content {
-            flex-direction: column;
-        }
-
-        .liveType {
-            
-            &__text {
-                align-items: center;
-    
-                > * {
-                    text-align: left;
-                }
-    
-                li {
-                    width: fit-content;
-                }
-            }
-
-            &__desc {
-                text-align: center;
+            &::before {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
             }
         }
         
+        &:nth-child(2n) {
+            background-image: url("../images/guide_seller_02.webp");
+
+            &::before {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.05));
+            }
+        }
+
+
     }
 }
-
-// --------------- guide ---------------
-// .accordion {
-//     flex-direction: column;
-//     width: 90%;
-
-//     &-item {
-//         display: flex;
-//         flex-direction: column;
-//     }
-
-//     &-header {
-//         width: 100%;
-
-//         button {
-//             @include abs.fontStyle(title, title5, 600, 1.2, 0, map-get(abs.$colors, black));
-
-//             width: 100%;
-//             padding: 3rem;
-//             position: relative;
-
-//             &::after, &:not(.collapsed)::after {
-//                 @include abs.fontStyle(title, title5, 600, 0, 0, map-get(abs.$colors, black));
-
-//                 background: none !important;
-//                 height: 0;
-//                 margin: 0;
-//                 position: absolute;
-//                 top: 50%;
-//                 right: 3rem;
-//                 transform: translateY(-50%);
-//             }
-
-//             // 아코디언이 닫힌 상태(collapsed)
-//             &::after {
-//                 content: "+";
-//             }
-
-//             // 아코디언이 열린 상태
-//             &:not(.collapsed) {
-//                 background-color: #F9FDFF;
-//                 &::after {
-//                     content: "-";
-//                 }
-//             }
-//         }
-//     }
-
-//     &-body {
-//         @include abs.responsiveGap(6rem, 6rem, 1.5rem, 1rem);
-
-//         // width: 100%;
-//         flex-direction: column;
-//         align-items: start;
-//         padding: 2.4rem;
-//         background-color: #F9FDFF;
-
-//         &__container {
-//             @include abs.responsiveGap(3rem, 3rem, 1.5rem, 1rem);
-
-//             flex-direction: column;
-//             align-items: start;
-//         }
-
-//         h4 {
-//             @include abs.fontStyle(body, body2, 600, 1.4, 0, map-get(abs.$colors, black));
-//         }
-
-//         ul {
-//             padding-left: 4rem;
-//         }
-
-//         li {
-//             @include abs.fontStyle(body, body4, 400, 1.5, -0.005rem, map-get(abs.$colors, gray-150));
-
-//             list-style-type: disc;
-            
-//             &::marker {
-//                 color: map-get(abs.$colors, gray-150);
-//             }
-//         }
-
-//         img {
-//             width: 100rem;
-//             margin-top: 2rem;
-//         }
-
-//         .coupang-site {
-//             color: map-get(abs.$colors, blue-100);
-//             text-decoration: underline;
-//         }
-
-//     }
-
-//     @media (min-width: 1440px) {
-//         justify-content: center;
-
-//         &-item {
-//             align-items: stretch;
-//         }
-
-//         &-body {
-//             width: 100%;
-//         }
-
-//         &-collapse {
-//             display: block !important;
-//             transition: none !important;
-//             overflow: hidden;
-
-//             &.collapse {
-//                 height: 0;
-//             }
-
-//             &.show {
-//                 height: fit-content;
-//                 display: flex !important;
-//                 justify-content: center;
-//                 align-items: center;
-//             }
-//         }
-//     }
-
-//     @media (min-width: 768px) {
-//         &-body {
-//             padding: 3rem;
-//         }
-//     }
-// }
-
-
-// @media (min-width: 1024px) {
-
-//     /* collapse의 height 기반 효과 제거 */
-//     .accordion-collapse.collapse {
-//       display: block !important;
-//       height: 43.6rem !important;
-//       overflow: hidden;
-//     }
-  
-//     /* width 애니메이션 제거 */
-//     .accordion-collapse {
-//       width: 0;
-//       transition: none !important;
-//     }
-  
-//     .accordion-collapse.show {
-//       width: fit-content; /* 고정 가로 영역 */
-//     }
-//   }
