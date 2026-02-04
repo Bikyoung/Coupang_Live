@@ -1,0 +1,107 @@
+@use "../abstracts/_bundle.scss" as abs;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Bootstrap의 제목 태그에 설정된 기본 margin을 오버라이딩
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.only-section {
+    @include abs.responsivePaddingY($pc: (pt: calc(12rem + 7.6rem), pb: 12rem), $laptop: (pt: calc(10rem + 7.6rem), pb: 10rem), $tablet: (pt: calc(8rem + 6rem), pb: 8rem), $mobile: (pt: calc(8rem + 5rem), pb: 8rem));
+}
+
+section {
+    @include abs.responsivePaddingY($pc: 12rem, $laptop: 10rem, $tablet: 8rem, $mobile: 8rem);
+}
+
+.section-inner {
+    @include abs.responsiveGap($pc: 12rem, $laptop: 10rem, $tablet: 8rem, $mobile: 8rem);
+
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-default {
+    @include abs.responsivePaddingX($pc: 8rem, $laptop: 3.2rem, $tablet: 1.6rem, $mobile: 1.6rem);
+
+    width: 100%;
+    max-width: 1440px;
+
+    @media (max-width: map-get(abs.$breakpoints, large)) {
+        max-width: 960px;
+    }
+    @media (max-width: map-get(abs.$breakpoints, medium)) {
+        max-width: 720px;
+    }
+    @media (max-width: map-get(abs.$breakpoints, small)) {
+        max-width: 440px;
+    }
+    
+}
+
+.max {
+    @each $label, $bp in abs.$breakpoints {
+        &-#{$bp} {
+            @include abs.responsiveShow($bp);
+        }
+    }
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-center {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+// 웹 접근성을 준수하면서(스크린 리더가 해당 dom요소를 읽을 수 있음), 시각적으로는 숨김
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: -1px;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+}
+
+.header-under {
+    @include abs.responsivePaddingY($pc: (pt: calc(15rem + 7.6rem), pb: 0), $laptop: (pt: calc(12rem + 7.6rem), pb: 0), $tablet: (pt: calc(10rem + 6rem), pb: 0), $mobile: (pt: calc(8rem + 5rem), pb: 0));
+}
+

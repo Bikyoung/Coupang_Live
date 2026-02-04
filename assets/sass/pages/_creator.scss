@@ -1,0 +1,62 @@
+@use "../abstracts/_bundle.scss" as abs;
+
+body[data-page="creator"] {
+
+    // --------------- hero--sub ---------------
+    .hero {
+        &__bg {        
+            &--creator {
+                background-image: url("../images/creator_hero.webp");
+
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(180deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.7));
+                    position: absolute;
+                    inset: 0;
+                    z-index: 2;
+                }
+            }
+        }
+
+        .cta-creator {
+            background-color: map-get(abs.$colors, primary);
+        }
+    }
+    
+    // --------------- liveType ---------------
+    .liveType {
+        &__tab {
+            &.on {
+                color: map-get(abs.$colors, orange);
+                border-bottom: 0.2rem solid map-get(abs.$colors, orange);
+            }
+        }
+
+        &__feature {
+            @include abs.fontStyle(body, body3, 500, 1.45, 0.01em, map-get(abs.$colors, orange));
+
+            background-color: map-get(abs.$colors, yellow);
+        }
+    }
+
+    // --------------- guide ---------------
+    .guide-card {
+        &:nth-child(2n - 1) {
+            &::before {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+            }
+
+            background-image: url("../images/guide_creator_01.webp");
+        }
+        
+        &:nth-child(2n) {
+            &::before {
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+            }
+
+            background-image: url("../images/guide_creator_02.webp");
+        }
+    }
+}

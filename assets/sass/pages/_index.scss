@@ -1,0 +1,504 @@
+@use "../abstracts/_bundle.scss" as abs;
+
+// --------------- hero ---------------
+.hero {
+    &--index {
+        background-color: map-get(abs.$colors, navy);
+    }
+
+    * {
+        text-align: center;
+    }
+    
+    &__container {
+        @include abs.responsiveGap(6rem, 5rem, 4rem);
+    }
+
+    &__title {
+        @include abs.fontStyle(title, title1, 500, 1.2, -0.01em, map-get(abs.$colors, white));
+
+        opacity: 0;
+
+        &--highlight {
+            font-weight: 700;
+            color: map-get(abs.$colors, primary);
+        }
+    }
+
+    .cta-group {
+        @include abs.responsiveGap(6rem, 3rem, 2rem, 1.5rem);
+
+        .hero__cta {
+            opacity: 0;
+            transition: background-color 0.3s ease-in-out;
+
+            &--seller {
+                color: map-get(abs.$colors, white);
+                background-color: map-get(abs.$colors, primary);
+
+                &:hover {
+                    background-color: map-get(abs.$colors, primary-hover);
+                }
+
+                &:focus-visible {
+                    background-color: map-get(abs.$colors, primary-focus);
+                }
+            }
+
+            &--creator {
+                box-shadow: inset 0 0 0 0.2rem map-get(abs.$colors, primary);
+
+                &:hover {
+                    background-color: rgba(map-get(abs.$colors, primary-hover), 0.2);
+                }
+
+                &:focus-visible {
+                    background-color: rgba(map-get(abs.$colors, primary-focus), 0.3);
+                }
+            }
+        }
+    }
+
+    .marquee {
+        opacity: 0;
+        will-change: transform;
+
+        &__track {
+            width: max-content;
+            gap: 1.5rem;
+        }
+
+        &__item {
+            & > img {
+                display: block;
+                width: clamp(20rem, 18.846rem + 3.205vw, 25rem);
+            }
+        }
+    }
+}
+
+// --------------- vision ---------------
+.vision {
+    * {
+        text-align: center;
+    }
+
+    &__container {
+        max-width: 1440px;
+
+        > * {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__top {
+        height: 100dvh;
+    }
+    
+    &__title {
+        font-size: clamp(3.6rem, 2.931rem + 1.859vw, 6.5rem);
+    }
+
+    &__image {
+        @include abs.responsiveWidth(35rem, 31rem, 25rem, 25rem);
+        @include abs.responsiveHeight(50rem, 42rem, 35rem, 35rem);
+
+        background-image: url("../images/vision_image.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 50rem;
+    }
+
+    &__desc {
+        @include abs.fontStyle(body, body2, 400, 1.4, 0, map-get(abs.$colors, navy));
+
+        opacity: 1;
+        .no-mobile {
+            @media (max-width: 479px) {
+                display: none;
+            }
+        }
+    }
+}
+
+// --------------- difference ---------------
+.difference {
+    @include abs.responsivePaddingX(8rem, 3.2rem, 1.6rem);
+
+    * {
+        text-align: center;
+    }
+
+    &__container {
+        gap: 0;
+    }
+
+    &__contents {
+        @include abs.responsivePaddingY($pc: (pt: 6rem, pb: 0rem), $laptop: (pt: 5rem, pb: 0), $tablet: (pt: 4rem, pb: 0));
+    }
+
+    &__item {
+        @include abs.responsiveGap(6rem, 3rem, 4rem);
+
+        width: 100%; 
+        height: 100%;   
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 3rem;
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        will-change: transform;
+
+        &--01 {
+            background-image: url("../images/difference_01.webp");
+        }
+
+        &--02 {
+            background-image: url("../images/difference_02.webp");
+        }
+
+        &--03 {
+            background-image: url("../images/difference_03.webp");
+        }
+
+        &-title {
+            @include abs.fontStyle(title, title4, 700, 1.3, 0, map-get(abs.$colors, white)); 
+        }
+
+        &-desc {
+            @include abs.fontStyle(body, body1, 400, 1.4, 0, map-get(abs.$colors, white));  
+        }
+
+        &-title, &-desc {
+            position: relative;
+            z-index: 5;
+        }
+
+        &::before {
+            content: "";
+            background: rgba(0,0,0,0.5);
+            border-radius: 3rem;
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+        }
+    }
+
+    .scroll-indicator {
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        z-index: 10;
+        transform: translateX(-50%);
+        flex-direction: column;
+
+        span {
+            @include abs.fontStyle(body, body4, 400, 1.5, 0.01em, map-get(abs.$colors, gray-100));
+
+            margin-bottom: 0.4rem;
+        }
+
+        .scroll-icon {
+            width: 2rem;
+            height: 3.5rem;
+            border-radius: 5rem;
+            border: 0.2rem solid map-get(abs.$colors, gray-100);
+            background-color: transparent;
+            position: relative;
+
+            &::before {
+                content: "";
+                width: 0.1rem;
+                height: 20%;
+                position: absolute;
+                top: 20%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: map-get(abs.$colors, gray-100);
+                animation: scrollIndicatorAnimation 1.5s ease-in-out 0.5s infinite;
+            }
+        }
+    }
+}
+
+// --------------- explore ---------------
+.explore {
+    background-color: map-get(abs.$colors, black);
+    $padding-lg: 6rem;
+    $padding-md: 5rem;
+    $padding-sm: 4rem;
+
+    * {
+        color: map-get(abs.$colors, white);
+    }
+    
+    &__contents {
+        @media (max-width: map-get(abs.$breakpoints, large)) {
+            flex-direction: column;
+        }
+
+        > * {
+            @include abs.responsiveHeight(90vh, 50vh, 50vh, 50vh);
+
+            padding: $padding-lg;
+            @media (max-width: map-get(abs.$breakpoints, large)) {
+                padding: $padding-md;
+            }
+            @media (max-width: map-get(abs.$breakpoints, medium)) {
+                padding: $padding-sm;
+            }
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+            }
+        }
+    }
+    
+    &__seller {
+        clip-path: polygon(0% 0%, 60% 0%, 40% 100%, 0% 100%);
+        background-image: url("../images/explore_seller.webp");
+
+        @media (max-width: map-get(abs.$breakpoints, large)) {
+            clip-path: none;
+        }
+
+        &::before {
+            clip-path: polygon(0% 0%, 60% 0%, 40% 100%, 0% 100%);
+            background: rgba(0,0,0,0.7);
+
+            @media (max-width: map-get(abs.$breakpoints, large)) {
+                clip-path: none;
+            }
+        }
+    }
+
+    &__creator {
+        position: absolute;
+        inset: 0;
+        clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 40% 100%);
+        background-image: url("../images/explore_creator.webp");
+
+        @media (max-width: map-get(abs.$breakpoints, large)) {
+            top: 50%;
+            left: 0;
+            clip-path: none;
+        }
+
+        &::before {
+            clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 40% 100%);
+            background: rgba(0,0,0,0.65);
+
+            @media (max-width: map-get(abs.$breakpoints, large)) {
+                clip-path: none;
+            }
+        }
+
+        &-text {
+            right: $padding-lg;
+            bottom: $padding-lg;
+
+            @media (max-width: map-get(abs.$breakpoints, large)) {
+                right: $padding-md;
+                bottom: $padding-md;
+            }
+
+            @media (max-width: map-get(abs.$breakpoints, medium)) {
+                right: $padding-sm;
+                bottom: $padding-sm;
+            }
+        }
+    }
+
+    &__text {
+        @include abs.responsiveGap(3rem, 2.5rem, 2rem);
+
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__desc {
+        @include abs.fontStyle(body, body1, 500, 1.4, 0, map-get(abs.$colors, white));
+    }
+
+    &__cta {
+        @include abs.fontStyle(button, button3, 500, 1.45, 0.01em, map-get(abs.$colors, white));
+        @include abs.responsivePaddingX($pc: 2rem, $laptop: 2rem, $tablet:2rem, $mobile: 1.5rem);
+        @include abs.responsivePaddingY($pc: 1rem, $laptop: 1rem, $tablet: 1rem, $mobile: 0.8rem);
+        @include abs.responsiveGap(1rem, 1rem, 0.5rem);
+
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        border: 0.15rem solid map-get(abs.$colors, white);
+        border-radius: 5rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.35);
+        }
+
+        &:focus-visible {
+            border-width: 0.2rem;
+        }
+    }
+}
+
+// --------------- review ---------------
+.review {
+    &__contents {
+        @include abs.responsiveGap(3rem, 3rem, 3rem, 1.5rem);
+    }
+
+    .reviewSwiper {
+        &__slide {
+            aspect-ratio: 3 / 4;
+            height: 50rem;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+                border-radius: 2rem;
+                background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,7,21,0.7));
+            }
+
+            .image-wrapper {
+                width: 100%;
+                height: 100%;
+                border-radius: 2rem;
+                overflow: hidden; 
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: all 0.3s ease-in-out;
+            }
+
+            &:hover img {
+                transform: scale(1.1);
+            }
+
+            &-play {
+                border: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 2;
+                transform: translate(-50%, -50%);
+                background-color: transparent;
+
+                > i::before {
+                    font-size: 4.4rem;
+                    color: rgba(255,255,255,0.5);
+                    transition: all 0.3s ease-in-out;
+                }
+
+                &:hover > i::before {
+                    color: rgba(255,255,255,1.0);
+                }
+            }
+
+            &-text{
+                position: absolute;
+                left: 2.5rem;
+                bottom: 2rem;
+                z-index: 2;
+            }
+
+            &-label {
+                @include abs.fontStyle(label, label1, 500, 1.45, 0, map-get(abs.$colors, orange));
+                
+                width: fit-content;
+                padding: 0.5rem 1.5rem;
+                border-radius: 5rem;
+                box-shadow: inset 0 0 0 0.2rem map-get(abs.$colors, light-orange); 
+            }
+
+            &-title {
+                @include abs.fontStyle(title, title5, 700, 1.25, 0, map-get(abs.$colors, white));
+
+                margin-top: 1.5rem;
+                margin-bottom: 3rem;
+            }
+
+            &-author {
+                @include abs.fontStyle(body, body4, 400, 1.5, 0.01em, map-get(abs.$colors, gray-100));
+
+            }
+        }
+    }
+}
+
+.swiper-button-prev, .swiper-button-next {
+    color: map-get(abs.$colors, black);
+}
+
+// --------------- modal ---------------
+.modal {
+    &-body {
+        padding-bottom: 56.25%; // 모달 창의 비율을 16:9로 설정
+        height: 0;
+    }
+}
+
+@keyframes tiltAnimation {
+    0% {
+        transform: rotate(0) rotateX(0) rotateY(0) skewX(0) skewY(10);
+    }
+    100% {
+        transform: rotate(-32deg) rotateX(26deg) rotateY(25deg) skewX(8deg) skewY(11deg);
+    }
+}
+  
+
+@keyframes marqueeAnimation {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+       transform: translateX(calc(-100% / 3)); 
+    }
+}
+
+@keyframes scrollIndicatorAnimation {
+    0% {
+        top: 20%;
+        height: 20%;
+        opacity: 1;
+    }
+    50% {
+        top: 20%;
+        height: 60%;
+        opacity: 1;
+    }
+    100% {
+        top: 80%;
+        height: 0;
+        opacity: 0;
+    }
+}
+
+
+

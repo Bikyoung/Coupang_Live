@@ -1,0 +1,154 @@
+// --------------- breakpoints ---------------
+$breakpoints: (
+    large: 1023px,
+    medium: 767px,
+    small: 479px
+);
+
+// --------------- colors ---------------
+$colors: (
+    primary: #F7552F,
+    primary-hover: #FF7859,
+    primary-focus: #E04925,
+    navy: #000715,
+    gray-50: #F4F5F9,
+    gray-100: #C0C0C0,
+    gray-150: #4E4E4E,
+    blue-50: #D3E8F9,
+    blue-100: #2F50F7,
+    yellow: #F9F5D3,
+    orange: #FF883F,
+    red: #FF0000,
+    white: #FFFFFF,
+    black: #00040C
+);
+
+// --------------- font-size ---------------
+$pc-laptop-title5: 2.6rem;
+$pc-laptop-body2: 1.8rem;
+$pc-laptop-body3: 1.6rem;
+$pc-laptop-button2: 2rem;
+$pc-laptop-button4: 1.4rem;
+$pc-laptop-label1: 1.8rem;
+$tablet-mobile-body3: 1.4rem;
+$tablet-mobile-body4: 1.2rem;
+$tablet-mobile-button1: 1.8rem;
+$tablet-mobile-label1: 1.6rem;
+
+$font-size: (
+    // ---------- pc ----------
+    pc: (
+        title: (
+            title1: 5.4rem,
+            title2: 4.4rem,
+            title3: 4.2rem,
+            title4: 3.4rem,
+            title5: $pc-laptop-title5,
+        ),
+        
+        body: (
+            body1: 2rem,
+            body2: $pc-laptop-body2,
+            body3: $pc-laptop-body3,
+            body4: 1.4rem
+        ),
+
+        button: (
+            button1: 2.4rem,
+            button2: $pc-laptop-button2,
+            button3: 1.6rem,
+            button4: 1.4rem
+        ),
+
+        label: (
+            label1: $pc-laptop-label1
+        )
+    ),
+
+    // ---------- laptop ----------
+    laptop: (
+        title: (
+            title1: 4.6rem,
+            title2: 4rem,
+            title3: 3.8rem,
+            title4: 3rem,
+            title5: $pc-laptop-title5,
+        ),
+        
+        body: (
+            body1: 2rem,
+            body2: $pc-laptop-body2,
+            body3: $pc-laptop-body3,
+            body4: 1.3rem
+        ),
+
+        button: (
+            button1: 2.2rem,
+            button2: $pc-laptop-button2,
+            button3: 1.6rem,
+            button4: 1.4rem
+        ),
+
+        label: (
+            label1: $pc-laptop-label1
+        )
+    ),
+
+    // ---------- tablet ----------
+    tablet: (
+        title: (
+            title1: 4.2rem,
+            title2: 3.8rem,
+            title3: 3.6rem,
+            title4: 2.6rem,
+            title5: 2.4rem,
+        ),
+        
+        body: (
+            body1: 1.8rem,
+            body2: 1.6rem,
+            body3: $tablet-mobile-body3,
+            body4: $tablet-mobile-body4,
+        ),
+
+        button: (
+            button1: $tablet-mobile-button1,
+            button2: 1.8rem,
+            button3: 1.4rem,
+            button4: 1.3rem
+        ),
+
+        label: (
+            label1: $tablet-mobile-label1
+        )
+    ),
+
+    // ---------- mobile ----------
+    mobile: (
+        title: (
+            title1: 3.2rem,
+            title2: 3rem,
+            title3: 2.8rem,
+            title4: 2.2rem,
+            title5: 2.2rem,
+        ),
+        
+        body: (
+            body1: 1.6rem,
+            body2: 1.5rem,
+            body3: $tablet-mobile-body3,
+            body4: $tablet-mobile-body4
+        ),
+
+        button: (
+            button1: $tablet-mobile-button1,
+            button2: 1.6rem,
+            button3: 1.4rem,
+            button4: 1.2rem
+        ),
+
+        label: (
+            label1: $tablet-mobile-label1
+        )
+    )
+);

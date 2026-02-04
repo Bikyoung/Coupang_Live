@@ -1,0 +1,6 @@
+@use "./_variables.scss" as vars;
+
+@function getFontSize($device, $category, $key) {
+    @return map-get(map-get(map-get(vars.$font-size, $device), $category), $key);
+}
+

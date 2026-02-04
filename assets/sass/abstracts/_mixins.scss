@@ -1,0 +1,154 @@
+@use "./_function.scss" as fn;
+@use "./_variables.scss" as vars;
+
+// 반응형별로 font-size를 자동 재정의하는 mixin 
+@mixin responsiveFontSize($category, $key) {
+    font-size: fn.getFontSize(pc, $category, $key);
+
+    @each $bp, $device in (large: laptop, medium: tablet, small: mobile) {
+        @media (max-width: map-get(vars.$breakpoints, $bp)) {
+            font-size: fn.getFontSize($device, $category, $key);
+        }
+    }
+}
+
+// font와 관련된 모든 속성들을 정의하는 mixin
+@mixin fontStyle($category, $key, $fontWeight, $lineHeight, $letterSpacing, $color) {
+
+    @include responsiveFontSize($category, $key);
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    letter-spacing: $letterSpacing;
+    color: $color;
+}
+
+// 주어진 최대 너비 이하에서는 display: block으로 설정하는 mixin 
+@mixin responsiveShow($maxWidth) {
+    display: none;
+
+    @media (max-width: $maxWidth) {
+        display: inline-block;
+    }
+}
+
+// 반응형별로 margin-top을 자동 재정의하는 mixin
+@mixin responsiveMarginTop(
+    $pc, $laptop, $tablet, $mobile) {
+
+    margin-top: $pc; 
+
+    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+        @media (max-width: map-get(vars.$breakpoints, $bp)) {
+            margin-top: $device;
+        }
+    }
+}
+
+// 반응형별로 margin-bottom을 자동 재정의하는 mixin
+@mixin responsiveMarginBottom(
+    $pc, $laptop, $tablet, $mobile) {
+
+    margin-top: $pc; 
+
+    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+        @media (max-width: map-get(vars.$breakpoints, $bp)) {
+            margin-bottom: $device;
+        }
+    }
+}
+
+// 반응형별로 좌우 padding을 자동 재정의하는 mixin
+@mixin responsivePaddingX($pc: null, $laptop: null, $tablet: null, $mobile: null) {
+    padding-left: $pc;
+    padding-right: $pc;
+
+    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+        @if($device !=null) {
+            @media (max-width: map-get(vars.$breakpoints, $bp)) {
+                padding-left: $device;
+                padding-right: $device;
+            }
+        }
+    }
+}
+
+// 반응형별로 상하 padding을 자동 재정의하는 mixin
+@mixin responsivePaddingY($pc: null, $laptop: null, $tablet: null, $mobile: null) {
+
+    // $pc에 인수가 map 타입이 아닌 경우 map 타입으로 전환
+    @if((type-of($pc)=="list") and (length($pc)==2)) {
+        $pc: (
+            pt: nth($pc, 1),
+            pb: nth($pc, 2)
+        );
+    }
+    @else if(type-of($pc) !="map") {
+        $pc: (
+            pt: $pc,
+            pb: $pc
+        );
+    }
+
+    padding-top: map-get($pc, pt);
+    padding-bottom: map-get($pc, pb);
+
+    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+    
+        /* null 체크
+            null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+        @if($device !=null) {
+            @media (max-width: map-get(vars.$breakpoints, $bp)) {
+                @if((type-of($device)=="list") and (length($device)==2)) {
+                    $device: (
+                        pt: nth($device, 1),
+                        pb: nth($device, 2)
+                    );
+                }
+                @else if(type-of($device) !="map") {
+                    $device: (
+                        pt: $device,
+                        pb: $device
+                    );
+                }
+    
+                padding-top: map-get($device, pt);
+                padding-bottom: map-get($device, pb);
+            }
+        }
+    }
+}
+
+// 반응형별로 gap을 자동 재정의하는 mixin
+@mixin responsiveGap($pc, $laptop: null, $tablet: null, $mobile: null) {
+    gap: $pc;
+
+    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+        @if($device !=null) {
+            @media (max-width: map-get(vars.$breakpoints, $bp)) {
+                gap: $device;
+            }
+        }
+    }
+}
+
+// 반응형별로 width를 자동 재정의하는 mixin
+@mixin responsiveWidth($pc, $laptop, $tablet, $mobile) {
+    width: $pc;
+
+    @each $bp, $width in (large: $pc, medium: $tablet, small: $mobile) {
+        @media (max-width: map-get(vars.$breakpoints, $bp)) {
+            width: $width;
+        }
+    }
+}
+
+// 반응형별로 height를 자동 재정의하는 mixin
+@mixin responsiveHeight($pc, $laptop, $tablet, $mobile) {
+    height: $pc;
+
+    @each $bp, $height in (large: $laptop, medium: $tablet, small: $mobile) {
+        @media (max-width: map-get(vars.$breakpoints, $bp)) {
+            height: $height;
+        }
+    }
+}
