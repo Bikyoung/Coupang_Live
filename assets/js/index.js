@@ -79,8 +79,6 @@ function init() {
             }
         });
         
-        
-        
         // ------------------------------ difference ------------------------------ 
         const differenceItems = document.querySelector(".difference__items");
         
@@ -235,16 +233,6 @@ function init() {
                 reviewModal.show();
             });
         });
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         // 페이지 첫 로드 시 실행
         setHeightDifferenceItems();

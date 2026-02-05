@@ -37,6 +37,9 @@ function init() {
             });
         });
 
+        /* 폼 입력 요소에 blur, change, input 이벤트 발생 시, 
+           해당 요소에 실시간 유효성 검사를 수행 
+           (폼 재출 시 수행하는 유효성 검사와는 별도) */
         inputGroup.forEach((input) => {
             const field = input.querySelector("select, input, textarea");
 
@@ -47,34 +50,37 @@ function init() {
             });
         });
 
+        /* 폼에 submit 이벤트 발생 시, 유효성을 검사하여 유효하지 않은 첫번째 요소를 포커스 함
+           모든 폼 입력 요소가 유효할 시, 폼 제출 */
         form.addEventListener("submit", (e) => {
             let firstInvalidField = null;
 
+            e.preventDefault();
+
             inputGroup.forEach((input) => {
-                const isValid = checkValidation(input, e);
+                const isValid = checkValidation(input);
 
                 if(!isValid && !firstInvalidField) {
                     firstInvalidField = input.querySelector("select, input, textarea");
                 }
             });
-
+            
             if(firstInvalidField) {
                 firstInvalidField.focus();
+            } else {
+                form.submit();
             }
         });
     }
 }
 
-function checkValidation(input, e) {
+// 폼 입력 요소의 유효성 검사 함수
+function checkValidation(input) {
     const field = input.querySelector("select, input, textarea");
     const errorMessage = input.querySelector(".error-message");
     
     if(field.validity.valueMissing) {
         const errRequired = field.dataset.errRequired || "필수 입력 항목입니다.";
-
-        if(e) {
-            e.preventDefault();
-        }
 
         input.classList.add("is-invalid");
         errorMessage.innerText = errRequired;
