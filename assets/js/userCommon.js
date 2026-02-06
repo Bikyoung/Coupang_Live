@@ -42,42 +42,48 @@ export function userCommon(resultsListImage) {
             autoAlpha: 1,
             ease: "power2.inOut"
         }, "<")
-        .to(".results__list--01 .image", {
-            height: resultsListImage[0]
+        .from(".results__list--01 .image", {
+            width: 0,
+            height: 0
         }, "<")
         .to(".results__list--01", {
             scale: 0.6,
             autoAlpha: 0.3
         }, ">+=2")
         .to(".results__list--01 .image", {
+            width: 0,
             height: 0
         }, "<")
         .to(".results__list--02", {
             scale: 0.8,
             autoAlpha: 1
         }, "<")
-        .to(".results__list--02 .image", {
-            height: resultsListImage[1]
+        .from(".results__list--02 .image", {
+            width: 0,
+            height: 0
         }, "<")
         .to(".results__list--02", {
             scale: 0.6,
             autoAlpha: 0.3
         }, ">+=2")
         .to(".results__list--02 .image", {
+            width: 0,
             height: 0
         }, "<")
         .to(".results__list--03", {
             scale: 0.8,
             autoAlpha: 1
         }, "<")
-        .to(".results__list--03 .image", {
-            height: resultsListImage[2]
+        .from(".results__list--03 .image", {
+            width: 0,
+            height: 0
         }, "<")
         .to(".results__list--03", {
             scale: 0.6,
             autoAlpha: 0.3
         }, ">+=2")
         .to(".results__list--03 .image", {
+            width: 0,
             height: 0
         });
     

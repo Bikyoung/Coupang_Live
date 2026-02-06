@@ -21,8 +21,9 @@ async function init() {
         setAriaCurrent(pageName, menuList);
         toggleMobileMenu();
 
+        
         // GSAP 설정
-        if(typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+        if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
             gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
             
             ScrollSmoother.create({

@@ -342,6 +342,11 @@
             white-space: nowrap;
         }
 
+        .image {
+            will-change: width, height, transform;
+            overflow: hidden;
+        }
+
         @media (max-width: 1439px) {
             flex-direction: column;
             margin-top: 8rem;

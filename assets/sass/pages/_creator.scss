@@ -24,6 +24,30 @@ body[data-page="creator"] {
             background-color: map-get(abs.$colors, primary);
         }
     }
+        
+    // --------------- results ---------------
+    .results {
+        &__list--01 {
+            img {
+                width: 8rem;
+                height: 8rem;
+            }
+        } 
+
+        &__list--02 {
+            img {
+                width: 11rem;
+                height: 8rem;
+            }
+        } 
+
+        &__list--03 {
+            img {
+                width: 11rem;
+                height: 6rem;
+            }
+        } 
+    }
     
     // --------------- liveType ---------------
     .liveType {

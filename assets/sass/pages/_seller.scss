@@ -25,6 +25,23 @@ body[data-page="seller"] {
         }
     }
     
+    // --------------- results ---------------
+    .results {
+        &__list--01, &__list--02 {
+            img {
+                width: 9rem;
+                height: 9rem;
+            }
+        } 
+
+        &__list--03 {
+            img {
+                width: 10rem;
+                height: 10rem;
+            }
+        } 
+    }
+
     // --------------- liveType ---------------
     .liveType {
 
