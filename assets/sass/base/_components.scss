@@ -72,13 +72,13 @@
         margin: 0 auto;
     }
     
-    &__container-top {
+    &__container-head {
         @include abs.responsivePaddingY(2rem, 2rem, 1rem);
 
         justify-content: space-between;
     }
 
-    &__container-bottom {
+    &__container-body {
         gap: 4rem;
         flex: 1;
 

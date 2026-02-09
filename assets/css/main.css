@@ -255,6 +255,12 @@ section {
   font-weight: 700;
   font-display: swap;
 }
+.marcellus-regular {
+  font-family: "Marcellus", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -445,7 +451,7 @@ a {
 .m-nav__container {
   margin: 0 auto;
 }
-.m-nav__container-top {
+.m-nav__container-head {
   padding-top: 2rem;
   padding-bottom: 2rem;
   /* null 체크
@@ -457,22 +463,22 @@ a {
   justify-content: space-between;
 }
 @media (max-width: 1023px) {
-  .m-nav__container-top {
+  .m-nav__container-head {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
 }
 @media (max-width: 767px) {
-  .m-nav__container-top {
+  .m-nav__container-head {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
 }
-.m-nav__container-bottom {
+.m-nav__container-body {
   gap: 4rem;
   flex: 1;
 }
-.m-nav__container-bottom a {
+.m-nav__container-body a {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.4;
@@ -481,21 +487,21 @@ a {
   color: #FFFFFF;
 }
 @media (max-width: 1023px) {
-  .m-nav__container-bottom a {
+  .m-nav__container-body a {
     font-size: 2rem;
   }
 }
 @media (max-width: 767px) {
-  .m-nav__container-bottom a {
+  .m-nav__container-body a {
     font-size: 1.8rem;
   }
 }
 @media (max-width: 479px) {
-  .m-nav__container-bottom a {
+  .m-nav__container-body a {
     font-size: 1.6rem;
   }
 }
-.m-nav__container-bottom a:hover {
+.m-nav__container-body a:hover {
   color: #F7552F;
 }
 .m-nav img {

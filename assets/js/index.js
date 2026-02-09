@@ -15,6 +15,7 @@ function init() {
 
     if(isLoad && isInit) {
 
+
         // ------------------------------ hero ------------------------------
         const marquee = document.querySelector(".marquee");
         const marqueeTrack = document.querySelector(".marquee__track");
