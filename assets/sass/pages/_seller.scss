@@ -6,8 +6,6 @@ body[data-page="seller"] {
     .hero {
         &__bg {        
             &--seller {
-                background-image: url("../images/seller_hero.webp");
-
                 &::before {
                     content: "";
                     width: 100%;

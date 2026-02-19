@@ -6,8 +6,6 @@ body[data-page="creator"] {
     .hero {
         &__bg {        
             &--creator {
-                background-image: url("../images/creator_hero.webp");
-
                 &::before {
                     content: "";
                     width: 100%;

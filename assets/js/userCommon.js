@@ -1,4 +1,15 @@
 export function userCommon() {
+    // ------------------------------ AOS init ------------------------------
+    AOS.init({
+        once: true,
+        duration: 700,
+        easing: "ease-out"
+    });
+    
+    window.addEventListener('load', () => {
+        AOS.refresh();
+    });
+
     // ------------------------------ results ------------------------------
     let resizeTimer;
 
