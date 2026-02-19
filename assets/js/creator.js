@@ -1,24 +1,25 @@
+import { commonInit } from "./common.js";
 import { userCommon } from "./userCommon.js";
 
-let isLoad = false; // 페이지 내 모든 리소스가 로드되었는지 여부 
-let isInit = false; // common.js의 init() 실행 완료 여부
+async function creator() {
+    // common.js의 init() 실행 완료를 기다림
+    await commonInit();
 
+    // 트리거 중복으로 인한 오작동을 방지하기 위해 기존의 트리거 인스턴스를 모두 제거
+    ScrollTrigger.getAll().forEach((trigger) => { trigger.kill(); });
 
-window.addEventListener("load", () => {
-    isLoad = true;
-    creator();
-})
+    userCommon();
+    ScrollTrigger.refresh();
 
-window.addEventListener("commonInitDone", () => {
-    isInit = true;
-    creator();
-});
-
-function creator() {
-    if(isLoad && isInit) {
-        const resultsListImage = ["10rem", "10rem", "8rem"];
-    
-        userCommon(resultsListImage);
+    /* 브라우저가 이미지를 로드 완료한 시점과 이미지 랜더링이 실제 완료된 시점이 달라
+        트리거 계산이 오작동하는 것을 방지하기 위해 시간 확보 후 재계산 */
+    requestAnimationFrame(() => {
         ScrollTrigger.refresh();
-    }
+    });
+
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 500);
 }
+
+creator();

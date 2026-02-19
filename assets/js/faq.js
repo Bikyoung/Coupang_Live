@@ -1,3 +1,5 @@
+import { commonInit } from "./common.js";
+
 const faqTitle = document.querySelector(".faq__title");
 const faqUlTag = document.querySelector(".faq__list");
 const faqPaginationTag = document.querySelector(".faq__pagination");
@@ -12,7 +14,9 @@ let pageNum;
 let currentPage = 1;
 
 // faq.html 첫 로드 시 실행할 초기화 함수
-async function init() {
+async function faqInit() {
+    await commonInit();
+
     faqTabArr.forEach((faqTab) => {
         faqTab.setAttribute("disabled", true);
     });
@@ -226,4 +230,4 @@ function toggleSearchIcon() {
     }
 }
 
-init();
+faqInit();

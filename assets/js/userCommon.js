@@ -1,13 +1,17 @@
-export function userCommon(resultsListImage) {
+export function userCommon() {
     // ------------------------------ results ------------------------------
-    // .results__top을 스크롤 중 잠시 고정
+    let resizeTimer;
+
+    //.results__top을 스크롤 중 잠시 고정
     const resultsPinTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: ".results__top",
             start: "top top",
             end: "bottom top",
             pin: true,
-            scrub: 2
+            scrub: 1.5,
+            // 애니메이션의 수치(위치, 크기 등)를 Refresh 될 때마다 재계산
+            invalidateOnRefresh: true,
         }
     });
     
@@ -18,6 +22,7 @@ export function userCommon(resultsListImage) {
             autoAlpha: 0.3
         })
         .set(".results__list .image", {
+            width: 0,
             height: 0
         });
     
@@ -27,7 +32,8 @@ export function userCommon(resultsListImage) {
             trigger: ".results__bottom",
             start: "top center",
             end: "bottom 40%",
-            scrub: 2,
+            scrub: 1.5,
+            invalidateOnRefresh: true,
         }
     }); 
     
@@ -44,7 +50,7 @@ export function userCommon(resultsListImage) {
         }, "<")
         .from(".results__list--01 .image", {
             width: 0,
-            height: 0
+            height: 0,
         }, "<")
         .to(".results__list--01", {
             scale: 0.6,
@@ -86,6 +92,20 @@ export function userCommon(resultsListImage) {
             width: 0,
             height: 0
         });
+
+    // 리사이즈가 온전히 종료되었을 시에만 ScrollTrigger를 재계산 (Debounce)
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+
+        // 리사이즈 발생 후 0.2초동안 리사이즈가 더 발생하지 않으면 리사이즈가 온전히 종료되었다고 판단 
+        resizeTimer = setTimeout(() => {
+            ScrollTrigger.refresh();
+
+            ScrollTrigger.getAll().forEach(trigger => {
+                trigger.update(); // 현재 스크롤 기준 상태 강제 반영
+              });
+        }, 200);
+    });
     
     // ------------------------------ liveType ------------------------------
     const liveTypeTabList = document.querySelectorAll(".liveType__tab");

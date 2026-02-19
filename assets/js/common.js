@@ -1,6 +1,6 @@
 import { loadComponent } from "./componentLoader.js";
 
-async function init() {
+export async function commonInit() {
     try {
         // header와 footer 로드 및 UI 설정  
         let pageName = document.querySelector("body").dataset.page;
@@ -20,25 +20,24 @@ async function init() {
         applyHeaderStyle(pageName, header, menuList);
         setAriaCurrent(pageName, menuList);
         toggleMobileMenu();
-
         
         // GSAP 설정
-        if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
-            gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-            
-            ScrollSmoother.create({
-                wrapper: "#smooth-wrapper",
-                content: "#smooth-content",
-                smooth: 2,
-                effects: true,
-                // 브라우저의 불안정한 스크롤 떨림 현상을 줄여줌
-                normalizeScroll: true
-            });
+        if(typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+            gsap.registerPlugin(ScrollTrigger);
+
+            if(pageName !== "creator" && pageName !== "seller") {
+                gsap.registerPlugin(ScrollSmoother);
+
+                ScrollSmoother.create({
+                    wrapper: "#smooth-wrapper",
+                    content: "#smooth-content",
+                    smooth: 2,
+                    effects: true,
+                    // 브라우저의 불안정한 스크롤 떨림 현상을 줄여줌
+                    normalizeScroll: true
+                });
+            }
         }
-
-        // init() 함수의 실행 완료를 알리는 이벤트 객체의 생성 및 브라우저에 전파
-        window.dispatchEvent(new CustomEvent("commonInitDone"));
-
     } catch(error) {
         console.error("header와 footer 로드 실패", error);
     }
@@ -85,7 +84,6 @@ function toggleMobileMenu() {
     });
 }
 
-init();
 
 
     
