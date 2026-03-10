@@ -31,13 +31,13 @@ async function indexInit() {
     
     // ------------------------------ vision ------------------------------ 
     // .vision__title이 스크롤에 맞춰 아래에서 올라오며 fade-in
-    const fadeInVisionTitle = gsap.from(".vision__title", {
+    gsap.from(".vision__title", {
         y: "150%",
         autoAlpha: 0,
         scrollTrigger: {
             trigger: ".vision__top",
             start: "top 30%",
-            end: "+=40%",
+            end: "+=30%",
             scrub: 2
         }
     });
@@ -52,8 +52,7 @@ async function indexInit() {
     });
     
     // .vision__title이 스크롤에 맞춰 fade-out
-    const fadeOutVisionTitle = gsap.to(".vision__title", {
-        // height: 0,
+    gsap.to(".vision__title", {
         scale: 0,
         autoAlpha: 0,
         immediateRender: false,
@@ -61,7 +60,7 @@ async function indexInit() {
             trigger: ".vision__middle",
             start: "top 60%",
             end: "bottom 20%",
-            scrub: 1.5,
+            scrub: 1.5
         }
     });
     
