@@ -135,11 +135,11 @@
     .content {
         display: flex;
 
-        &__01 {
+        &__top {
             gap: 11rem;
         }
 
-        &__02 {
+        &__bottom {
             flex-direction: column;
             gap: 1.2rem;
         }
@@ -173,7 +173,7 @@
                 width: 35.4rem;
             }
 
-            &__01 {
+            &__top {
                 flex-direction: row;
     
                 > div {
@@ -181,7 +181,7 @@
                 }
             }
 
-            &__02 {
+            &__bottom {
                 width: 100%;
                 flex-direction: row;
             }
@@ -200,11 +200,11 @@
                 width: fit-content;
             }
 
-            &__01 {
+            &__top {
                 gap: 4rem;
             }
 
-            &__02 {
+            &__bottom {
                 flex-direction: column;
                 gap: 1.2rem;
             }
@@ -213,7 +213,7 @@
 
     @media (max-width: map-get(abs.$breakpoints, small)) {
         .content {
-            &__01 {
+            &__top {
                 flex-direction: column;
                 gap: 4rem;
             }
