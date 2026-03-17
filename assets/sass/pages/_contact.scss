@@ -32,7 +32,7 @@
     }
 
     &__subtitle {
-        @include abs.fontStyle(body, body1, 400, 1.4, 0, map-get(abs.$colors, gray-150));
+        @include abs.respond-typo(body, body-xl, 400, 1.4, 0, map-get(abs.$colors, gray-150));
     }
 
     &__image {
@@ -52,7 +52,7 @@
         padding: 3rem;
 
         .error-message {
-            @include abs.fontStyle(body, body4, 400, 1.5, 00.01em, map-get(abs.$colors, red));
+            @include abs.respond-typo(body, body-sm, 400, 1.5, 00.01em, map-get(abs.$colors, red));
             @include abs.responsivePaddingX(1rem);
 
             width: 100%;
@@ -116,7 +116,7 @@
         }
 
         label > span, .label {
-            @include abs.fontStyle(label, label1, 700, 1.45, 0, map-get(abs.$colors, navy));
+            @include abs.respond-typo(label, label-md, 700, 1.45, 0, map-get(abs.$colors, navy));
 
             position: relative;
 
@@ -142,7 +142,7 @@
         }
 
         input, select, textarea {
-            @include abs.fontStyle(body, body3, 400, 1.45, 0.01rem, map-get(abs.$colors, black));
+            @include abs.respond-typo(body, body-md, 400, 1.45, 0.01rem, map-get(abs.$colors, black));
 
             width: 100%;
             border: none;
@@ -178,11 +178,11 @@
                 }
     
                 .title {
-                    @include abs.fontStyle(body, body3, 600, 1.45, 0.01em, map-get(abs.$colors, gray-150));
+                    @include abs.respond-typo(body, body-md, 600, 1.45, 0.01em, map-get(abs.$colors, gray-150));
                 }
     
                 .desc {
-                    @include abs.fontStyle(body, body4, 400, 1.5, 0.01em, map-get(abs.$colors, gray-150));
+                    @include abs.respond-typo(body, body-sm, 400, 1.5, 0.01em, map-get(abs.$colors, gray-150));
                 }
             }
     
@@ -210,13 +210,13 @@
                 }
     
                 p {
-                    @include abs.fontStyle(body, body3, 400, 1.45, 0.01em, map-get(abs.$colors, navy));
+                    @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map-get(abs.$colors, navy));
                 }
             }
         }
 
         button {
-            @include abs.fontStyle(button, button2, 500, 1.45, 0.01em, map-get(abs.$colors, white));
+            @include abs.respond-typo(button, button-lg, 500, 1.45, 0.01em, map-get(abs.$colors, white));
 
             width: 100%;
             padding: 1.5rem 0;

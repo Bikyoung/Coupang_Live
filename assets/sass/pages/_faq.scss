@@ -22,7 +22,7 @@
     }
 
     &__tab {
-        @include abs.fontStyle(body, body1, 700, 1.4, 0, map-get(abs.$colors, gray-150));
+        @include abs.respond-typo(body, body-xl, 700, 1.4, 0, map-get(abs.$colors, gray-150));
         @include abs.responsivePaddingX(2rem, 2rem, 2rem, 1rem);
         @include abs.responsivePaddingY(1rem, 1rem, 1rem, 0.8rem);
 
@@ -68,7 +68,7 @@
     }
 
     &__input {
-        @include abs.fontStyle(body, body3, 400, 1.45, 0.01em, map-get(abs.$colors, black));
+        @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map-get(abs.$colors, black));
 
         flex: 1;
         border: none;
@@ -87,7 +87,7 @@
         border-top: 0.2rem solid map-get(abs.$colors, gray-150);
 
         .no-result {
-            @include abs.fontStyle(body, body3, 400, 1.4, 0, map-get(abs.$colors, gray-150));
+            @include abs.respond-typo(body, body-md, 400, 1.4, 0, map-get(abs.$colors, gray-150));
 
             margin-top: 6rem;
             text-align: center;
@@ -106,7 +106,7 @@
         .accordion-header {
 
             .faq__title{
-                @include abs.fontStyle(body, body3, 700, 1.4, 0, map-get(abs.$colors, navy));
+                @include abs.respond-typo(body, body-md, 700, 1.4, 0, map-get(abs.$colors, navy));
             }
 
             .accordion-button {
@@ -131,7 +131,7 @@
             background-color: map-get(abs.$colors, gray-50);
 
             .faq__desc {
-                @include abs.fontStyle(body, body3, 400, 1.45, 0.01em, map-get(abs.$colors, navy));
+                @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map-get(abs.$colors, navy));
                 
                 white-space: pre-wrap;
 
@@ -144,7 +144,7 @@
     }
 
     &__label {
-        @include abs.fontStyle(body, body3, 500, 1, 0, map-get(abs.$colors, navy));
+        @include abs.respond-typo(body, body-md, 500, 1, 0, map-get(abs.$colors, navy));
 
         font-family: "Noto Sans KR", sans-serif;
     }
@@ -162,7 +162,7 @@
         }
         
         .page-num-btn {
-            @include abs.fontStyle(body, body3, 400, 1.45, 0.01em, map-get(abs.$colors, navy));
+            @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map-get(abs.$colors, navy));
 
             width: 4rem;
             height: 4rem;

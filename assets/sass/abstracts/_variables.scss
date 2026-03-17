@@ -1,8 +1,8 @@
 // --------------- breakpoints ---------------
 $breakpoints: (
-    large: 1023px,
-    medium: 767px,
-    small: 479px
+    lg: 1023px,
+    md: 767px,
+    sm: 479px
 );
 
 // --------------- colors ---------------
@@ -23,132 +23,139 @@ $colors: (
     black: #00040C
 );
 
-// --------------- font-size ---------------
-$pc-laptop-title5: 2.6rem;
-$pc-laptop-body2: 1.8rem;
-$pc-laptop-body3: 1.6rem;
-$pc-laptop-button2: 2rem;
-$pc-laptop-button4: 1.4rem;
-$pc-laptop-label1: 1.8rem;
-$tablet-mobile-body3: 1.4rem;
-$tablet-mobile-body4: 1.2rem;
-$tablet-mobile-button1: 1.8rem;
-$tablet-mobile-label1: 1.6rem;
+// --------------- font-size --------------
+// ----- title -----
+$pc-laptop-title-sm: 2.6rem;
+
+// ----- body -----
+$pc-laptop-body-lg: 1.8rem;
+$pc-laptop-body-md: 1.6rem;
+$tablet-mobile-body-md: 1.4rem;
+$tablet-mobile-body-sm: 1.2rem;
+
+// ----- button -----
+$pc-laptop-button-lg: 2rem;
+$tablet-mobile-button-xl: 1.8rem;
+$pc-laptop-button-sm: 1.4rem;
+
+// ----- label -----
+$pc-laptop-label-md: 1.8rem;
+$tablet-mobile-label-md: 1.6rem;
 
 $font-size: (
-    // ---------- pc ----------
-    pc: (
+    // ---------- xl ----------
+    xl: (
         title: (
-            title1: 5.4rem,
-            title2: 4.4rem,
-            title3: 4.2rem,
-            title4: 3.4rem,
-            title5: $pc-laptop-title5,
+            title-2xl: 5.4rem,
+            title-xl: 4.4rem,
+            title-lg: 4.2rem,
+            title-md: 3.4rem,
+            title-sm: $pc-laptop-title-sm,
         ),
         
         body: (
-            body1: 2rem,
-            body2: $pc-laptop-body2,
-            body3: $pc-laptop-body3,
-            body4: 1.4rem
+            body-xl: 2rem,
+            body-lg: $pc-laptop-body-lg,
+            body-md: $pc-laptop-body-md,
+            body-sm: 1.4rem
         ),
 
         button: (
-            button1: 2.4rem,
-            button2: $pc-laptop-button2,
-            button3: 1.6rem,
-            button4: 1.4rem
+            button-xl: 2.4rem,
+            button-lg: $pc-laptop-button-lg,
+            button-md: 1.6rem,
+            button-sm: 1.4rem
         ),
 
         label: (
-            label1: $pc-laptop-label1
+            label-md: $pc-laptop-label-md
         )
     ),
 
-    // ---------- laptop ----------
-    laptop: (
+    // ---------- lg ----------
+    lg: (
         title: (
-            title1: 4.6rem,
-            title2: 4rem,
-            title3: 3.8rem,
-            title4: 3rem,
-            title5: $pc-laptop-title5,
+            title-2xl: 4.6rem,
+            title-xl: 4rem,
+            title-lg: 3.8rem,
+            title-md: 3rem,
+            title-sm: $pc-laptop-title-sm,
         ),
         
         body: (
-            body1: 2rem,
-            body2: $pc-laptop-body2,
-            body3: $pc-laptop-body3,
-            body4: 1.3rem
+            body-xl: 2rem,
+            body-lg: $pc-laptop-body-lg,
+            body-md: $pc-laptop-body-md,
+            body-sm: 1.3rem
         ),
 
         button: (
-            button1: 2.2rem,
-            button2: $pc-laptop-button2,
-            button3: 1.6rem,
-            button4: 1.4rem
+            button-xl: 2.2rem,
+            button-lg: $pc-laptop-button-lg,
+            button-md: 1.6rem,
+            button-sm: 1.4rem
         ),
 
         label: (
-            label1: $pc-laptop-label1
+            label-md: $pc-laptop-label-md
         )
     ),
 
-    // ---------- tablet ----------
-    tablet: (
+    // ---------- md ----------
+    md: (
         title: (
-            title1: 4.2rem,
-            title2: 3.8rem,
-            title3: 3.6rem,
-            title4: 2.6rem,
-            title5: 2.4rem,
+            title-2xl: 4.2rem,
+            title-xl: 3.8rem,
+            title-lg: 3.6rem,
+            title-md: 2.6rem,
+            title-sm: 2.4rem,
         ),
         
         body: (
-            body1: 1.8rem,
-            body2: 1.6rem,
-            body3: $tablet-mobile-body3,
-            body4: $tablet-mobile-body4,
+            body-xl: 1.8rem,
+            body-lg: 1.6rem,
+            body-md: $tablet-mobile-body-md,
+            body-sm: $tablet-mobile-body-sm,
         ),
 
         button: (
-            button1: $tablet-mobile-button1,
-            button2: 1.8rem,
-            button3: 1.4rem,
-            button4: 1.3rem
+            button-xl: $tablet-mobile-button-xl,
+            button-lg: 1.8rem,
+            button-md: 1.4rem,
+            button-sm: 1.3rem
         ),
 
         label: (
-            label1: $tablet-mobile-label1
+            label-md: $tablet-mobile-label-md
         )
     ),
 
-    // ---------- mobile ----------
-    mobile: (
+    // ---------- sm ----------
+    sm: (
         title: (
-            title1: 3.2rem,
-            title2: 3rem,
-            title3: 2.8rem,
-            title4: 2.2rem,
-            title5: 2.2rem,
+            title-2xl: 3.2rem,
+            title-xl: 3rem,
+            title-lg: 2.8rem,
+            title-md: 2.2rem,
+            title-sm: 2.2rem,
         ),
         
         body: (
-            body1: 1.6rem,
-            body2: 1.5rem,
-            body3: $tablet-mobile-body3,
-            body4: $tablet-mobile-body4
+            body-xl: 1.6rem,
+            body-lg: 1.5rem,
+            body-md: $tablet-mobile-body-md,
+            body-sm: $tablet-mobile-body-sm
         ),
 
         button: (
-            button1: $tablet-mobile-button1,
-            button2: 1.6rem,
-            button3: 1.4rem,
-            button4: 1.2rem
+            button-xl: $tablet-mobile-button-xl,
+            button-lg: 1.6rem,
+            button-md: 1.4rem,
+            button-sm: 1.2rem
         ),
 
         label: (
-            label1: $tablet-mobile-label1
+            label-md: $tablet-mobile-label-md
         )
     )
 );

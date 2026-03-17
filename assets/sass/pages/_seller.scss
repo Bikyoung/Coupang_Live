@@ -51,7 +51,7 @@ body[data-page="seller"] {
         }
 
         &__feature {
-            @include abs.fontStyle(body, body3, 500, 1.45, 0.01em, map-get(abs.$colors, blue-100));
+            @include abs.respond-typo(body, body-md, 500, 1.45, 0.01em, map-get(abs.$colors, blue-100));
 
             background-color: map-get(abs.$colors, blue-50);
         }

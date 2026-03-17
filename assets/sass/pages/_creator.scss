@@ -57,7 +57,7 @@ body[data-page="creator"] {
         }
 
         &__feature {
-            @include abs.fontStyle(body, body3, 500, 1.45, 0.01em, map-get(abs.$colors, orange));
+            @include abs.respond-typo(body, body-md, 500, 1.45, 0.01em, map-get(abs.$colors, orange));
 
             background-color: map-get(abs.$colors, yellow);
         }

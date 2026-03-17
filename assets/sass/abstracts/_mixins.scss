@@ -1,25 +1,26 @@
 @use "./_function.scss" as fn;
 @use "./_variables.scss" as vars;
 
-// 반응형별로 font-size를 자동 재정의하는 mixin 
-@mixin responsiveFontSize($category, $key) {
-    font-size: fn.getFontSize(pc, $category, $key);
+// 반응형별로 font-size를 자동 재정의
+@mixin respond-fs($category, $key) {
+    font-size: fn.get-fs(xl, $category, $key);
 
-    @each $bp, $device in (large: laptop, medium: tablet, small: mobile) {
-        @media (max-width: map-get(vars.$breakpoints, $bp)) {
-            font-size: fn.getFontSize($device, $category, $key);
+    @each $bp, $width in vars.$breakpoints {
+        @media (max-width: $width) {
+            font-size: fn.get-fs($bp, $category, $key);
         }
     }
 }
 
-// font와 관련된 모든 속성들을 정의하는 mixin
-@mixin fontStyle($category, $key, $fontWeight, $lineHeight, $letterSpacing, $color) {
+// font와 관련된 모든 속성들을 정의
+@mixin respond-typo($category, $size, $weight: null, $line-height: null, $letter-spacing: null, $color: null) {
+    @include respond-fs($category, $size);
 
-    @include responsiveFontSize($category, $key);
-    font-weight: $fontWeight;
-    line-height: $lineHeight;
-    letter-spacing: $letterSpacing;
-    color: $color;
+    // null 여부를 확인
+    @if $weight { font-weight: $weight; }
+    @if $line-height { line-height: $line-height; }
+    @if $letter-spacing { letter-spacing: $letter-spacing; }
+    @if $color { color: $color; }
 }
 
 // 주어진 최대 너비 이하에서는 display: block으로 설정하는 mixin 
