@@ -1,6 +1,24 @@
+@use "sass:map";
 @use "./_variables.scss" as vars;
 
-@function getFontSize($device, $category, $key) {
-    @return map-get(map-get(map-get(vars.$font-size, $device), $category), $key);
-}
+/* $breakpoint: desktop, laptop, tablet, mobile이 할당됨 
+   $category: title, body, button이 할당됨 
+   $key: title-lg, title-md, title-sm 등이 할당됨 */
+@function getFontSize($breakpoint, $category, $key) {
+    $breakpoint-map: map.get(vars.$font-size, $breakpoint);
+    @if not $breakpoint-map { 
+        @error "$font-size > #{$breakpoint}는 존재하지 않는 중단점입니다."; 
+    }
 
+    $category-map: map.get($breakpoint-map, $category);
+    @if not $category-map {
+        @error "$font-size > #{$breakpoint} > #{$category}는 존재하지 않는 카테고리입니다.";
+    }
+
+    $value: map.get($category-map, $key);
+    @if not $value {
+        @error "$font-size > #{$breakpoint} > #{category} > #{$key}는 존재하지 않는 key입니다.";
+    }
+
+    @return $value;
+}
