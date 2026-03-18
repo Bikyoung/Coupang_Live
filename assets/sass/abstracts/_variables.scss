@@ -23,23 +23,49 @@ $colors: (
     black: #00040C
 );
 
+// --------------- spacings ---------------
+$tablet-mobile-spacing-xl: 8rem;
+$tablet-mobile-spacing-lg: 4rem;
+
+$spacings: (
+    xl: (
+        spacing-xl: 12rem,
+        spacing-lg: 6rem
+    ),
+    lg: (
+        spacing-xl: 10rem,
+        spacing-lg: 5rem
+
+    ),
+    md: (
+        spacing-xl: $tablet-mobile-spacing-xl,
+        spacing-lg: $tablet-mobile-spacing-lg
+
+    ),
+    sm: (
+        spacing-xl: $tablet-mobile-spacing-xl,
+        spacing-lg: $tablet-mobile-spacing-lg
+
+    )
+);
+
 // --------------- font-size --------------
 // ----- title -----
-$pc-laptop-title-sm: 2.6rem;
+$desktop-laptop-title-sm: 2.6rem;
 
 // ----- body -----
-$pc-laptop-body-lg: 1.8rem;
-$pc-laptop-body-md: 1.6rem;
+$desktop-laptop-body-lg: 1.8rem;
+$desktop-laptop-body-md: 1.6rem;
 $tablet-mobile-body-md: 1.4rem;
 $tablet-mobile-body-sm: 1.2rem;
 
 // ----- button -----
-$pc-laptop-button-lg: 2rem;
+$desktop-laptop-button-lg: 2rem;
 $tablet-mobile-button-xl: 1.8rem;
-$pc-laptop-button-sm: 1.4rem;
+$desktop-laptop-button-sm: 1.4rem;
 
 // ----- label -----
-$pc-laptop-label-md: 1.8rem;
+$desktop-laptop-label-md: 1.8rem;
 $tablet-mobile-label-md: 1.6rem;
 
 $font-size: (
@@ -50,25 +76,25 @@ $font-size: (
             title-xl: 4.4rem,
             title-lg: 4.2rem,
             title-md: 3.4rem,
-            title-sm: $pc-laptop-title-sm,
+            title-sm: $desktop-laptop-title-sm,
         ),
         
         body: (
             body-xl: 2rem,
-            body-lg: $pc-laptop-body-lg,
-            body-md: $pc-laptop-body-md,
+            body-lg: $desktop-laptop-body-lg,
+            body-md: $desktop-laptop-body-md,
             body-sm: 1.4rem
         ),
 
         button: (
             button-xl: 2.4rem,
-            button-lg: $pc-laptop-button-lg,
+            button-lg: $desktop-laptop-button-lg,
             button-md: 1.6rem,
             button-sm: 1.4rem
         ),
 
         label: (
-            label-md: $pc-laptop-label-md
+            label-md: $desktop-laptop-label-md
         )
     ),
 
@@ -79,25 +105,25 @@ $font-size: (
             title-xl: 4rem,
             title-lg: 3.8rem,
             title-md: 3rem,
-            title-sm: $pc-laptop-title-sm,
+            title-sm: $desktop-laptop-title-sm,
         ),
         
         body: (
             body-xl: 2rem,
-            body-lg: $pc-laptop-body-lg,
-            body-md: $pc-laptop-body-md,
+            body-lg: $desktop-laptop-body-lg,
+            body-md: $desktop-laptop-body-md,
             body-sm: 1.3rem
         ),
 
         button: (
             button-xl: 2.2rem,
-            button-lg: $pc-laptop-button-lg,
+            button-lg: $desktop-laptop-button-lg,
             button-md: 1.6rem,
             button-sm: 1.4rem
         ),
 
         label: (
-            label-md: $pc-laptop-label-md
+            label-md: $desktop-laptop-label-md
         )
     ),
 

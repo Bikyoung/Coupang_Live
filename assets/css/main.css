@@ -40,72 +40,95 @@ button {
 }
 
 .only-section {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 19.6rem;
-  padding-bottom: 12rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 1023px) {
   .only-section {
     padding-top: 17.6rem;
-    padding-bottom: 10rem;
   }
-}
-.only-section {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 767px) {
   .only-section {
     padding-top: 14rem;
-    padding-bottom: 8rem;
   }
-}
-.only-section {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 479px) {
   .only-section {
     padding-top: 13rem;
+  }
+}
+.only-section {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 12rem;
+}
+@media (max-width: 1023px) {
+  .only-section {
+    padding-bottom: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  .only-section {
+    padding-bottom: 8rem;
+  }
+}
+@media (max-width: 479px) {
+  .only-section {
     padding-bottom: 8rem;
   }
 }
 
 section {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 12rem;
-  padding-bottom: 12rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 1023px) {
   section {
     padding-top: 10rem;
-    padding-bottom: 10rem;
   }
-}
-section {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 767px) {
   section {
     padding-top: 8rem;
-    padding-bottom: 8rem;
   }
-}
-section {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 479px) {
   section {
     padding-top: 8rem;
+  }
+}
+section {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 12rem;
+}
+@media (max-width: 1023px) {
+  section {
+    padding-bottom: 10rem;
+  }
+}
+@media (max-width: 767px) {
+  section {
+    padding-bottom: 8rem;
+  }
+}
+@media (max-width: 479px) {
+  section {
     padding-bottom: 8rem;
   }
 }
 
 .section-inner {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 12rem;
 }
 @media (max-width: 1023px) {
@@ -132,24 +155,34 @@ section {
 }
 
 .container-default {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-left: 8rem;
-  padding-right: 8rem;
 }
 @media (max-width: 1023px) {
   .container-default {
     padding-left: 3.2rem;
-    padding-right: 3.2rem;
   }
 }
 @media (max-width: 767px) {
   .container-default {
     padding-left: 1.6rem;
-    padding-right: 1.6rem;
   }
 }
-@media (max-width: 479px) {
+.container-default {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-right: 8rem;
+}
+@media (max-width: 1023px) {
   .container-default {
-    padding-left: 1.6rem;
+    padding-right: 3.2rem;
+  }
+}
+@media (max-width: 767px) {
+  .container-default {
     padding-right: 1.6rem;
   }
 }
@@ -222,36 +255,28 @@ section {
 }
 
 .header-under {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 22.6rem;
-  padding-bottom: 0;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 1023px) {
   .header-under {
     padding-top: 19.6rem;
-    padding-bottom: 0;
   }
-}
-.header-under {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 767px) {
   .header-under {
     padding-top: 16rem;
-    padding-bottom: 0;
   }
-}
-.header-under {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 479px) {
   .header-under {
     padding-top: 13rem;
-    padding-bottom: 0;
   }
+}
+.header-under {
+  padding-bottom: 0;
 }
 
 .block {
@@ -379,30 +404,28 @@ a {
 }
 
 .header {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 0;
-  padding-bottom: 0;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-}
-@media (max-width: 1023px) {
-  .header {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}
-.header {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 767px) {
   .header {
     padding-top: 1rem;
+  }
+}
+.header {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 0;
+}
+@media (max-width: 767px) {
+  .header {
     padding-bottom: 1rem;
   }
 }
 .header {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
   top: 0;
   z-index: 10;
   background-color: transparent;
@@ -442,26 +465,32 @@ a {
   line-height: 1.4;
   letter-spacing: 0;
   color: #FFFFFF;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-left: 2rem;
-  padding-right: 2rem;
 }
 @media (max-width: 1023px) {
   .header nav a {
     padding-left: 1rem;
+  }
+}
+.header nav a {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-right: 2rem;
+}
+@media (max-width: 1023px) {
+  .header nav a {
     padding-right: 1rem;
   }
 }
 .header nav a {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
   color: #FFFFFF;
   position: relative;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 .header nav a::after {
   content: "";
@@ -497,30 +526,28 @@ a {
   margin: 0 auto;
 }
 .m-nav__container-head {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 2rem;
-  padding-bottom: 2rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-}
-@media (max-width: 1023px) {
-  .m-nav__container-head {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-}
-.m-nav__container-head {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 767px) {
   .m-nav__container-head {
     padding-top: 1rem;
+  }
+}
+.m-nav__container-head {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 2rem;
+}
+@media (max-width: 767px) {
+  .m-nav__container-head {
     padding-bottom: 1rem;
   }
 }
 .m-nav__container-head {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
   justify-content: space-between;
 }
 .m-nav__container-body {
@@ -574,30 +601,48 @@ a {
 }
 
 .footer {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 6rem;
-  padding-bottom: 6rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 1023px) {
   .footer {
     padding-top: 5rem;
-    padding-bottom: 5rem;
   }
-}
-.footer {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 767px) {
   .footer {
     padding-top: 4rem;
+  }
+}
+@media (max-width: 479px) {
+  .footer {
+    padding-top: 4rem;
+  }
+}
+.footer {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 6rem;
+}
+@media (max-width: 1023px) {
+  .footer {
+    padding-bottom: 5rem;
+  }
+}
+@media (max-width: 767px) {
+  .footer {
+    padding-bottom: 4rem;
+  }
+}
+@media (max-width: 479px) {
+  .footer {
     padding-bottom: 4rem;
   }
 }
 .footer {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
   background-color: #F4F5F9;
 }
 .footer__container {
@@ -777,44 +822,50 @@ a {
   line-height: 1.4;
   letter-spacing: 0;
   color: #F7552F;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-left: 5rem;
-  padding-right: 5rem;
-}
-@media (max-width: 1023px) {
-  .cta-sub {
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
-}
-@media (max-width: 767px) {
-  .cta-sub {
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
 }
 @media (max-width: 479px) {
   .cta-sub {
     padding-left: 4rem;
+  }
+}
+.cta-sub {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-right: 5rem;
+}
+@media (max-width: 479px) {
+  .cta-sub {
     padding-right: 4rem;
   }
 }
 .cta-sub {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 1.2rem;
-  padding-bottom: 1.2rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 1023px) {
   .cta-sub {
     padding-top: 1rem;
+  }
+}
+.cta-sub {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 1.2rem;
+}
+@media (max-width: 1023px) {
+  .cta-sub {
     padding-bottom: 1rem;
   }
 }
 .cta-sub {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
   border-radius: 5rem;
   color: #FFFFFF;
   transition: all 0.3s ease-in-out;
@@ -839,19 +890,12 @@ a {
   z-index: 1;
 }
 .hero__container--sub {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   margin-top: 8rem;
 }
-@media (max-width: 1023px) {
-  .hero__container--sub {
-    margin-top: 8rem;
-  }
-}
 @media (max-width: 767px) {
-  .hero__container--sub {
-    margin-top: 7rem;
-  }
-}
-@media (max-width: 479px) {
   .hero__container--sub {
     margin-top: 7rem;
   }
@@ -972,6 +1016,9 @@ a {
   flex: 1;
 }
 .liveType__content {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 6rem;
 }
 @media (max-width: 1023px) {
@@ -985,6 +1032,9 @@ a {
   }
 }
 .liveType__content {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   margin-top: -6rem;
 }
 @media (max-width: 1023px) {
@@ -993,11 +1043,6 @@ a {
   }
 }
 @media (max-width: 767px) {
-  .liveType__content {
-    margin-top: -2rem;
-  }
-}
-@media (max-width: 479px) {
   .liveType__content {
     margin-top: -2rem;
   }
@@ -1304,6 +1349,9 @@ a {
   text-align: center;
 }
 .hero__container {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 6rem;
 }
 @media (max-width: 1023px) {
@@ -1312,6 +1360,11 @@ a {
   }
 }
 @media (max-width: 767px) {
+  .hero__container {
+    gap: 4rem;
+  }
+}
+@media (max-width: 479px) {
   .hero__container {
     gap: 4rem;
   }
@@ -1346,6 +1399,9 @@ a {
   color: #F7552F;
 }
 .hero .cta-group {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 6rem;
 }
 @media (max-width: 1023px) {
@@ -1492,18 +1548,34 @@ a {
 }
 
 .difference {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-left: 8rem;
-  padding-right: 8rem;
 }
 @media (max-width: 1023px) {
   .difference {
     padding-left: 3.2rem;
-    padding-right: 3.2rem;
   }
 }
 @media (max-width: 767px) {
   .difference {
     padding-left: 1.6rem;
+  }
+}
+.difference {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-right: 8rem;
+}
+@media (max-width: 1023px) {
+  .difference {
+    padding-right: 3.2rem;
+  }
+}
+@media (max-width: 767px) {
+  .difference {
     padding-right: 1.6rem;
   }
 }
@@ -1514,32 +1586,33 @@ a {
   gap: 0;
 }
 .difference__contents {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 6rem;
-  padding-bottom: 0rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 1023px) {
   .difference__contents {
     padding-top: 5rem;
-    padding-bottom: 0;
   }
-}
-.difference__contents {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 767px) {
   .difference__contents {
     padding-top: 4rem;
-    padding-bottom: 0;
+  }
+}
+@media (max-width: 479px) {
+  .difference__contents {
+    padding-top: 4rem;
   }
 }
 .difference__contents {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  padding-bottom: 0;
 }
 .difference__item {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 6rem;
 }
 @media (max-width: 1023px) {
@@ -1799,6 +1872,9 @@ a {
   }
 }
 .explore__text {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 3rem;
 }
 @media (max-width: 1023px) {
@@ -1862,66 +1938,54 @@ a {
   line-height: 1.45;
   letter-spacing: 0.01em;
   color: #FFFFFF;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-left: 2rem;
-  padding-right: 2rem;
-}
-@media (max-width: 1023px) {
-  .explore__cta {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-@media (max-width: 767px) {
-  .explore__cta {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
 }
 @media (max-width: 479px) {
   .explore__cta {
     padding-left: 1.5rem;
+  }
+}
+.explore__cta {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-right: 2rem;
+}
+@media (max-width: 479px) {
+  .explore__cta {
     padding-right: 1.5rem;
   }
 }
 .explore__cta {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 1rem;
-  padding-bottom: 1rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-}
-@media (max-width: 1023px) {
-  .explore__cta {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-.explore__cta {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-}
-@media (max-width: 767px) {
-  .explore__cta {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-.explore__cta {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 479px) {
   .explore__cta {
     padding-top: 0.8rem;
+  }
+}
+.explore__cta {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 1rem;
+}
+@media (max-width: 479px) {
+  .explore__cta {
     padding-bottom: 0.8rem;
   }
 }
 .explore__cta {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 1rem;
-}
-@media (max-width: 1023px) {
-  .explore__cta {
-    gap: 1rem;
-  }
 }
 @media (max-width: 767px) {
   .explore__cta {
@@ -1946,17 +2010,10 @@ a {
 }
 
 .review__contents {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 3rem;
-}
-@media (max-width: 1023px) {
-  .review__contents {
-    gap: 3rem;
-  }
-}
-@media (max-width: 767px) {
-  .review__contents {
-    gap: 3rem;
-  }
 }
 @media (max-width: 479px) {
   .review__contents {
@@ -2264,6 +2321,9 @@ body[data-page=creator] .guide-card:nth-child(2n) {
 }
 
 .faq__content {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 6rem;
 }
 @media (max-width: 1023px) {
@@ -2276,10 +2336,18 @@ body[data-page=creator] .guide-card:nth-child(2n) {
     gap: 4rem;
   }
 }
+@media (max-width: 479px) {
+  .faq__content {
+    gap: 4rem;
+  }
+}
 .faq__content {
   flex-direction: column;
 }
 .faq__filter {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 3rem;
 }
 @media (max-width: 1023px) {
@@ -2291,12 +2359,10 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   justify-content: space-between;
 }
 .faq__tabs {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 1.5rem;
-}
-@media (max-width: 1023px) {
-  .faq__tabs {
-    gap: 1.5rem;
-  }
 }
 @media (max-width: 767px) {
   .faq__tabs {
@@ -2309,12 +2375,10 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   }
 }
 .faq__tabs > * {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 1.5rem;
-}
-@media (max-width: 1023px) {
-  .faq__tabs > * {
-    gap: 1.5rem;
-  }
 }
 @media (max-width: 767px) {
   .faq__tabs > * {
@@ -2349,56 +2413,46 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   line-height: 1.4;
   letter-spacing: 0;
   color: #4E4E4E;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-left: 2rem;
-  padding-right: 2rem;
-}
-@media (max-width: 1023px) {
-  .faq__tab {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-@media (max-width: 767px) {
-  .faq__tab {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
 }
 @media (max-width: 479px) {
   .faq__tab {
     padding-left: 1rem;
+  }
+}
+.faq__tab {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-right: 2rem;
+}
+@media (max-width: 479px) {
+  .faq__tab {
     padding-right: 1rem;
   }
 }
 .faq__tab {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 1rem;
-  padding-bottom: 1rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-}
-@media (max-width: 1023px) {
-  .faq__tab {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-.faq__tab {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-}
-@media (max-width: 767px) {
-  .faq__tab {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-.faq__tab {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 479px) {
   .faq__tab {
     padding-top: 0.8rem;
+  }
+}
+.faq__tab {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 1rem;
+}
+@media (max-width: 479px) {
+  .faq__tab {
     padding-bottom: 0.8rem;
   }
 }
@@ -2660,6 +2714,9 @@ body[data-page=creator] .guide-card:nth-child(2n) {
 }
 
 .contact__container {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 0;
 }
 @media (max-width: 1023px) {
@@ -2688,6 +2745,9 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   gap: 12rem;
 }
 .contact__title-wrapper {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 2rem;
 }
 @media (max-width: 1023px) {
@@ -2738,30 +2798,28 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   background-image: url("../images/contact_image.webp");
 }
 .contact__form {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 3rem;
-  padding-bottom: 3rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-}
-@media (max-width: 1023px) {
-  .contact__form {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-}
-.contact__form {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 767px) {
   .contact__form {
     padding-top: 2rem;
+  }
+}
+.contact__form {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 3rem;
+}
+@media (max-width: 767px) {
+  .contact__form {
     padding-bottom: 2rem;
   }
 }
 .contact__form {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
   flex-direction: column;
   border-radius: 2rem;
   background-color: rgba(255, 255, 255, 0.3);
@@ -2791,11 +2849,9 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   line-height: 1.5;
   letter-spacing: 0.01em;
   color: #FF0000;
-  padding-left: 1rem;
-  padding-right: 1rem;
   width: 100%;
   height: 3rem;
-  padding-top: 0.2rem;
+  padding: 0.2rem 1rem 0 1rem;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -2811,19 +2867,12 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   align-items: start;
 }
 .contact__form--bottom {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 2rem;
 }
-@media (max-width: 1023px) {
-  .contact__form--bottom {
-    gap: 2rem;
-  }
-}
 @media (max-width: 767px) {
-  .contact__form--bottom {
-    gap: 1.5rem;
-  }
-}
-@media (max-width: 479px) {
   .contact__form--bottom {
     gap: 1.5rem;
   }
@@ -2832,12 +2881,10 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   width: 100%;
 }
 .contact__form--bottom .detail {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 2rem;
-}
-@media (max-width: 1023px) {
-  .contact__form--bottom .detail {
-    gap: 2rem;
-  }
 }
 @media (max-width: 767px) {
   .contact__form--bottom .detail {
@@ -2905,40 +2952,30 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   transform: translateX(0.5rem);
 }
 .contact__form input, .contact__form select {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   padding-top: 1rem;
-  padding-bottom: 1rem;
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-}
-@media (max-width: 1023px) {
-  .contact__form input, .contact__form select {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-}
-.contact__form input, .contact__form select {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
 }
 @media (max-width: 767px) {
   .contact__form input, .contact__form select {
     padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
   }
 }
 .contact__form input, .contact__form select {
-  /* null 체크
-      null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 1rem;
 }
-@media (max-width: 479px) {
+@media (max-width: 767px) {
   .contact__form input, .contact__form select {
-    padding-top: 0.8rem;
     padding-bottom: 0.8rem;
   }
 }
 .contact__form input, .contact__form select {
+  padding-left: 1rem;
+  padding-right: 1rem;
   line-height: 1.5;
   background-color: transparent;
 }
@@ -2976,6 +3013,9 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   color: #4E4E4E;
 }
 .contact__form .agreement {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
   gap: 2rem;
 }
 @media (max-width: 1023px) {

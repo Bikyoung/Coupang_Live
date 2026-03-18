@@ -46,105 +46,64 @@
     }
 }
 
-// 반응형별로 margin-top을 자동 재정의하는 mixin
-@mixin responsiveMarginTop(
-    $pc, $laptop, $tablet, $mobile) {
+// 반응형별로 spacing을 자동 재정의
+@mixin respond-sp($prop, $key: null, $xl: null, $lg: null, $md: null, $sm: null) {
+    $spacing: null;
 
-    margin-top: $pc; 
+    /* $key가 null이 아니며
+       $spacings에 xl라는 key가 있으며
+       xl 맵에 $key가 존재하는 경우 */
+    @if $key and map.get(vars.$spacings, xl) and map-has-key(map.get(vars.$spacings, xl), $key) {
+        $spacing: fn.get-sp(xl, $key);
+        #{$prop}: $spacing;
 
-    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
-        @media (max-width: map-get(vars.$breakpoints, $bp)) {
-            margin-top: $device;
-        }
-    }
-}
-
-
-// 반응형별로 margin-bottom을 자동 재정의하는 mixin
-@mixin responsiveMarginBottom(
-    $pc, $laptop, $tablet, $mobile) {
-
-    margin-top: $pc; 
-
-    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
-        @media (max-width: map-get(vars.$breakpoints, $bp)) {
-            margin-bottom: $device;
-        }
-    }
-}
-
-// 반응형별로 좌우 padding을 자동 재정의하는 mixin
-@mixin responsivePaddingX($pc: null, $laptop: null, $tablet: null, $mobile: null) {
-    padding-left: $pc;
-    padding-right: $pc;
-
-    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
-        @if($device !=null) {
-            @media (max-width: map-get(vars.$breakpoints, $bp)) {
-                padding-left: $device;
-                padding-right: $device;
+        @each $bp, $width in vars.$breakpoints {
+            @media (max-width: $width) {
+                $spacing: fn.get-sp($bp, $key);
+                #{$prop}: $spacing;
             }
         }
-    }
-}
+    } @else {
+        $spacing: $xl;
+        #{$prop}: $spacing;
 
-// 반응형별로 상하 padding을 자동 재정의하는 mixin
-@mixin responsivePaddingY($pc: null, $laptop: null, $tablet: null, $mobile: null) {
-
-    // $pc에 인수가 map 타입이 아닌 경우 map 타입으로 전환
-    @if((type-of($pc)=="list") and (length($pc)==2)) {
-        $pc: (
-            pt: nth($pc, 1),
-            pb: nth($pc, 2)
-        );
-    }
-    @else if(type-of($pc) !="map") {
-        $pc: (
-            pt: $pc,
-            pb: $pc
-        );
-    }
-
-    padding-top: map-get($pc, pt);
-    padding-bottom: map-get($pc, pb);
-
-    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
-    
-        /* null 체크
-            null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
-        @if($device !=null) {
-            @media (max-width: map-get(vars.$breakpoints, $bp)) {
-                @if((type-of($device)=="list") and (length($device)==2)) {
-                    $device: (
-                        pt: nth($device, 1),
-                        pb: nth($device, 2)
-                    );
+        @each $bp, $size in (lg: $lg, md: $md, sm: $sm) {
+            @if $size {
+                @media (max-width: map.get(vars.$breakpoints, $bp)) {
+                    #{$prop}: $size; 
                 }
-                @else if(type-of($device) !="map") {
-                    $device: (
-                        pt: $device,
-                        pb: $device
-                    );
-                }
-    
-                padding-top: map-get($device, pt);
-                padding-bottom: map-get($device, pb);
             }
         }
     }
 }
 
-// 반응형별로 gap을 자동 재정의하는 mixin
-@mixin responsiveGap($pc, $laptop: null, $tablet: null, $mobile: null) {
-    gap: $pc;
+// 반응형별로 margin-left & margin-right를 자동 재정의
+@mixin respond-mg-x($key: null, $xl: null, $lg: null, $md: null, $sm: null) {
+    @include respond-sp(margin-left, $key, $xl, $lg, $md, $sm);
+    @include respond-sp(margin-right, $key, $xl, $lg, $md, $sm);
+}
 
-    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
-        @if($device !=null) {
-            @media (max-width: map-get(vars.$breakpoints, $bp)) {
-                gap: $device;
-            }
-        }
-    }
+// 반응형별로 margin-top & margin-bottom를 자동 재정의
+@mixin respond-mg-y($key: null, $xl: null, $lg: null, $md: null, $sm: null) {
+    @include respond-sp(margin-top, $key, $xl, $lg, $md, $sm);
+    @include respond-sp(margin-bottom, $key, $xl, $lg, $md, $sm);
+}
+
+// 반응형별로 padding-left & padding-right를 자동 재정의
+@mixin respond-pd-x($key: null, $xl: null, $lg: null, $md: null, $sm: null) {
+    @include respond-sp(padding-left, $key, $xl, $lg, $md, $sm);
+    @include respond-sp(padding-right, $key, $xl, $lg, $md, $sm);
+}
+
+// 반응형별로 padding-top & padding-bottom를 자동 재정의
+@mixin respond-pd-y($key: null, $xl: null, $lg: null, $md: null, $sm: null) {
+    @include respond-sp(padding-top, $key, $xl, $lg, $md, $sm);
+    @include respond-sp(padding-bottom, $key, $xl, $lg, $md, $sm);
+}
+
+// 반응형별로 gap을 자동 재정의
+@mixin respond-gap($key: null, $xl: null, $lg: null, $md: null, $sm: null) {
+    @include respond-sp(gap, $key, $xl, $lg, $md, $sm);
 }
 
 // 반응형별로 width를 자동 재정의하는 mixin
@@ -168,3 +127,4 @@
         }
     }
 }
+

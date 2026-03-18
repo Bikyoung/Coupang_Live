@@ -35,15 +35,16 @@ button {
 }
 
 .only-section {
-    @include abs.responsivePaddingY($pc: (pt: calc(12rem + 7.6rem), pb: 12rem), $laptop: (pt: calc(10rem + 7.6rem), pb: 10rem), $tablet: (pt: calc(8rem + 6rem), pb: 8rem), $mobile: (pt: calc(8rem + 5rem), pb: 8rem));
+    @include abs.respond-sp(padding-top, $xl: calc(12rem + 7.6rem), $lg: calc(10rem + 7.6rem), $md: calc(8rem + 6rem), $sm: calc(8rem + 5rem));
+    @include abs.respond-sp(padding-bottom, spacing-xl);
 }
 
 section {
-    @include abs.responsivePaddingY($pc: 12rem, $laptop: 10rem, $tablet: 8rem, $mobile: 8rem);
+    @include abs.respond-pd-y(spacing-xl);
 }
 
 .section-inner {
-    @include abs.responsiveGap($pc: 12rem, $laptop: 10rem, $tablet: 8rem, $mobile: 8rem);
+    @include abs.respond-gap(spacing-xl);
 
     margin: 0 auto;
     display: flex;
@@ -53,7 +54,7 @@ section {
 }
 
 .container-default {
-    @include abs.responsivePaddingX($pc: 8rem, $laptop: 3.2rem, $tablet: 1.6rem, $mobile: 1.6rem);
+    @include abs.respond-pd-x($xl: 8rem, $lg: 3.2rem, $md: 1.6rem);
 
     width: 100%;
     max-width: 1440px;
@@ -69,14 +70,6 @@ section {
     }
     
 }
-
-// .max {
-//     @each $label, $bp in abs.$breakpoints {
-//         &-#{$bp} {
-//             @include abs.responsiveShow($bp);
-//         }
-//     }
-// }
 
 // .show-* 클래스를 자동 생성
 .show {
@@ -112,7 +105,9 @@ section {
 }
 
 .header-under {
-    @include abs.responsivePaddingY($pc: (pt: calc(15rem + 7.6rem), pb: 0), $laptop: (pt: calc(12rem + 7.6rem), pb: 0), $tablet: (pt: calc(10rem + 6rem), pb: 0), $mobile: (pt: calc(8rem + 5rem), pb: 0));
+    @include abs.respond-sp(padding-top, $xl: calc(15rem + 7.6rem), $lg: calc(12rem + 7.6rem), $md: calc(10rem + 6rem), $sm: calc(8rem + 5rem));
+
+    padding-bottom: 0;
 }
 
 .block {

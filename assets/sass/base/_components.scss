@@ -3,7 +3,7 @@
 
 // --------------- header --------------- 
 .header {
-    @include abs.responsivePaddingY(0, 0, 1rem);
+    @include abs.respond-pd-y($xl: 0, $md: 1rem);
 
     top: 0;
     z-index: 10;
@@ -25,11 +25,12 @@
 
         a {
             @include abs.respond-typo(body, body-lg, 500, 1.4, 0, map.get(abs.$colors, white));
-            @include abs.responsivePaddingX(2rem, 1rem);
-            @include abs.responsivePaddingY(2.5rem);
+            @include abs.respond-pd-x($xl: 2rem, $lg: 1rem);
 
             color: map.get(abs.$colors, white);
             position: relative;
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
 
             &::after {
                 content: "";
@@ -74,7 +75,7 @@
     }
     
     &__container-head {
-        @include abs.responsivePaddingY(2rem, 2rem, 1rem);
+        @include abs.respond-pd-y($xl: 2rem, $md: 1rem);
 
         justify-content: space-between;
     }
@@ -118,7 +119,7 @@
 
 // --------------- footer --------------- 
 .footer {
-    @include abs.responsivePaddingY(6rem, 5rem, 4rem);  
+    @include abs.respond-pd-y(spacing-lg);
 
     background-color: map.get(abs.$colors, gray-50);
     
@@ -277,8 +278,8 @@
 // --------------- cta-sub ---------------
 .cta-sub {
     @include abs.respond-typo(button, button-lg, 500, 1.4, 0, map.get(abs.$colors, primary));
-    @include abs.responsivePaddingX(5rem, 5rem, 5rem, 4rem);
-    @include abs.responsivePaddingY(1.2rem, 1rem);
+    @include abs.respond-pd-x($xl: 5rem, $sm: 4rem);
+    @include abs.respond-pd-y($xl: 1.2rem, $lg: 1rem);
 
     border-radius: 5rem;
     color: map.get(abs.$colors, white);
@@ -309,7 +310,7 @@
     }
 
     &__container--sub {
-        @include abs.responsiveMarginTop(8rem, 8rem, 7rem, 7rem);
+        @include abs.respond-sp(margin-top, $xl: 8rem, $md: 7rem);
 
         position: relative;
         z-index: 3;
@@ -380,8 +381,8 @@
     }
 
     &__content {
-        @include abs.responsiveGap(6rem, 5rem, 6rem);
-        @include abs.responsiveMarginTop(-6rem, -5rem, -2rem, -2rem);
+        @include abs.respond-gap($xl: 6rem, $lg: 5rem, $md: 6rem);
+        @include abs.respond-sp(margin-top, $xl: -6rem, $lg: -5rem, $md: -2rem);
 
         display: none;
 

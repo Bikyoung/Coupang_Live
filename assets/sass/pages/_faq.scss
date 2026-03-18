@@ -3,29 +3,29 @@
 
 .faq {
     &__content {
-        @include abs.responsiveGap(6rem, 5rem, 4rem);
+        @include abs.respond-gap(spacing-lg);
 
         flex-direction: column;
     }
 
     &__filter {
-        @include abs.responsiveGap(3rem, 2.5rem);
+        @include abs.respond-gap($xl: 3rem, $lg: 2.5rem);
 
         justify-content: space-between;
     }
 
     &__tabs {
-        @include abs.responsiveGap(1.5rem, 1.5rem, 1rem, 0.6rem);
+        @include abs.respond-gap($xl: 1.5rem, $md: 1rem, $sm: 0.6rem);
 
         > * {
-            @include abs.responsiveGap(1.5rem, 1.5rem, 1rem, 0.6rem);
+            @include abs.respond-gap($xl: 1.5rem, $md: 1rem, $sm: 0.6rem);
         }
     }
 
     &__tab {
         @include abs.respond-typo(body, body-xl, 700, 1.4, 0, map.get(abs.$colors, gray-150));
-        @include abs.responsivePaddingX(2rem, 2rem, 2rem, 1rem);
-        @include abs.responsivePaddingY(1rem, 1rem, 1rem, 0.8rem);
+        @include abs.respond-pd-x($xl: 2rem, $sm: 1rem);
+        @include abs.respond-pd-y($xl: 1rem, $sm: 0.8rem);
 
         border: 0.1rem solid map.get(abs.$colors, gray-150);
         border-radius: 10rem;
