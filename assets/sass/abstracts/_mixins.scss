@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "./_function.scss" as fn;
 @use "./_variables.scss" as vars;
 
@@ -16,19 +17,32 @@
 @mixin respond-typo($category, $size, $weight: null, $line-height: null, $letter-spacing: null, $color: null) {
     @include respond-fs($category, $size);
 
-    // null 여부를 확인
+    // null 여부를 체크
     @if $weight { font-weight: $weight; }
     @if $line-height { line-height: $line-height; }
     @if $letter-spacing { letter-spacing: $letter-spacing; }
     @if $color { color: $color; }
 }
 
-// 주어진 최대 너비 이하에서는 display: block으로 설정하는 mixin 
-@mixin responsiveShow($maxWidth) {
+/* 기본적으로 요소를 숨기고, 지정한 해상도 이하에서만 표시
+   display 값은 기본 block이며 인수를 통해 요소마다 다르게 지정 가능
+   @content를 통해 지정한 해상도 이하에서 추가 스타일 확장 가능
+   지정 해상도는 $breakpoints의 key(lg, md, sm) 뿐만 아니라 px 단위의 숫자(ex) 800px)도 가능 */
+@mixin respond-show($bp, $display: block) {
+    $max-width: null;
+
+    // $bp가 $breakpoints 맵의 key인지 px 단위의 숫자인지 체크
+    @if (map-has-key(vars.$breakpoints, $bp)) {
+        $max-width: map.get(vars.$breakpoints, $bp);
+    } @else {
+        $max-width: $bp;
+    }
+    
     display: none;
 
-    @media (max-width: $maxWidth) {
-        display: inline-block;
+    @media (max-width: $max-width) {
+        display: $display;
+        @content;
     }
 }
 
@@ -38,12 +52,13 @@
 
     margin-top: $pc; 
 
-    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
         @media (max-width: map-get(vars.$breakpoints, $bp)) {
             margin-top: $device;
         }
     }
 }
+
 
 // 반응형별로 margin-bottom을 자동 재정의하는 mixin
 @mixin responsiveMarginBottom(
@@ -51,7 +66,7 @@
 
     margin-top: $pc; 
 
-    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
         @media (max-width: map-get(vars.$breakpoints, $bp)) {
             margin-bottom: $device;
         }
@@ -63,7 +78,7 @@
     padding-left: $pc;
     padding-right: $pc;
 
-    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
         @if($device !=null) {
             @media (max-width: map-get(vars.$breakpoints, $bp)) {
                 padding-left: $device;
@@ -93,7 +108,7 @@
     padding-top: map-get($pc, pt);
     padding-bottom: map-get($pc, pb);
 
-    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
     
         /* null 체크
             null이면 media query를 생성하지 않으므로 small과 xsmall에서 값이 동일하면 $mobile-S를 생략할 수 있음 */
@@ -123,7 +138,7 @@
 @mixin responsiveGap($pc, $laptop: null, $tablet: null, $mobile: null) {
     gap: $pc;
 
-    @each $bp, $device in (large: $laptop, medium: $tablet, small: $mobile) {
+    @each $bp, $device in (lg: $laptop, md: $tablet, sm: $mobile) {
         @if($device !=null) {
             @media (max-width: map-get(vars.$breakpoints, $bp)) {
                 gap: $device;
@@ -136,7 +151,7 @@
 @mixin responsiveWidth($pc, $laptop, $tablet, $mobile) {
     width: $pc;
 
-    @each $bp, $width in (large: $pc, medium: $tablet, small: $mobile) {
+    @each $bp, $width in (lg: $pc, md: $tablet, sm: $mobile) {
         @media (max-width: map-get(vars.$breakpoints, $bp)) {
             width: $width;
         }
@@ -147,7 +162,7 @@
 @mixin responsiveHeight($pc, $laptop, $tablet, $mobile) {
     height: $pc;
 
-    @each $bp, $height in (large: $laptop, medium: $tablet, small: $mobile) {
+    @each $bp, $height in (lg: $laptop, md: $tablet, sm: $mobile) {
         @media (max-width: map-get(vars.$breakpoints, $bp)) {
             height: $height;
         }

@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/bundle" as abs;
 
 .faq {
@@ -22,18 +23,18 @@
     }
 
     &__tab {
-        @include abs.respond-typo(body, body-xl, 700, 1.4, 0, map-get(abs.$colors, gray-150));
+        @include abs.respond-typo(body, body-xl, 700, 1.4, 0, map.get(abs.$colors, gray-150));
         @include abs.responsivePaddingX(2rem, 2rem, 2rem, 1rem);
         @include abs.responsivePaddingY(1rem, 1rem, 1rem, 0.8rem);
 
-        border: 0.1rem solid map-get(abs.$colors, gray-150);
+        border: 0.1rem solid map.get(abs.$colors, gray-150);
         border-radius: 10rem;
     }
 
     &__tab[aria-selected="true"] {
-        color: map-get(abs.$colors, white);
-        background-color: map-get(abs.$colors, navy);
-        border-color: map-get(abs.$colors, navy);
+        color: map.get(abs.$colors, white);
+        background-color: map.get(abs.$colors, navy);
+        border-color: map.get(abs.$colors, navy);
     }
 
     &__search {
@@ -41,7 +42,7 @@
         justify-content: space-between;
         padding: 1.5rem 2rem;
         border-radius: 10rem;
-        background-color: map-get(abs.$colors, gray-50);
+        background-color: map.get(abs.$colors, gray-50);
 
         .button__container {
             width: 1.6rem;
@@ -68,14 +69,14 @@
     }
 
     &__input {
-        @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map-get(abs.$colors, black));
+        @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map.get(abs.$colors, black));
 
         flex: 1;
         border: none;
         background-color: transparent;
         
         &::placeholder {
-            color: map-get(abs.$colors, gray-150);
+            color: map.get(abs.$colors, gray-150);
         }
 
         &:focus {
@@ -84,10 +85,10 @@
     }
 
     &__list {
-        border-top: 0.2rem solid map-get(abs.$colors, gray-150);
+        border-top: 0.2rem solid map.get(abs.$colors, gray-150);
 
         .no-result {
-            @include abs.respond-typo(body, body-md, 400, 1.4, 0, map-get(abs.$colors, gray-150));
+            @include abs.respond-typo(body, body-md, 400, 1.4, 0, map.get(abs.$colors, gray-150));
 
             margin-top: 6rem;
             text-align: center;
@@ -97,7 +98,7 @@
     &__item {
         border: none;
         box-shadow: none;
-        border-bottom: 0.1rem solid map-get(abs.$colors, gray-100);
+        border-bottom: 0.1rem solid map.get(abs.$colors, gray-100);
 
         p {
             margin-bottom: 0;
@@ -106,19 +107,19 @@
         .accordion-header {
 
             .faq__title{
-                @include abs.respond-typo(body, body-md, 700, 1.4, 0, map-get(abs.$colors, navy));
+                @include abs.respond-typo(body, body-md, 700, 1.4, 0, map.get(abs.$colors, navy));
             }
 
             .accordion-button {
                 justify-content: start;
                 gap: 1.5rem;
                 padding: 3rem;
-                background-color: map-get(abs.$colors, white);
+                background-color: map.get(abs.$colors, white);
                 box-shadow: none;
                             
                 &[aria-expanded="true"] {
                     box-shadow: none;
-                    background-color: map-get(abs.$colors, gray-50);
+                    background-color: map.get(abs.$colors, gray-50);
                 }
             }
         }
@@ -128,15 +129,15 @@
             align-items: start;
             gap: 1.5rem;
             padding: 0 3rem 3rem 3rem;
-            background-color: map-get(abs.$colors, gray-50);
+            background-color: map.get(abs.$colors, gray-50);
 
             .faq__desc {
-                @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map-get(abs.$colors, navy));
+                @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map.get(abs.$colors, navy));
                 
                 white-space: pre-wrap;
 
                 a {
-                    color: map-get(abs.$colors, blue);
+                    color: map.get(abs.$colors, blue);
                     text-decoration: underline;
                 }
             }
@@ -144,7 +145,7 @@
     }
 
     &__label {
-        @include abs.respond-typo(body, body-md, 500, 1, 0, map-get(abs.$colors, navy));
+        @include abs.respond-typo(body, body-md, 500, 1, 0, map.get(abs.$colors, navy));
 
         font-family: "Noto Sans KR", sans-serif;
     }
@@ -154,7 +155,7 @@
 
         .page-link {
             border: none;
-            color: map-get(abs.$colors, gray-100);
+            color: map.get(abs.$colors, gray-100);
 
             &:focus {
                 box-shadow: none;
@@ -162,7 +163,7 @@
         }
         
         .page-num-btn {
-            @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map-get(abs.$colors, navy));
+            @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map.get(abs.$colors, navy));
 
             width: 4rem;
             height: 4rem;
@@ -170,8 +171,8 @@
         }
 
         .page-num-btn[aria-current="page"] {
-            background-color: map-get(abs.$colors, navy);
-            color: map-get(abs.$colors, white);
+            background-color: map.get(abs.$colors, navy);
+            color: map.get(abs.$colors, white);
         }
     }
 

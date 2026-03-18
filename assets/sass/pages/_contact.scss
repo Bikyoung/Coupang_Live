@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/_bundle.scss" as abs;
 
 .contact {
@@ -32,7 +33,7 @@
     }
 
     &__subtitle {
-        @include abs.respond-typo(body, body-xl, 400, 1.4, 0, map-get(abs.$colors, gray-150));
+        @include abs.respond-typo(body, body-xl, 400, 1.4, 0, map.get(abs.$colors, gray-150));
     }
 
     &__image {
@@ -52,7 +53,7 @@
         padding: 3rem;
 
         .error-message {
-            @include abs.respond-typo(body, body-sm, 400, 1.5, 00.01em, map-get(abs.$colors, red));
+            @include abs.respond-typo(body, body-sm, 400, 1.5, 00.01em, map.get(abs.$colors, red));
             @include abs.responsivePaddingX(1rem);
 
             width: 100%;
@@ -106,7 +107,7 @@
 
         .input-group.is-invalid {
             input, select, textarea {
-                border-bottom: 0.1rem solid map-get(abs.$colors, red);
+                border-bottom: 0.1rem solid map.get(abs.$colors, red);
             }
 
             .error-message {
@@ -116,7 +117,7 @@
         }
 
         label > span, .label {
-            @include abs.respond-typo(label, label-md, 700, 1.45, 0, map-get(abs.$colors, navy));
+            @include abs.respond-typo(label, label-md, 700, 1.45, 0, map.get(abs.$colors, navy));
 
             position: relative;
 
@@ -125,7 +126,7 @@
                 width: 0.5rem;
                 height: 0.5rem;
                 border-radius: 50%;
-                background-color: map-get(abs.$colors, primary);
+                background-color: map.get(abs.$colors, primary);
                 position: absolute;
                 top: 0;
                 left: 100%;
@@ -142,18 +143,18 @@
         }
 
         input, select, textarea {
-            @include abs.respond-typo(body, body-md, 400, 1.45, 0.01rem, map-get(abs.$colors, black));
+            @include abs.respond-typo(body, body-md, 400, 1.45, 0.01rem, map.get(abs.$colors, black));
 
             width: 100%;
             border: none;
-            border-bottom: 0.1rem solid map-get(abs.$colors, gray-100);
+            border-bottom: 0.1rem solid map.get(abs.$colors, gray-100);
 
             &:focus {
                 outline: none;
             }
 
             &::placeholder {
-                color: map-get(abs.$colors, gray-150);
+                color: map.get(abs.$colors, gray-150);
             }
         }
 
@@ -168,7 +169,7 @@
                 align-items: start;
                 gap: 1rem;
                 padding: 2rem;
-                background-color: map-get(abs.$colors, gray-50);
+                background-color: map.get(abs.$colors, gray-50);
                 border-radius: 1rem;
     
                 > * {                
@@ -178,11 +179,11 @@
                 }
     
                 .title {
-                    @include abs.respond-typo(body, body-md, 600, 1.45, 0.01em, map-get(abs.$colors, gray-150));
+                    @include abs.respond-typo(body, body-md, 600, 1.45, 0.01em, map.get(abs.$colors, gray-150));
                 }
     
                 .desc {
-                    @include abs.respond-typo(body, body-sm, 400, 1.5, 0.01em, map-get(abs.$colors, gray-150));
+                    @include abs.respond-typo(body, body-sm, 400, 1.5, 0.01em, map.get(abs.$colors, gray-150));
                 }
             }
     
@@ -202,30 +203,30 @@
                 }
                     
                 i.check {
-                    color: map-get(abs.$colors, primary);
+                    color: map.get(abs.$colors, primary);
                 }
     
                 i:not(.check) {
-                    color: map-get(abs.$colors, gray-100);
+                    color: map.get(abs.$colors, gray-100);
                 }
     
                 p {
-                    @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map-get(abs.$colors, navy));
+                    @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map.get(abs.$colors, navy));
                 }
             }
         }
 
         button {
-            @include abs.respond-typo(button, button-lg, 500, 1.45, 0.01em, map-get(abs.$colors, white));
+            @include abs.respond-typo(button, button-lg, 500, 1.45, 0.01em, map.get(abs.$colors, white));
 
             width: 100%;
             padding: 1.5rem 0;
             border-radius: 10rem;
-            background-color: map-get(abs.$colors, navy);
+            background-color: map.get(abs.$colors, navy);
             transition: all 0.3s ease-in-out;
 
             &:hover {
-                color: map-get(abs.$colors, primary);
+                color: map.get(abs.$colors, primary);
             }
         }
     }
@@ -263,7 +264,7 @@
         }
     }
 
-    @media (max-width: map-get(abs.$breakpoints, medium)) {
+    @media (max-width: map.get(abs.$breakpoints, md)) {
         &__form--top, &__form--middle {
             width: 100%;
             flex-direction: column;
@@ -275,7 +276,7 @@
         }
     }
 
-    @media (max-width: map-get(abs.$breakpoints, small)) {
+    @media (max-width: map.get(abs.$breakpoints, sm)) {
         .error-message {
             height: 2rem;
         }

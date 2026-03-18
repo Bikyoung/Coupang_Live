@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/_bundle.scss" as abs;
 
 body[data-page="creator"] {
@@ -19,7 +20,7 @@ body[data-page="creator"] {
         }
 
         .cta-creator {
-            background-color: map-get(abs.$colors, primary);
+            background-color: map.get(abs.$colors, primary);
         }
     }
         
@@ -51,15 +52,15 @@ body[data-page="creator"] {
     .liveType {
         &__tab {
             &.on {
-                color: map-get(abs.$colors, orange);
-                border-bottom: 0.2rem solid map-get(abs.$colors, orange);
+                color: map.get(abs.$colors, orange);
+                border-bottom: 0.2rem solid map.get(abs.$colors, orange);
             }
         }
 
         &__feature {
-            @include abs.respond-typo(body, body-md, 500, 1.45, 0.01em, map-get(abs.$colors, orange));
+            @include abs.respond-typo(body, body-md, 500, 1.45, 0.01em, map.get(abs.$colors, orange));
 
-            background-color: map-get(abs.$colors, yellow);
+            background-color: map.get(abs.$colors, yellow);
         }
     }
 

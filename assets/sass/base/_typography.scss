@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/_bundle.scss" as abs;
 
 html {
@@ -10,7 +11,7 @@ body {
 }
 
 .section__title {
-    @include abs.respond-typo(title, title-lg, 700, 1.25, -0.01em, map-get(abs.$colors, navy));
+    @include abs.respond-typo(title, title-lg, 700, 1.25, -0.01em, map.get(abs.$colors, navy));
 } 
 
 a {
@@ -18,9 +19,9 @@ a {
 }
 
 .hero__title--sub {
-    @include abs.respond-typo(title, title-xl, 500, 1.2, -0.01em, map-get(abs.$colors, white));
+    @include abs.respond-typo(title, title-xl, 500, 1.2, -0.01em, map.get(abs.$colors, white));
 }
 
 ::placeholder, select {
-    @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map-get(abs.$colors, gray));
+    @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map.get(abs.$colors, gray));
 }

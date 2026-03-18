@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../abstracts/_bundle.scss" as abs;
 
 * {
@@ -57,22 +58,31 @@ section {
     width: 100%;
     max-width: 1440px;
 
-    @media (max-width: map-get(abs.$breakpoints, large)) {
+    @media (max-width: map.get(abs.$breakpoints, lg)) {
         max-width: 960px;
     }
-    @media (max-width: map-get(abs.$breakpoints, medium)) {
+    @media (max-width: map.get(abs.$breakpoints, md)) {
         max-width: 720px;
     }
-    @media (max-width: map-get(abs.$breakpoints, small)) {
+    @media (max-width: map.get(abs.$breakpoints, sm)) {
         max-width: 440px;
     }
     
 }
 
-.max {
-    @each $label, $bp in abs.$breakpoints {
+// .max {
+//     @each $label, $bp in abs.$breakpoints {
+//         &-#{$bp} {
+//             @include abs.responsiveShow($bp);
+//         }
+//     }
+// }
+
+// .show-* 클래스를 자동 생성
+.show {
+    @each $bp, $width in abs.$breakpoints {
         &-#{$bp} {
-            @include abs.responsiveShow($bp);
+            @include abs.respond-show($width);
         }
     }
 }
