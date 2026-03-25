@@ -1478,15 +1478,10 @@ a {
 }
 @media (max-width: 1023px) {
   .vision__image {
-    width: 35rem;
+    width: 31rem;
   }
 }
 @media (max-width: 767px) {
-  .vision__image {
-    width: 25rem;
-  }
-}
-@media (max-width: 479px) {
   .vision__image {
     width: 25rem;
   }
@@ -1500,11 +1495,6 @@ a {
   }
 }
 @media (max-width: 767px) {
-  .vision__image {
-    height: 35rem;
-  }
-}
-@media (max-width: 479px) {
   .vision__image {
     height: 35rem;
   }
@@ -1777,16 +1767,6 @@ a {
   height: 90vh;
 }
 @media (max-width: 1023px) {
-  .explore__contents > * {
-    height: 50vh;
-  }
-}
-@media (max-width: 767px) {
-  .explore__contents > * {
-    height: 50vh;
-  }
-}
-@media (max-width: 479px) {
   .explore__contents > * {
     height: 50vh;
   }
@@ -2714,58 +2694,20 @@ body[data-page=creator] .guide-card:nth-child(2n) {
 }
 
 .contact__container {
-  /* $key가 null이 아니며
-     $spacings에 xl라는 key가 있으며
-     xl 맵에 $key가 존재하는 경우 */
-  gap: 0;
-}
-@media (max-width: 1023px) {
-  .contact__container {
-    gap: 5rem;
-  }
-}
-@media (max-width: 767px) {
-  .contact__container {
-    gap: 4rem;
-  }
-}
-.contact__container {
-  width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: start;
-  position: relative;
-  z-index: 5;
 }
-.contact .container__left {
-  width: 42rem;
-  padding-top: 15rem;
-  flex-direction: column;
-  align-items: center;
-  gap: 12rem;
-}
-.contact__title-wrapper {
+.contact-title__wrapper {
   /* $key가 null이 아니며
      $spacings에 xl라는 key가 있으며
      xl 맵에 $key가 존재하는 경우 */
-  gap: 2rem;
+  padding-top: 15rem;
 }
 @media (max-width: 1023px) {
-  .contact__title-wrapper {
-    gap: 1.5rem;
+  .contact-title__wrapper {
+    padding-top: 0;
   }
-}
-@media (max-width: 767px) {
-  .contact__title-wrapper {
-    gap: 1rem;
-  }
-}
-.contact__title-wrapper {
-  flex-direction: column;
-  align-items: start;
-}
-.contact__title-wrapper > * {
-  text-align: left;
 }
 .contact__subtitle {
   font-size: 2rem;
@@ -2790,6 +2732,23 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   line-height: 1.4;
   letter-spacing: 0;
   color: #4E4E4E;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  margin-top: 2rem;
+}
+@media (max-width: 1023px) {
+  .contact__subtitle {
+    margin-top: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact__subtitle {
+    margin-top: 1rem;
+  }
+}
+.contact__subtitle {
+  margin-bottom: 12rem;
 }
 .contact__image {
   width: 20rem;
@@ -2798,149 +2757,105 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   background-image: url("../images/contact_image.webp");
 }
 .contact__form {
-  /* $key가 null이 아니며
-     $spacings에 xl라는 key가 있으며
-     xl 맵에 $key가 존재하는 경우 */
-  padding-top: 3rem;
+  width: 69rem;
 }
 @media (max-width: 767px) {
   .contact__form {
-    padding-top: 2rem;
+    width: 100%;
   }
 }
 .contact__form {
   /* $key가 null이 아니며
      $spacings에 xl라는 key가 있으며
      xl 맵에 $key가 존재하는 경우 */
-  padding-bottom: 3rem;
-}
-@media (max-width: 767px) {
-  .contact__form {
-    padding-bottom: 2rem;
-  }
-}
-.contact__form {
-  flex-direction: column;
-  border-radius: 2rem;
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(1rem);
   padding: 3rem;
 }
-.contact__form .error-message {
-  font-size: 1.4rem;
-}
-@media (max-width: 1023px) {
-  .contact__form .error-message {
-    font-size: 1.3rem;
-  }
-}
 @media (max-width: 767px) {
-  .contact__form .error-message {
-    font-size: 1.2rem;
+  .contact__form {
+    padding: 2rem;
   }
 }
 @media (max-width: 479px) {
-  .contact__form .error-message {
-    font-size: 1.2rem;
+  .contact__form {
+    padding: 0;
   }
 }
-.contact__form .error-message {
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  color: #FF0000;
-  width: 100%;
-  height: 3rem;
-  padding: 0.2rem 1rem 0 1rem;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+.contact__form {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  gap: 2rem;
 }
-.contact__form--top, .contact__form--middle {
-  width: 100%;
+@media (max-width: 767px) {
+  .contact__form {
+    gap: 1rem;
+  }
+}
+.contact .user-info {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  row-gap: 2rem;
+}
+@media (max-width: 767px) {
+  .contact .user-info {
+    row-gap: 1rem;
+  }
+}
+.contact .user-info {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  column-gap: 3rem;
+}
+@media (max-width: 767px) {
+  .contact .user-info {
+    column-gap: 0;
+  }
+}
+.contact .user-info {
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 30rem);
   justify-content: space-between;
 }
-.contact__form--top label, .contact__form--middle label {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-.contact__form--bottom {
+.contact .label {
   /* $key가 null이 아니며
      $spacings에 xl라는 key가 있으며
      xl 맵에 $key가 존재하는 경우 */
-  gap: 2rem;
+  margin-bottom: 2rem;
 }
 @media (max-width: 767px) {
-  .contact__form--bottom {
-    gap: 1.5rem;
+  .contact .label {
+    margin-bottom: 1.5rem;
   }
 }
-.contact__form--bottom {
-  width: 100%;
-}
-.contact__form--bottom .detail {
-  /* $key가 null이 아니며
-     $spacings에 xl라는 key가 있으며
-     xl 맵에 $key가 존재하는 경우 */
-  gap: 2rem;
-}
-@media (max-width: 767px) {
-  .contact__form--bottom .detail {
-    gap: 1.3rem;
-  }
-}
-.contact__form--bottom .detail {
-  flex-direction: column;
-  align-items: start;
-}
-.contact__form--bottom textarea {
-  padding: 2rem 1rem;
-  min-height: 18rem;
-  height: fit-content;
-  line-height: 1.5;
-  background-color: transparent;
-}
-.contact__form .input-group:not(.textarea-input) {
-  width: 30rem;
-}
-.contact__form .input-group.textarea-input {
-  width: 100%;
-}
-.contact__form .input-group.is-invalid input, .contact__form .input-group.is-invalid select, .contact__form .input-group.is-invalid textarea {
-  border-bottom: 0.1rem solid #FF0000;
-}
-.contact__form .input-group.is-invalid .error-message {
-  visibility: visible;
-  opacity: 1;
-}
-.contact__form label > span, .contact__form .label {
+.contact .label {
   font-size: 1.8rem;
 }
 @media (max-width: 1023px) {
-  .contact__form label > span, .contact__form .label {
+  .contact .label {
     font-size: 1.8rem;
   }
 }
 @media (max-width: 767px) {
-  .contact__form label > span, .contact__form .label {
+  .contact .label {
     font-size: 1.6rem;
   }
 }
 @media (max-width: 479px) {
-  .contact__form label > span, .contact__form .label {
+  .contact .label {
     font-size: 1.6rem;
   }
 }
-.contact__form label > span, .contact__form .label {
+.contact .label {
   font-weight: 700;
   line-height: 1.45;
   letter-spacing: 0;
   color: #000715;
+  width: fit-content;
   position: relative;
 }
-.contact__form label > span::before, .contact__form .label::before {
+.contact .label::before {
   content: "";
   width: 0.5rem;
   height: 0.5rem;
@@ -2949,258 +2864,277 @@ body[data-page=creator] .guide-card:nth-child(2n) {
   position: absolute;
   top: 0;
   left: 100%;
-  transform: translateX(0.5rem);
+  transform: translateX(100%);
 }
-.contact__form input, .contact__form select {
+.contact .input {
   /* $key가 null이 아니며
      $spacings에 xl라는 key가 있으며
      xl 맵에 $key가 존재하는 경우 */
   padding-top: 1rem;
 }
 @media (max-width: 767px) {
-  .contact__form input, .contact__form select {
+  .contact .input {
     padding-top: 0.8rem;
   }
 }
-.contact__form input, .contact__form select {
+.contact .input {
   /* $key가 null이 아니며
      $spacings에 xl라는 key가 있으며
      xl 맵에 $key가 존재하는 경우 */
   padding-bottom: 1rem;
 }
 @media (max-width: 767px) {
-  .contact__form input, .contact__form select {
+  .contact .input {
     padding-bottom: 0.8rem;
   }
 }
-.contact__form input, .contact__form select {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  line-height: 1.5;
-  background-color: transparent;
-}
-.contact__form input, .contact__form select, .contact__form textarea {
+.contact .input {
   font-size: 1.6rem;
 }
 @media (max-width: 1023px) {
-  .contact__form input, .contact__form select, .contact__form textarea {
+  .contact .input {
     font-size: 1.6rem;
   }
 }
 @media (max-width: 767px) {
-  .contact__form input, .contact__form select, .contact__form textarea {
+  .contact .input {
     font-size: 1.4rem;
   }
 }
 @media (max-width: 479px) {
-  .contact__form input, .contact__form select, .contact__form textarea {
+  .contact .input {
     font-size: 1.4rem;
   }
 }
-.contact__form input, .contact__form select, .contact__form textarea {
+.contact .input {
   font-weight: 400;
   line-height: 1.45;
   letter-spacing: 0.01rem;
   color: #00040C;
-  width: 100%;
   border: none;
   border-bottom: 0.1rem solid #C0C0C0;
 }
-.contact__form input:focus, .contact__form select:focus, .contact__form textarea:focus {
-  outline: none;
-}
-.contact__form input::placeholder, .contact__form select::placeholder, .contact__form textarea::placeholder {
+.contact .input::placeholder {
   color: #4E4E4E;
 }
-.contact__form .agreement {
-  /* $key가 null이 아니며
-     $spacings에 xl라는 key가 있으며
-     xl 맵에 $key가 존재하는 경우 */
-  gap: 2rem;
+.contact .input:focus {
+  outline: none;
 }
-@media (max-width: 1023px) {
-  .contact__form .agreement {
-    gap: 1rem;
+.contact input, .contact select {
+  width: 30rem;
+}
+@media (max-width: 767px) {
+  .contact input, .contact select {
+    width: 100%;
   }
 }
-.contact__form .agreement {
-  flex-direction: column;
-  align-items: start;
+.contact select {
+  cursor: pointer;
 }
-.contact__form .agreement__content {
-  flex-direction: column;
-  align-items: start;
-  gap: 1rem;
+.contact textarea {
+  height: 22.4rem;
+}
+@media (max-width: 479px) {
+  .contact textarea {
+    height: 21.4rem;
+  }
+}
+.contact .error-message {
+  font-size: 1.4rem;
+}
+@media (max-width: 1023px) {
+  .contact .error-message {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact .error-message {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact .error-message {
+    font-size: 1.2rem;
+  }
+}
+.contact .error-message {
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: #FF0000;
+  height: 2rem;
+  margin-bottom: 0;
+}
+.contact .agreement-content {
   padding: 2rem;
-  background-color: #F4F5F9;
+  gap: 2rem;
   border-radius: 1rem;
+  background: #F4F5F9;
 }
-.contact__form .agreement__content > * {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-.contact__form .agreement__content .title {
+.contact .agreement__title {
   font-size: 1.6rem;
 }
 @media (max-width: 1023px) {
-  .contact__form .agreement__content .title {
+  .contact .agreement__title {
     font-size: 1.6rem;
   }
 }
 @media (max-width: 767px) {
-  .contact__form .agreement__content .title {
+  .contact .agreement__title {
     font-size: 1.4rem;
   }
 }
 @media (max-width: 479px) {
-  .contact__form .agreement__content .title {
+  .contact .agreement__title {
     font-size: 1.4rem;
   }
 }
-.contact__form .agreement__content .title {
+.contact .agreement__title {
   font-weight: 600;
   line-height: 1.45;
   letter-spacing: 0.01em;
   color: #4E4E4E;
 }
-.contact__form .agreement__content .desc {
+.contact .agreement__desc {
   font-size: 1.4rem;
 }
 @media (max-width: 1023px) {
-  .contact__form .agreement__content .desc {
+  .contact .agreement__desc {
     font-size: 1.3rem;
   }
 }
 @media (max-width: 767px) {
-  .contact__form .agreement__content .desc {
+  .contact .agreement__desc {
     font-size: 1.2rem;
   }
 }
 @media (max-width: 479px) {
-  .contact__form .agreement__content .desc {
+  .contact .agreement__desc {
     font-size: 1.2rem;
   }
 }
-.contact__form .agreement__content .desc {
+.contact .agreement__desc {
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.01em;
   color: #4E4E4E;
 }
-.contact__form .agreement__check {
+.contact .agreement__check {
+  justify-content: start;
   gap: 1rem;
-}
-.contact__form .agreement__check input {
-  width: 0.1rem;
-  height: 0.1rem;
-  margin: -0.1rem;
-}
-.contact__form .agreement__check i {
-  font-size: 2rem;
+  margin-top: 1rem;
   cursor: pointer;
+}
+.contact .agreement__custom-checkbox {
+  font-size: 2rem;
+  color: #C0C0C0;
   transition: all 0.25s ease-in-out;
 }
-.contact__form .agreement__check i.check {
+.contact .agreement__checkbox:checked + .agreement__custom-checkbox {
   color: #F7552F;
 }
-.contact__form .agreement__check i:not(.check) {
-  color: #C0C0C0;
-}
-.contact__form .agreement__check p {
+.contact .agreement__label {
   font-size: 1.6rem;
 }
 @media (max-width: 1023px) {
-  .contact__form .agreement__check p {
+  .contact .agreement__label {
     font-size: 1.6rem;
   }
 }
 @media (max-width: 767px) {
-  .contact__form .agreement__check p {
+  .contact .agreement__label {
     font-size: 1.4rem;
   }
 }
 @media (max-width: 479px) {
-  .contact__form .agreement__check p {
+  .contact .agreement__label {
     font-size: 1.4rem;
   }
 }
-.contact__form .agreement__check p {
+.contact .agreement__label {
   font-weight: 400;
   line-height: 1.45;
   letter-spacing: 0.01em;
   color: #000715;
 }
-.contact__form button {
+.contact .agreement__error-message {
+  transform: translateY(100%);
+}
+.contact .form-submit {
   font-size: 2rem;
 }
 @media (max-width: 1023px) {
-  .contact__form button {
+  .contact .form-submit {
     font-size: 2rem;
   }
 }
 @media (max-width: 767px) {
-  .contact__form button {
+  .contact .form-submit {
     font-size: 1.8rem;
   }
 }
 @media (max-width: 479px) {
-  .contact__form button {
+  .contact .form-submit {
     font-size: 1.6rem;
   }
 }
-.contact__form button {
+.contact .form-submit {
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: 0.01em;
   color: #FFFFFF;
-  width: 100%;
-  padding: 1.5rem 0;
-  border-radius: 10rem;
-  background-color: #000715;
-  transition: all 0.3s ease-in-out;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-top: 1.5rem;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 1.5rem;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  margin-top: 4rem;
 }
-.contact__form button:hover {
-  color: #F7552F;
-}
-@media (max-width: 1440px) {
-  .contact__container {
-    flex-direction: column;
-    align-items: center;
-  }
-  .contact__title-wrapper {
-    align-items: center;
-  }
-  .contact__title-wrapper > * {
-    text-align: center;
-  }
-  .contact .container__left {
-    padding-top: 0;
-  }
-  .contact .contact__image {
-    display: none;
-  }
-}
-@media (max-width: 1440px) and (min-width: 1024px) {
-  .contact__container {
-    gap: 6rem;
-  }
-  .contact__title-wrapper {
-    gap: 1.5rem;
+@media (max-width: 1023px) {
+  .contact .form-submit {
+    margin-top: 3rem;
   }
 }
 @media (max-width: 767px) {
-  .contact__form--top, .contact__form--middle {
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .contact__form--top .input-group:not(.textarea-input), .contact__form--middle .input-group:not(.textarea-input) {
-    width: 100%;
+  .contact .form-submit {
+    margin-top: 4rem;
   }
 }
-@media (max-width: 479px) {
-  .contact .error-message {
-    height: 2rem;
+.contact .form-submit {
+  background-color: #000715;
+  border-radius: 10rem;
+  transition: all 0.3s ease-in-out;
+}
+.contact .form-submit:hover {
+  color: #F7552F;
+}
+@media (max-width: 1439px) {
+  .contact__container {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
+  .contact__subtitle {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .contact__image {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .contact__form {
+    max-width: 50rem;
+  }
+  .contact .user-info {
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 }/*# sourceMappingURL=main.css.map */

@@ -106,24 +106,32 @@
     @include respond-sp(gap, $key, $xl, $lg, $md, $sm);
 }
 
-// 반응형별로 width를 자동 재정의하는 mixin
-@mixin responsiveWidth($pc, $laptop, $tablet, $mobile) {
-    width: $pc;
+// 반응형별로 width를 자동 재정의
+@mixin respond-w($xl: null, $lg: null, $md: null, $sm: null) {
+    @if $xl {
+        width: $xl;
+    }
 
-    @each $bp, $width in (lg: $pc, md: $tablet, sm: $mobile) {
-        @media (max-width: map-get(vars.$breakpoints, $bp)) {
-            width: $width;
+    @each $bp, $size in (lg: $lg, md: $md, sm: $sm) {
+        @if $size {
+            @media (max-width: map.get(vars.$breakpoints, $bp)) {
+                width: $size;
+            }
         }
     }
 }
 
-// 반응형별로 height를 자동 재정의하는 mixin
-@mixin responsiveHeight($pc, $laptop, $tablet, $mobile) {
-    height: $pc;
+// 반응형별로 height를 자동 재정의
+@mixin respond-h($xl: null, $lg: null, $md: null, $sm: null) {
+    @if $xl {
+        height: $xl;
+    }
 
-    @each $bp, $height in (lg: $laptop, md: $tablet, sm: $mobile) {
-        @media (max-width: map-get(vars.$breakpoints, $bp)) {
-            height: $height;
+    @each $bp, $size in (lg: $lg, md: $md, sm: $sm) {
+        @if $size {
+            @media (max-width: map.get(vars.$breakpoints, $bp)) {
+                height: $size;
+            }
         }
     }
 }

@@ -105,8 +105,8 @@
     }
 
     &__image {
-        @include abs.responsiveWidth(35rem, 31rem, 25rem, 25rem);
-        @include abs.responsiveHeight(50rem, 42rem, 35rem, 35rem);
+        @include abs.respond-w(35rem, 31rem, 25rem);
+        @include abs.respond-h(50rem, 42rem, 35rem);
 
         background-image: url("../images/vision_image.webp");
         background-size: cover;
@@ -251,7 +251,7 @@
         }
 
         > * {
-            @include abs.responsiveHeight(90vh, 50vh, 50vh, 50vh);
+            @include abs.respond-h(90vh, 50vh);
 
             padding: $padding-lg;
             @media (max-width: map.get(abs.$breakpoints, lg)) {
