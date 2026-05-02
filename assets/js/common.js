@@ -1,31 +1,30 @@
+import "../styles/base/bundle.scss";
 import { loadComponent } from "./componentLoader.js";
 
 export async function commonInit() {
     try {
-        // header와 footer 로드 및 UI 설정  
-        let pageName = document.querySelector("body").dataset.page;
-
         await loadComponent("header");
         await loadComponent("m-nav");
         await loadComponent("footer");
+
+        const header = document.querySelector(".header");
+        const navLinkList = document.querySelectorAll(".header__nav-link");
+        const currentPage = document.querySelector("body").dataset.page;
         
         // 문의하기 페이지는 .floating-btn 로드 제외 
-        if(pageName !== "contact") {
+        if(currentPage !== "contact") {
             await loadComponent("floating-btn");
         }
     
-        const header = document.querySelector("header");
-        const menuList = document.querySelectorAll("header nav a");
-
-        applyHeaderStyle(pageName, header, menuList);
-        setAriaCurrent(pageName, menuList);
-        toggleMobileMenu();
+        setAriaCurrent(navLinkList, currentPage);
+        applyHeaderStyle(header, currentPage);
+        toggleMNav();
         
         // GSAP 설정
         if(typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
             gsap.registerPlugin(ScrollTrigger);
 
-            if(pageName !== "creator" && pageName !== "seller") {
+            if(currentPage !== "creator" && currentPage !== "seller") {
                 gsap.registerPlugin(ScrollSmoother);
 
                 ScrollSmoother.create({
@@ -43,46 +42,40 @@ export async function commonInit() {
     }
 }
 
+// .header__nav-link에 aria-current="page" 설정
+function setAriaCurrent(navLinkList, currentPage) {
+    navLinkList.forEach(link => {
+        if(link.dataset.menu === currentPage) {
+            link.setAttribute("aria-current", "page");
+        }
+    });
+}
+
 // 페이지별 header의 스타일을 다르게 적용
-function applyHeaderStyle(pageName, header, menuList) {
-    const whiteHamburgerImage = document.querySelector(".hamburger-image-white");
-    const blackHamburgerImage = document.querySelector(".hamburger-image-black");
-
-    if((pageName === "faq") || (pageName === "contact")) {
-        whiteHamburgerImage.classList.remove("max-767px");
-        whiteHamburgerImage.classList.add("d-none");
-
-        blackHamburgerImage.classList.remove("d-none");
-        blackHamburgerImage.classList.add("max-767px");
-
-        header.style.borderColor = "#C0C0C0";
-        menuList.forEach((menu) => {
-            menu.style.color = "#000715"
-        });
+function applyHeaderStyle(header, currentPage) {
+    if((currentPage === "faq") || (currentPage === "contact")) {
+        header.classList.add("header--dark");
     }
 }
 
-// header nav a에 웹 접근성 준수
-function setAriaCurrent(pageName, menuList) {
-    menuList.forEach((menu) => {
-        if(menu.dataset.menu === pageName) {
-            menu.setAttribute("aria-current", "page");
-            menu.style.color = "#F7552F";
-        }
-    })
-}
+// .m-nav에 show 클래스 및 aria-expanded 토글
+function toggleMNav() {
+    const menuToggleList = document.querySelectorAll(".menu-toggle");
+    const mNav = document.querySelector(".m-nav");
+    const mNavOpener = document.querySelector(".header__hamburger");
 
-// .m-nav에 show 클래스 토글
-function toggleMobileMenu() {
-    const menuBtns = document.querySelectorAll(".menu-toggle");
-    const mobileMenu = document.querySelector(".m-nav");
+    menuToggleList.forEach(menuToggle => {
+        menuToggle.addEventListener("click", () => {
+            let isOpen;
 
-    menuBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("show");
-        })
+            mNav.classList.toggle("show");
+            isOpen = mNav.classList.contains("show");
+
+            mNavOpener.setAttribute("aria-expanded", String(isOpen));
+        });
     });
 }
+
 
 
 

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Bootstrap-icons 링크 연결 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"/>
-    <link rel="stylesheet" href="./assets/css/main.css">
     <title>쿠팡 라이브</title>
 </head>
 <body data-page="seller">
@@ -19,24 +18,22 @@
 
     <main>
         <!-- --------------- hero --------------- -->
-        <section class="hero hero--sub">
-            <div class="bg-center hero__bg hero__bg--seller" style="background-image: url('./assets/images/seller_hero.webp')">
-            </div>            
-            <div class="section-inner container-default hero__container hero__container--sub">
+        <section class="bg-center header-offset hero">
+            <div class="section-inner-stack section-inner-width hero__container">
                 <!-- hero__title -->
-                <h1 class="hero__title--sub">
-                    <span class="block overflow-hidden">
-                        <span class="block" data-aos="fade-up">
+                <h1 class="hero__title">
+                    <span class="d-block overflow-hidden">
+                        <span class="d-block" data-aos="fade-up">
                             한 번의 라이브로도
                         </span>
                     </span>
-                    <span class="block overflow-hidden">
-                        <span class="block" data-aos="fade-up">
+                    <span class="d-block overflow-hidden">
+                        <span class="d-block" data-aos="fade-up">
                             지속 수익을 만듭니다
                         </span>
                     </span>                    
                 </h1>
-                <a href="https://livevendor.coupang.com/" target="_blank" class="cta-sub cta-seller" data-aos="fade-up" data-aos-duration="700" data-aos-delay="50">
+                <a href="https://livevendor.coupang.com/" class="hero__cta" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-duration="700" data-aos-delay="50">
                     판매자 등록하기
                 </a>
             </div>
@@ -44,15 +41,13 @@
 
         <!-- --------------- results --------------- -->
         <section class="results">
-            <div class="section-inner container-default results__container">
-                <div class="w-100 vh-100 flex-center results__top">
-                    <h2 class="results__title">
-                        쿠팡 라이브와 함께한<br class="show-md">
-                        브랜드가 이야기합니다
-                    </h2>
-                </div>
-                <ul class="w-100 d-flex flex-column results__bottom results__lists">
-                    <li class="position-relative flex-center results__list results__list--01">
+            <div class="section-inner-stack section-inner-width">
+                <h2 class="results__title">
+                    쿠팡 라이브와 함께한<br class="show-md">
+                    브랜드가 이야기합니다
+                </h2>
+                <ul class="results__list">
+                    <li class="results__item results__item-01">
                         <span class="text">
                             “타사 대비 매출이&nbsp;
                         </span>
@@ -60,11 +55,11 @@
                             <span class="text">
                                 3배 이상    
                             </span>
-                            <img src="./assets/images/bar_chart.webp" class="image" alt="막대 차트 이미지">
+                            <img src="./assets/images/bar_chart.webp" class="image" alt="">
                             <span class="text">이었습니다.”</span>
                         </div>
                     </li>
-                    <li class="position-relative flex-center results__list results__list--02">
+                    <li class="results__item results__item-02">
                         <span class="text">
                             “1시간의 라이브로&nbsp;
                         </span>
@@ -72,11 +67,11 @@
                             <span class="text">
                                 월 매출의 86%를&nbsp;    
                             </span>
-                            <img src="./assets/images/pie_chart.webp" class="image" alt="원형 차트 이미지">
+                            <img src="./assets/images/pie_chart.webp" class="image" alt="">
                             <span class="text">달성했죠.”</span>
                         </div>
                     </li>
-                    <li class="position-relative flex-center results__list results__list--03">
+                    <li class="results__item results__item-03">
                         <span class="text">
                             “쿠팡 라이브로 제품 발주량이&nbsp;
                         </span>
@@ -84,7 +79,7 @@
                             <span class="text">
                                 100% 상승    
                             </span>
-                            <img src="./assets/images/box.webp" class="image" alt="상자 이미지">
+                            <img src="./assets/images/box.webp" class="image" alt="">
                             <span class="text">했어요.”</span>
                         </div>
                     </li>
@@ -94,34 +89,34 @@
 
         <!-- --------------- liveType --------------- -->
         <section class="liveType">
-            <div class="section-inner container-default liveType__container">
+            <div class="section-inner-stack section-inner-width">
                 <h2 class="section__title">
                     쿠팡 라이브는<br class="show-md"> 다양한 방송 형태로<br>
                     표현의 폭을 넓혀갑니다
                 </h2>
-                <div class="w-100 d-flex liveType__tabs">
-                    <button class="liveType__tab liveType__tab--shorts on" role="tab" aria-selected="true">
+                <div class="liveType__tabList" role="tablist" aria-label="방송 유형 선택" aria-orientation="horizontal">
+                    <button type="button" class="liveType__tab" id="tab-shorts" role="tab" aria-controls="tabpanel-shorts" aria-selected="true" tabindex="0">
                         숏츠
                     </button>
-                    <button class="liveType__tab liveType__tab--creatorLive" role="tab" aria-selected="false">
+                    <button type="button" class="liveType__tab" id="tab-creator" role="tab" aria-controls="tabpanel-creator" aria-selected="false" tabindex="-1">
                         크리에이터<br class="show-sm"> 라이브
                     </button>
-                    <button class="liveType__tab liveType__tab--selfLive" role="tab" aria-selected="false">
+                    <button type="button" class="liveType__tab" id="tab-self" role="tab" aria-controls="tabpanel-self" aria-selected="false" tabindex="-1">
                         셀프<br class="show-sm"> 라이브
                     </button>
                 </div>
-                <ul class="liveType__contents">
-                    <li class="flex-center liveType__content liveType__content--shorts on">
+                <div class="liveType__panels">
+                    <div class="liveType__panel" id="tabpanel-shorts" role="tabpanel" aria-labelledby="tab-shorts" tabindex="0">
                         <div class="liveType__image">
-                            <img src="./assets/images/seller_01.webp" class="live-image" alt="숏츠 이미지">
+                            <img src="./assets/images/seller_01.webp" class="live-image" alt="숏츠 예시 화면">
                         </div>
-                        <div class="flex-center liveType__text">
+                        <div class="liveType__text">
                             <p class="liveType__feature">
                                 짧은 영상, 녹화와 수정 - 라이브보다 편안한 제작 방식
                             </p>
-                            <p class="liveType__title">
+                            <h3 class="liveType__title">
                                 숏츠
-                            </p>
+                            </h3>
                             <p class="liveType__desc">
                                 고객들은 정보 과잉 속에서 쉽게 피로감을 느낍니다.<br>
                                 이런 상황에서, 짧은 시간 안에 핵심을 전달하는<br class="show-md"> 숏츠는 매우 효과적인 전략이 됩니다.<br>길게는 1분, 짧게는 3초 동안<br class="show-sm"> 핵심 메시지를 담을 수 있어 유용합니다.
@@ -132,18 +127,18 @@
                                 <li>· 노출·클릭은 수수료 무료, 매출 발생 시 5%만 과금</li>
                             </ul>
                         </div>
-                    </li>
-                    <li class="flex-center liveType__content liveType__content--creatorLive">
+                    </div>
+                    <div class="liveType__panel" id="tabpanel-creator" role="tabpanel" aria-labelledby="tab-creator" tabindex="-1" hidden>
                         <div class="liveType__image">
-                            <img src="./assets/images/seller_02.webp" class="live-image" alt="크리에이터 협업 라이브 이미지">
+                            <img src="./assets/images/seller_02.webp" class="live-image" alt="크리에이터 라이브 예시 화면">
                         </div>
-                        <div class="liveType__text flex-center">
+                        <div class="liveType__text">
                             <p class="liveType__feature">
                                 쿠팡이 중개하는 전문가와 함께 - 완성도 높은 라이브
                             </p>
-                            <p class="liveType__title">
+                            <h3 class="liveType__title">
                                 크리에이터 라이브
-                            </p>
+                            </h3>
                             <p class="liveType__desc">
                                 쿠팡의 ‘크리에이터 마켓플레이스’에 등록된<br class="show-md"> 크리에이터와 함께 만드는 방송입니다.<br>
                                 직접 크리에이터를 검색 · 선택하며,<br class="show-sm"> 다양한 방법으로 협업할 수 있습니다.
@@ -154,18 +149,18 @@
                                 <li>· 판매자의 제안 방송 또는 크리에이터 기획 방송 등<br class="show-sm"><span class="show-sm">&nbsp;</span> 다양한 협업 방식 존재</li>
                             </ul>
                         </div>
-                    </li>
-                    <li class="flex-center liveType__content liveType__content--selfLive">
+                    </div>
+                    <div class="liveType__panel" id="tabpanel-self" role="tabpanel" aria-labelledby="tab-self" tabindex="-1" hidden>
                         <div class="liveType__image">
-                            <img src="./assets/images/seller_03.webp" class="live-image" alt="셀프 라이브 이미지">
+                            <img src="./assets/images/seller_03.webp" class="live-image" alt="셀프 라이브 예시 화면">
                         </div>
-                        <div class="flex-center liveType__text">
+                        <div class="liveType__text">
                             <p class="liveType__feature">
                                 모든 걸 내 손으로 - 비용은 줄이고 운영은 자유롭게
                             </p>
-                            <p class="liveType__title">
+                            <h3 class="liveType__title">
                                 셀프 라이브
-                            </p>
+                            </h3>
                             <p class="liveType__desc">
                                 판매자가 직접 방송을 기획·진행하거나<br> 자체 크리에이터와 함께하는 셀프 라이브입니다.<br>
                                 비용은 줄이고 운영은 유연하게,<br class="show-sm"> 나만의 라이브를 완성할 수 있습니다.
@@ -175,19 +170,19 @@
                                 <li>· 방송 일정과 콘텐츠를 상황에 맞게 자유롭게 조절 가능</li>
                             </ul>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- --------------- guide --------------- -->
         <section class="guide">
-            <div class="section-inner container-default guide__container">
+            <div class="section-inner-stack section-inner-width">
                 <h2 class="section__title">
                     성공적인 방송을 위한<br> 핵심 노하우를 전합니다
                 </h2>
-                <div class="guide-card__container">
-                    <div class="guide-card">
+                <ul class="guide__list">
+                    <li class="guide__item guide-card">
                         <div class="guide-card__text">
                             <h3 class="guide-card__title">공통 가이드</h3>
                             <p class="guide-card__desc">
@@ -195,12 +190,12 @@
                                 운영 노하우를 확인하세요
                             </p>
                         </div>
-                        <a href="./assets/pdf/common.pdf" class="guide-card__button" download="공통 가이드.pdf">
-                            <i class="bi bi-file-earmark-pdf-fill"></i>
-                            <span>PDF 다운로드</span>
+                        <a href="/pdf/common.pdf" class="guide-card__button" download="공통 가이드.pdf" aria-label="공통 가이드 PDF 다운로드">
+                            <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
+                            <span aria-hidden="true">PDF 다운로드</span>
                         </a>
-                    </div>
-                    <div class="guide-card">
+                    </li>
+                    <li class="guide__item guide-card">
                         <div class="guide-card__text">
                             <h3 class="guide-card__title">숏츠</h3>
                             <p class="guide-card__desc">
@@ -208,12 +203,12 @@
                                 상품 소개 방법을 확인하세요
                             </p>
                         </div>
-                        <a href="./assets/pdf/shorts.pdf" class="guide-card__button" download="숏츠 가이드.pdf">
-                            <i class="bi bi-file-earmark-pdf-fill"></i>
-                            <span>PDF 다운로드</span>
+                        <a href="/pdf/shorts.pdf" class="guide-card__button" download="숏츠 가이드.pdf" aria-label="숏츠 가이드 PDF 다운로드">
+                            <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
+                            <span aria-hidden="true">PDF 다운로드</span>
                         </a>
-                    </div>
-                    <div class="guide-card">
+                    </li>
+                    <li class="guide__item guide-card">
                         <div class="guide-card__text">
                             <h3 class="guide-card__title">셀프 라이브</h3>
                             <p class="guide-card__desc">
@@ -221,12 +216,12 @@
                                 성공 전략을 확인하세요
                             </p>
                         </div>
-                        <a href="./assets/pdf/self_live.pdf" class="guide-card__button" download="셀프 라이브.pdf">
-                            <i class="bi bi-file-earmark-pdf-fill"></i>
-                            <span>PDF 다운로드</span>
+                        <a href="/pdf/self_live.pdf" class="guide-card__button" download="셀프 라이브.pdf" aria-label="셀프 라이브 PDF 다운로드">
+                            <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
+                            <span aria-hidden="true">PDF 다운로드</span>
                         </a>
-                    </div>
-                    <div class="guide-card">
+                    </li>
+                    <li class="guide__item guide-card">
                         <div class="guide-card__text">
                             <h3 class="guide-card__title">크리에이터 라이브</h3>
                             <p class="guide-card__desc">
@@ -234,12 +229,12 @@
                                 협업하는 방법을 알아보세요
                             </p>
                         </div>
-                        <a href="./assets/pdf/creator_live.pdf" class="guide-card__button" download="크리에이터 라이브.pdf">
-                            <i class="bi bi-file-earmark-pdf-fill"></i>
-                            <span>PDF 다운로드</span>
+                        <a href="/pdf/creator_live.pdf" class="guide-card__button" download="크리에이터 라이브.pdf" aria-label="크리에이터 라이브 PDF 다운로드">
+                            <i class="bi bi-file-earmark-pdf-fill" aria-hidden="true"></i>
+                            <span aria-hidden="true">PDF 다운로드</span>
                         </a>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </section>    
     </main>
@@ -263,8 +258,6 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <!-- ScrollSmoother 링크 연결 -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
-    <!-- jQuery 링크 연결 -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script type="module" src="./assets/js/seller.js"></script>
 </body>
 </html>

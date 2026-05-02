@@ -1,0 +1,453 @@
+@charset "UTF-8";
+/* $breakpoint: desktop, laptop, tablet, mobile이 할당됨 
+   $category: title, body, button이 할당됨 
+   $key: title-lg, title-md, title-sm 등이 할당됨 */
+/* 기본적으로 요소를 숨기고, 지정한 해상도 이하에서만 표시
+   display 값은 기본 block이며 인수를 통해 요소마다 다르게 지정 가능
+   @content를 통해 지정한 해상도 이하에서 추가 스타일 확장 가능
+   지정 해상도는 $breakpoints의 key(lg, md, sm) 뿐만 아니라 px 단위의 숫자(ex) 800px)도 가능 */
+.contact__container {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+.contact-title__wrapper {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-top: 15rem;
+}
+@media (max-width: 1023px) {
+  .contact-title__wrapper {
+    padding-top: 0;
+  }
+}
+.contact__subtitle {
+  font-size: 2rem;
+}
+@media (max-width: 1023px) {
+  .contact__subtitle {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact__subtitle {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact__subtitle {
+    font-size: 1.6rem;
+  }
+}
+.contact__subtitle {
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #4E4E4E;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  margin-top: 2rem;
+}
+@media (max-width: 1023px) {
+  .contact__subtitle {
+    margin-top: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact__subtitle {
+    margin-top: 1rem;
+  }
+}
+.contact__subtitle {
+  margin-bottom: 12rem;
+}
+.contact__image {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  background-image: url("../../images/contact_image.webp");
+}
+.contact__form {
+  width: 69rem;
+}
+@media (max-width: 767px) {
+  .contact__form {
+    width: 100%;
+  }
+}
+.contact__form {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding: 3rem;
+}
+@media (max-width: 767px) {
+  .contact__form {
+    padding: 2rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact__form {
+    padding: 0;
+  }
+}
+.contact__form {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  gap: 2rem;
+}
+@media (max-width: 767px) {
+  .contact__form {
+    gap: 1rem;
+  }
+}
+.contact .user-info {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  row-gap: 2rem;
+}
+@media (max-width: 767px) {
+  .contact .user-info {
+    row-gap: 1rem;
+  }
+}
+.contact .user-info {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  column-gap: 3rem;
+}
+@media (max-width: 767px) {
+  .contact .user-info {
+    column-gap: 0;
+  }
+}
+.contact .user-info {
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 30rem);
+  justify-content: space-between;
+}
+.contact .label {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  margin-bottom: 2rem;
+}
+@media (max-width: 767px) {
+  .contact .label {
+    margin-bottom: 1.5rem;
+  }
+}
+.contact .label {
+  font-size: 1.8rem;
+}
+@media (max-width: 1023px) {
+  .contact .label {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact .label {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact .label {
+    font-size: 1.6rem;
+  }
+}
+.contact .label {
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0;
+  color: #000715;
+  width: fit-content;
+  position: relative;
+}
+.contact .label::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #F7552F;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translateX(100%);
+}
+.contact .input {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-top: 1rem;
+}
+@media (max-width: 767px) {
+  .contact .input {
+    padding-top: 0.8rem;
+  }
+}
+.contact .input {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 1rem;
+}
+@media (max-width: 767px) {
+  .contact .input {
+    padding-bottom: 0.8rem;
+  }
+}
+.contact .input {
+  font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .contact .input {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact .input {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact .input {
+    font-size: 1.4rem;
+  }
+}
+.contact .input {
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01rem;
+  color: #00040C;
+  border: none;
+  border-bottom: 0.1rem solid #C0C0C0;
+}
+.contact .input::placeholder {
+  color: #4E4E4E;
+}
+.contact .input:focus {
+  outline: none;
+}
+.contact input, .contact select {
+  width: 30rem;
+}
+@media (max-width: 767px) {
+  .contact input, .contact select {
+    width: 100%;
+  }
+}
+.contact select {
+  cursor: pointer;
+}
+.contact textarea {
+  height: 22.4rem;
+}
+@media (max-width: 479px) {
+  .contact textarea {
+    height: 21.4rem;
+  }
+}
+.contact .error-message {
+  font-size: 1.4rem;
+}
+@media (max-width: 1023px) {
+  .contact .error-message {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact .error-message {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact .error-message {
+    font-size: 1.2rem;
+  }
+}
+.contact .error-message {
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: #FF0000;
+  height: 2rem;
+  margin-bottom: 0;
+}
+.contact .agreement-content {
+  padding: 2rem;
+  gap: 2rem;
+  border-radius: 1rem;
+  background: #F4F5F9;
+}
+.contact .agreement__title {
+  font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .contact .agreement__title {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact .agreement__title {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact .agreement__title {
+    font-size: 1.4rem;
+  }
+}
+.contact .agreement__title {
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #4E4E4E;
+}
+.contact .agreement__desc {
+  font-size: 1.4rem;
+}
+@media (max-width: 1023px) {
+  .contact .agreement__desc {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact .agreement__desc {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact .agreement__desc {
+    font-size: 1.2rem;
+  }
+}
+.contact .agreement__desc {
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: #4E4E4E;
+}
+.contact .agreement__check {
+  justify-content: start;
+  gap: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.contact .agreement__custom-checkbox {
+  font-size: 2rem;
+  color: #C0C0C0;
+  transition: all 0.25s ease-in-out;
+}
+.contact .agreement__checkbox:checked + .agreement__custom-checkbox {
+  color: #F7552F;
+}
+.contact .agreement__label {
+  font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .contact .agreement__label {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact .agreement__label {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact .agreement__label {
+    font-size: 1.4rem;
+  }
+}
+.contact .agreement__label {
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #000715;
+}
+.contact .agreement__error-message {
+  transform: translateY(100%);
+}
+.contact .form-submit {
+  font-size: 2rem;
+}
+@media (max-width: 1023px) {
+  .contact .form-submit {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact .form-submit {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 479px) {
+  .contact .form-submit {
+    font-size: 1.6rem;
+  }
+}
+.contact .form-submit {
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-top: 1.5rem;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 1.5rem;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  margin-top: 4rem;
+}
+@media (max-width: 1023px) {
+  .contact .form-submit {
+    margin-top: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact .form-submit {
+    margin-top: 4rem;
+  }
+}
+.contact .form-submit {
+  background-color: #000715;
+  border-radius: 10rem;
+  transition: all 0.3s ease-in-out;
+}
+.contact .form-submit:hover {
+  color: #F7552F;
+}
+@media (max-width: 1439px) {
+  .contact__container {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+  }
+  .contact__subtitle {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .contact__image {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .contact__form {
+    max-width: 50rem;
+  }
+  .contact .user-info {
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+  }
+}/*# sourceMappingURL=contact.css.map */

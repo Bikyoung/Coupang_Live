@@ -2,7 +2,7 @@ export async function loadComponent(component) {
     let dom = document.querySelector(`.${component}-load`);
     
     try {
-        const res = await fetch(`./inc/${component}.html`);
+        const res = await fetch(`/inc/${component}.html`);
 
         if(res.ok) {
             const data = await res.text();

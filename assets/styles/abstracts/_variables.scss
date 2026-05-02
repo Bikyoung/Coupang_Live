@@ -26,26 +26,28 @@ $colors: (
 // --------------- spacings ---------------
 $tablet-mobile-spacing-xl: 8rem;
 $tablet-mobile-spacing-lg: 4rem;
+$tablet-mobile-spacing-md: 2rem;
 
 $spacings: (
     xl: (
         spacing-xl: 12rem,
-        spacing-lg: 6rem
+        spacing-lg: 6rem,
+        spacing-md: 3rem
     ),
     lg: (
         spacing-xl: 10rem,
-        spacing-lg: 5rem
-
+        spacing-lg: 5rem,
+        spacing-md: 2.5rem
     ),
     md: (
         spacing-xl: $tablet-mobile-spacing-xl,
-        spacing-lg: $tablet-mobile-spacing-lg
-
+        spacing-lg: $tablet-mobile-spacing-lg,
+        spacing-md: $tablet-mobile-spacing-md
     ),
     sm: (
         spacing-xl: $tablet-mobile-spacing-xl,
-        spacing-lg: $tablet-mobile-spacing-lg
-
+        spacing-lg: $tablet-mobile-spacing-lg,
+        spacing-md: $tablet-mobile-spacing-md
     )
 );
 

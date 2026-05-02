@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "./_variables.scss" as vars;
+@use "./variables" as vars;
 
 // $font-size 맵에서 값을 가져오는 함수
 /* $breakpoint: desktop, laptop, tablet, mobile이 할당됨 

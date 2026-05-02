@@ -1,5 +1,21 @@
 @use "sass:map";
-@use "../abstracts/_bundle.scss" as abs;
+@use "../abstracts/bundle" as abs;
+
+:root {
+    --spacing-lg: #{abs.get-sp(xl, spacing-lg)};
+}
+
+@media (max-width: map.get(abs.$breakpoints, lg)) {
+    :root {
+        --spacing-lg: #{abs.get-sp(lg, spacing-lg)};
+    }
+}
+
+@media (max-width: map.get(abs.$breakpoints, md)) {
+    :root {
+        --spacing-lg: #{abs.get-sp(md, spacing-lg)};
+    }
+}
 
 * {
     margin: 0;
@@ -34,16 +50,19 @@ button {
     background-color: transparent;
 }
 
-.only-section {
+// header 높이로 인해 콘텐츠 가려짐을 방지하기 위한 상단 여백 보정
+.header-offset {
     @include abs.respond-sp(padding-top, $xl: calc(12rem + 7.6rem), $lg: calc(10rem + 7.6rem), $md: calc(8rem + 6rem), $sm: calc(8rem + 5rem));
     @include abs.respond-sp(padding-bottom, spacing-xl);
 }
 
+// section 상하 여백 관리
 section {
     @include abs.respond-pd-y(spacing-xl);
 }
 
-.section-inner {
+// section 내부 콘텐츠 정렬 및 gap 관리
+.section-inner-stack {
     @include abs.respond-gap(spacing-xl);
 
     margin: 0 auto;
@@ -53,7 +72,8 @@ section {
     align-items: center;
 }
 
-.container-default {
+// section 내부 너비 제한
+.section-inner-width {
     @include abs.respond-pd-x($xl: 8rem, $lg: 3.2rem, $md: 1.6rem);
 
     width: 100%;
@@ -68,7 +88,6 @@ section {
     @media (max-width: map.get(abs.$breakpoints, sm)) {
         max-width: 440px;
     }
-    
 }
 
 // .show-* 클래스를 자동 생성
@@ -104,16 +123,5 @@ section {
     clip-path: inset(50%);
 }
 
-.header-under {
-    @include abs.respond-sp(padding-top, $xl: calc(15rem + 7.6rem), $lg: calc(12rem + 7.6rem), $md: calc(10rem + 6rem), $sm: calc(8rem + 5rem));
 
-    padding-bottom: 0;
-}
 
-.block {
-    display: block;
-}
-
-.overflow-hidden {
-    overflow: hidden;
-}

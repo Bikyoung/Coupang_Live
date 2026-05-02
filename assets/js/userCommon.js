@@ -13,10 +13,10 @@ export function userCommon() {
     // ------------------------------ results ------------------------------
     let resizeTimer;
 
-    //.results__top을 스크롤 중 잠시 고정
+    // //.results__title을 스크롤 중 잠시 고정
     const resultsPinTimeline = gsap.timeline({
         scrollTrigger: {
-            trigger: ".results__top",
+            trigger: ".results__title",
             start: "top top",
             end: "bottom top",
             pin: true,
@@ -25,22 +25,22 @@ export function userCommon() {
             invalidateOnRefresh: true,
         }
     });
-    
-    // .results__list와 .results__list .image의 크기와 투명도를 한 번에 축소
+
+    // .results__item와 .results__item .image의 크기와 투명도를 한 번에 축소
     resultsPinTimeline
-        .set(".results__list", {
+        .set(".results__item", {
             scale: 0.6,
             autoAlpha: 0.3
         })
-        .set(".results__list .image", {
+        .set(".results__item .image", {
             width: 0,
             height: 0
         });
     
-    // .results__list들이 스크롤에 맞춰 순차적으로 확대 -> 축소되는 효과
+    // .results__item들이 스크롤에 맞춰 순차적으로 확대 -> 축소되는 효과
     const resultsAnimationTimeline = gsap.timeline({
         scrollTrigger: {
-            trigger: ".results__bottom",
+            trigger: ".results__list",
             start: "top center",
             end: "bottom 40%",
             scrub: 1.5,
@@ -54,52 +54,52 @@ export function userCommon() {
             autoAlpha: 0,
             y: 0,
         })
-        .to(".results__list--01", {
+        .to(".results__item-01", {
             scale: 0.8,
             autoAlpha: 1,
             ease: "power2.inOut"
         }, "<")
-        .from(".results__list--01 .image", {
+        .from(".results__item-01 .image", {
             width: 0,
             height: 0,
         }, "<")
-        .to(".results__list--01", {
+        .to(".results__item-01", {
             scale: 0.6,
             autoAlpha: 0.3
         }, ">+=2")
-        .to(".results__list--01 .image", {
+        .to(".results__item-01 .image", {
             width: 0,
             height: 0
         }, "<")
-        .to(".results__list--02", {
+        .to(".results__item-02", {
             scale: 0.8,
             autoAlpha: 1
         }, "<")
-        .from(".results__list--02 .image", {
+        .from(".results__item-02 .image", {
             width: 0,
             height: 0
         }, "<")
-        .to(".results__list--02", {
+        .to(".results__item-02", {
             scale: 0.6,
             autoAlpha: 0.3
         }, ">+=2")
-        .to(".results__list--02 .image", {
+        .to(".results__item-02 .image", {
             width: 0,
             height: 0
         }, "<")
-        .to(".results__list--03", {
+        .to(".results__item-03", {
             scale: 0.8,
             autoAlpha: 1
         }, "<")
-        .from(".results__list--03 .image", {
+        .from(".results__item-03 .image", {
             width: 0,
             height: 0
         }, "<")
-        .to(".results__list--03", {
+        .to(".results__item-03", {
             scale: 0.6,
             autoAlpha: 0.3
         }, ">+=2")
-        .to(".results__list--03 .image", {
+        .to(".results__item-03 .image", {
             width: 0,
             height: 0
         });
@@ -119,21 +119,27 @@ export function userCommon() {
     });
     
     // ------------------------------ liveType ------------------------------
-    const liveTypeTabList = document.querySelectorAll(".liveType__tab");
-    const liveTypeContentList = document.querySelectorAll(".liveType__content");
-    
-    // 각 .liveType__tab 클릭 시, 적절한 해당 콘텐츠 표시 
-    liveTypeTabList.forEach((tab, index) => {
-        tab.addEventListener("click", () => {
-            liveTypeTabList.forEach((t) => {
-                t.classList.remove("on");
-            });
-            tab.classList.add("on");
-    
-            liveTypeContentList.forEach((c) => {
-                c.classList.remove("on");
-            });
-            liveTypeContentList[index].classList.add("on");
+    // const liveTypeTabList = document.querySelectorAll(".liveType__tab");
+    const liveTypeTabList = document.querySelector(".liveType__tabList");
+    const liveTypeTabs = document.querySelectorAll(".liveType__tab");
+    const liveTypeContents = document.querySelectorAll(".liveType__content");
+
+    // 이벤트 위임을 통해 각 .liveType__tab 클릭 시, 연결된 콘텐츠를 표시 
+    liveTypeTabList.addEventListener("click", (e) => {
+        const targetTab = e.target.closest(".liveType__tab");
+        if(!targetTab) return;    // 빈 영역 클릭 시 에러 방지
+
+        const targetTabPanelID = targetTab.getAttribute("aria-controls");
+        const targetTabPanel = document.getElementById(targetTabPanelID);
+        
+        liveTypeTabs.forEach(tab => {
+            tab.setAttribute("aria-selected", (tab === targetTab ? "true" : "false"));
+            tab.setAttribute("tabindex", (tab === targetTab ? "0" : "-1"));
+        });
+
+        liveTypeContents.forEach(tabPanel => {
+            tabPanel.hidden = (tabPanel === targetTabPanel ? false : true);
+            tabPanel.setAttribute("tabindex", tabPanel === targetTabPanel ? "0" : "-1");
         });
     });
 }

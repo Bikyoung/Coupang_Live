@@ -1,0 +1,304 @@
+@use "sass:map";
+@use "../abstracts/bundle" as abs;
+
+body[data-page="creator"], body[data-page="seller"] {
+    
+    // --------------- hero ---------------
+    .hero {
+        position: relative;
+    
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        &__container {
+            @include abs.respond-gap(spacing-lg);
+
+            position: relative;
+            z-index: 2;
+        }
+
+        &__title {
+            @include abs.respond-typo(title, title-xl, 500, 1.2, -0.01em, map.get(abs.$colors, white));
+        }
+
+        &__cta {
+            @include abs.respond-typo(button, button-lg, 500, 1.4, 0, map.get(abs.$colors, primary));
+            @include abs.respond-pd-x($xl: 5rem, $sm: 4rem);
+            @include abs.respond-pd-y($xl: 1.2rem, $lg: 1rem);
+
+            border-radius: 5rem;
+            color: map.get(abs.$colors, white);
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    // --------------- results ---------------
+    .results {
+        &__title {
+            @include abs.respond-typo(title, title-xl, 700, 1.2, 0, map.get(abs.$colors, navy));
+            
+            width: 100%;
+            height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translateY(10%);
+        }
+
+        &__list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__item {
+            height: clamp(11.2rem, 9.139rem + 4.303vw, 17.4rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+            transform-origin: top center;
+
+            .text {
+                @include abs.respond-typo(title, title-xl, 700, 1.3, 0, map.get(abs.$colors, navy));
+
+                white-space: nowrap;
+            }
+
+            .image {
+                will-change: width, height, transform;
+                overflow: hidden;
+            }
+
+            @media (max-width: 1439px) {
+                flex-direction: column;
+                margin-top: 8rem;
+
+                .image {
+                    position: absolute;
+                    top: 0;
+                    transform: translateY(-100%);
+                }
+            }
+        }
+    }
+
+    // --------------- liveType ---------------
+    .liveType {
+        &__tabList {
+            width: 100%;
+            display: flex;
+        }
+
+        &__tab {
+            @include abs.respond-typo(button, button-xl, 700, 1.4, 0, map.get(abs.$colors, gray-100));
+
+            display: flex;
+            flex: 1;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 0.2rem solid map.get(abs.$colors, gray-100);
+
+            &::before, &::after {
+                content: "";
+                flex: 1;
+            }
+        }
+
+        &__panel {
+            @include abs.respond-gap($xl: 6rem, $lg: 5rem, $md: 6rem);
+            @include abs.respond-sp(margin-top, $xl: -6rem, $lg: -5rem, $md: -2rem);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__image {
+            width: fit-content;
+            position: relative;
+
+            .live-image {
+                width: clamp(18rem, 16.385rem + 4.487vw, 25rem);
+            }
+        }
+
+        &__text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+        }
+
+        &__feature {
+            width: fit-content;
+            padding: 0.8rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 1rem;
+        }
+
+        &__title {
+            @include abs.respond-typo(title, title-sm, 700, 1.25, 0, map.get(abs.$colors, navy));
+
+            margin-bottom: 4rem;
+        }
+
+        &__desc {
+            @include abs.respond-typo(body, body-lg, 500, 1.4, 0, map.get(abs.$colors, navy));
+
+            margin-bottom: 1.5rem;
+        }
+
+        &__subDesc {
+            li {
+                @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map.get(abs.$colors, gray-150));
+            }
+        }
+
+        @media (max-width: map.get(abs.$breakpoints, lg)) {
+            &__content {
+                flex-direction: column;
+            }
+
+            .liveType {
+                
+                &__text {
+                    align-items: center;
+        
+                    > * {
+                        text-align: left;
+                    }
+        
+                    li {
+                        width: fit-content;
+                    }
+                }
+
+                &__desc {
+                    text-align: center;
+                }
+            }
+            
+        }
+    }
+
+    // --------------- guide ---------------
+    .guide {
+        &__list {
+            @include abs.respond-gap($xl: 2.5rem, $md: 1.5rem);
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+    
+            @media (max-width: 1439px) {
+                grid-template-rows: repeat(2, 1fr); 
+                grid-template-columns: repeat(2, 1fr); 
+            }
+    
+            @media (max-width: 580px) {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+    
+            @media (max-width: map.get(abs.$breakpoints, sm)) {
+                grid-template-rows: repeat(4, 1fr); 
+            }
+        }
+
+        &-card {
+            @include abs.respond-w($xl: 30rem, $md: 26rem);
+
+            aspect-ratio: 3 / 4;
+            padding: 4rem 3rem;
+            border-radius: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;  
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center; 
+
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+                border-radius: 2rem;
+            }
+
+            &__text {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+                position: relative;
+                z-index: 5;
+            }
+
+            &__title {
+                @include abs.respond-typo(title, title-sm, 700, 1.25, 0, map.get(abs.$colors, white));
+            }
+    
+            &__desc {
+                @include abs.respond-typo(body, body-md, 400, 1.45, 0, map.get(abs.$colors, white));        
+            }
+    
+            &__button {
+                width: fit-content;
+                padding: 0.8rem 1.5rem;
+                border-radius: 5rem;
+                background-color: map.get(abs.$colors, white);
+                gap: 0.8rem;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 5;
+                transition: all 0.3s ease-in-out;
+    
+                i {
+                    font-size: 2rem;
+                    color: #ff0000;
+                }
+    
+                span {
+                    @include abs.respond-typo(button, button-sm, 500, 1, 0, map.get(abs.$colors, navy));
+                }
+    
+                &:hover {
+                    transform: scale(1.03);
+                    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.3);
+                }
+            }
+            
+            @media (max-width: 580px) {
+                aspect-ratio: auto;
+                width: 100%;
+                height: 24rem;
+                padding: 3rem;
+    
+                &__text {
+                    gap: 1rem;
+                }
+    
+                &__button {    
+                    i {
+                        font-size: 1.8rem;
+                    }
+                }
+            }
+        }
+    }
+}

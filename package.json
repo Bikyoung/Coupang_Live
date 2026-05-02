@@ -1,0 +1,28 @@
+{
+  "name": "coupang_live",
+  "version": "1.0.0",
+  "description": "1. 프로젝트 개요 (Overview)\r     - 본 프로젝트는 기존 쿠팡 라이브 소개 사이트가 가진 정보 전달의 한계를 극복하고, 쿠팡만의 독자적인 라이브 커머스 생태계를 명확히 전달하기 위해 진행되었습니다. 판매자·크리에이터·소비자 각 사용자의 니즈에 맞춘 직관적인 여정과 몰입감 있는 인터페이스를 구현하는 데 집중했습니다.\r 2. 문제 정의 (As-Is)\r     - 정체성 불분명: 타 라이브 커머스 대비 쿠팡 라이브만의 차별화된 강점 전달 부족\r     - 불친절한 사용자 여정: 각 사용자 유형(판매자/크리에이터)별 진입 경로 및 정보 구조의 복잡함\r     - 시각적 몰입도 저하: 서비스의 역동성을 담아내지 못하는 정적인 UI 및 인터랙션 부재\r 3. 해결 전략 (To-Be)\r     - 강점의 명확화: 쿠팡 라이브만의 핵심 가치를 시각화\r     - 타겟 맞춤형 UX 설계: 사용자별(판매자, 크리에이터, 소비자) 맞춤형 콘텐츠 구조 및 Flow 재구성\r     - 몰입형 UI/UX 강화: 시각적 심미성을 높인 레이아웃과 생동감 있는 인터랙티브 요소 적용\r 4. 기대 효과\r     - 서비스에 대한 이해도 및 브랜드 신뢰도 향상\r     - 판매자 및 크리에이터의 신규 유입 및 전환율 증대\r     - 사용자 친화적 인터페이스를 통한 서비스 활성화 도모\r 5. 활용 기술\r     - Vanilla JS\r     - Bootstrap\r     - SCSS\r     - GSAP\r     - Swiper\r 6. 프로젝트 구조\r    -  <img width=\"950\" height=\"818\" alt=\"Group 15\" src=\"https://github.com/user-attachments/assets/cec19640-2978-45b4-95b6-a22452dbdc0c\" />",
+  "main": "postcss.config.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bikyoung/Coupang_Live.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Bikyoung/Coupang_Live/issues"
+  },
+  "homepage": "https://github.com/Bikyoung/Coupang_Live#readme",
+  "devDependencies": {
+    "sass": "^1.99.0",
+    "vite": "^8.0.8"
+  }
+}

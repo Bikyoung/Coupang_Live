@@ -1,6 +1,6 @@
 @use "sass:map";
-@use "./_function.scss" as fn;
-@use "./_variables.scss" as vars;
+@use "./function" as fn;
+@use "./variables" as vars;
 
 // 반응형별로 font-size를 자동 재정의
 @mixin respond-fs($category, $key) {
@@ -32,7 +32,7 @@
     $max-width: null;
 
     // $bp가 $breakpoints 맵의 key인지 px 단위의 숫자인지 체크
-    @if (map-has-key(vars.$breakpoints, $bp)) {
+    @if (map.has-key(vars.$breakpoints, $bp)) {
         $max-width: map.get(vars.$breakpoints, $bp);
     } @else {
         $max-width: $bp;
@@ -53,7 +53,7 @@
     /* $key가 null이 아니며
        $spacings에 xl라는 key가 있으며
        xl 맵에 $key가 존재하는 경우 */
-    @if $key and map.get(vars.$spacings, xl) and map-has-key(map.get(vars.$spacings, xl), $key) {
+    @if $key and map.get(vars.$spacings, xl) and map.has-key(map.get(vars.$spacings, xl), $key) {
         $spacing: fn.get-sp(xl, $key);
         #{$prop}: $spacing;
 

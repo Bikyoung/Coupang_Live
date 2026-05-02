@@ -1,0 +1,185 @@
+@use "sass:map";
+@use "../abstracts/bundle" as abs;
+
+body[data-page="contact"] {
+    .contact {
+        &__container {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: start;
+        }
+    
+        &-title__wrapper {
+            @include abs.respond-sp(padding-top, $xl: 15rem, $lg: 0);
+        }
+    
+        &__subtitle {
+            @include abs.respond-typo(body, body-xl, 400, 1.4, 0, map.get(abs.$colors, gray-150));
+            @include abs.respond-sp(margin-top, $xl: 2rem, $lg: 1.5rem, $md: 1rem);
+    
+            margin-bottom: 12rem;
+        }
+        
+        &__image {
+            width: 20rem;
+            height: 20rem;
+            border-radius: 50%;
+            background-image: url("../../images/contact_image.webp");
+        }
+    
+        &__form {
+            @include abs.respond-w($xl: 69rem, $md: 100%);
+            @include abs.respond-sp(padding, $xl: 3rem, $md: 2rem, $sm: 0);
+            @include abs.respond-gap($xl: 2rem, $md: 1rem);
+        }
+    
+        .user-info {
+            @include abs.respond-sp(row-gap, $xl: 2rem, $md: 1rem);
+            @include abs.respond-sp(column-gap, $xl: 3rem, $md: 0);
+    
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 30rem);
+            justify-content: space-between;
+        }
+    
+        .label {
+            @include abs.respond-sp(margin-bottom, $xl: 2rem, $md: 1.5rem);
+            @include abs.respond-typo(label, label-md, 700, 1.45, 0, map.get(abs.$colors, navy));
+    
+            width: fit-content;
+            position: relative;
+    
+            &::before {
+                content: "";
+                width: 0.5rem;
+                height: 0.5rem;
+                border-radius: 50%;
+                background-color: map.get(abs.$colors, primary);
+                position: absolute;
+                top: 0;
+                left: 100%;
+                transform: translateX(100%);
+            }
+        }
+    
+        .input {
+            @include abs.respond-pd-y($xl: 1rem, $md: 0.8rem);
+            @include abs.respond-typo(body, body-md, 400, 1.45, 0.01rem, map.get(abs.$colors, black));
+    
+            border: none;
+            border-bottom: 0.1rem solid map.get(abs.$colors, gray-100);    
+    
+            &::placeholder {
+                color: map.get(abs.$colors, gray-150);
+            }
+    
+            &:focus {
+                outline: none;
+            }
+        }
+    
+        input, select {
+            @include abs.respond-w(30rem, $md: 100%);
+        }
+    
+        select {
+            cursor: pointer;
+        }
+    
+        textarea {
+            @include abs.respond-h($xl: 22.4rem, $sm: 21.4rem);
+        }
+    
+        .error-message {
+            @include abs.respond-typo(body, body-sm, 400, 1.5, 00.01em, map.get(abs.$colors, red));
+    
+            height: 2rem;
+            margin-bottom: 0;
+        }
+    
+        .agreement {
+            &__item {
+                padding: 2rem;
+                gap: 2rem;
+                border-radius: 1rem;
+                background: map.get(abs.$colors, gray-50);
+            }
+    
+            &__title {
+                @include abs.respond-typo(body, body-md, 600, 1.45, 0.01em, map.get(abs.$colors, gray-150));
+            }
+    
+            &__desc {
+                @include abs.respond-typo(body, body-sm, 400, 1.5, 0.01em, map.get(abs.$colors, gray-150));
+            }
+    
+            &__check {
+                justify-content: start;
+                gap: 1rem;
+                margin-top: 1rem;
+                cursor: pointer;
+            }
+    
+            &__custom-checkbox {
+                font-size: 2rem;
+                color: map.get(abs.$colors, gray-100);
+                transition: all 0.25s ease-in-out;
+            }
+            
+            &__checkbox:checked + .agreement__custom-checkbox {
+                color: map.get(abs.$colors, primary);
+            }
+    
+            &__label {
+                @include abs.respond-typo(body, body-md, 400, 1.45, 0.01em, map.get(abs.$colors, navy));
+            }
+    
+            &__error-message {
+                transform: translateY(100%);
+            }
+        }
+    
+        .form-submit {
+            @include abs.respond-typo(button, button-lg, 500, 1.45, 0.01em, map.get(abs.$colors, white));
+            @include abs.respond-pd-y($xl: 1.5rem);
+            @include abs.respond-sp(margin-top, $xl: 4rem, $lg: 3rem, $md: 4rem);
+    
+            background-color: map.get(abs.$colors, navy);
+            border-radius: 10rem;
+            transition: all 0.3s ease-in-out;
+    
+            &:hover {
+                color: map.get(abs.$colors, primary);
+            }
+        }
+    
+        @media (max-width: 1439px) {
+            &__container {
+                flex-direction: column;
+                align-items: center;
+                gap: 4rem;
+            }
+    
+            &__subtitle {
+                margin-top: 1.5rem;
+                margin-bottom: 0;
+                text-align: center;
+            }
+    
+            &__image {
+                display: none;
+            }
+        }
+    
+        @media (max-width: map.get(abs.$breakpoints, md)) {
+            &__form {
+                max-width: 50rem;
+            }
+    
+            .user-info {
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}

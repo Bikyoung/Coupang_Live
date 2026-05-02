@@ -1,3 +1,4 @@
+import "../styles/pages/contact.scss";
 import { commonInit } from "./common.js";
 
 async function contactInit() {
@@ -62,6 +63,12 @@ function validate(input) {
     } else if(input.validity.patternMismatch) {
         const format = input.dataset.format;
         errorMessage = `${format} 형식이 올바르지 않습니다`;
+    } 
+
+    if(errorMessage) {
+        input.setAttribute("aria-invalid", "true");
+    } else {
+        input.removeAttribute("aria-invalid");
     }
 
     errorMessageTag.textContent = errorMessage;

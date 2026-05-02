@@ -1,0 +1,384 @@
+@charset "UTF-8";
+/* $breakpoint: desktop, laptop, tablet, mobile이 할당됨 
+   $category: title, body, button이 할당됨 
+   $key: title-lg, title-md, title-sm 등이 할당됨 */
+/* 기본적으로 요소를 숨기고, 지정한 해상도 이하에서만 표시
+   display 값은 기본 block이며 인수를 통해 요소마다 다르게 지정 가능
+   @content를 통해 지정한 해상도 이하에서 추가 스타일 확장 가능
+   지정 해상도는 $breakpoints의 key(lg, md, sm) 뿐만 아니라 px 단위의 숫자(ex) 800px)도 가능 */
+.faq__content {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  gap: 6rem;
+}
+@media (max-width: 1023px) {
+  .faq__content {
+    gap: 5rem;
+  }
+}
+@media (max-width: 767px) {
+  .faq__content {
+    gap: 4rem;
+  }
+}
+@media (max-width: 479px) {
+  .faq__content {
+    gap: 4rem;
+  }
+}
+.faq__content {
+  flex-direction: column;
+}
+.faq__filter {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  gap: 3rem;
+}
+@media (max-width: 1023px) {
+  .faq__filter {
+    gap: 2.5rem;
+  }
+}
+.faq__filter {
+  justify-content: space-between;
+}
+.faq__tabList {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  gap: 1.5rem;
+}
+@media (max-width: 767px) {
+  .faq__tabList {
+    gap: 1rem;
+  }
+}
+@media (max-width: 479px) {
+  .faq__tabList {
+    gap: 0.6rem;
+  }
+}
+.faq__tab {
+  font-size: 2rem;
+}
+@media (max-width: 1023px) {
+  .faq__tab {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .faq__tab {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 479px) {
+  .faq__tab {
+    font-size: 1.6rem;
+  }
+}
+.faq__tab {
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #4E4E4E;
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-left: 2rem;
+}
+@media (max-width: 479px) {
+  .faq__tab {
+    padding-left: 1rem;
+  }
+}
+.faq__tab {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-right: 2rem;
+}
+@media (max-width: 479px) {
+  .faq__tab {
+    padding-right: 1rem;
+  }
+}
+.faq__tab {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-top: 1rem;
+}
+@media (max-width: 479px) {
+  .faq__tab {
+    padding-top: 0.8rem;
+  }
+}
+.faq__tab {
+  /* $key가 null이 아니며
+     $spacings에 xl라는 key가 있으며
+     xl 맵에 $key가 존재하는 경우 */
+  padding-bottom: 1rem;
+}
+@media (max-width: 479px) {
+  .faq__tab {
+    padding-bottom: 0.8rem;
+  }
+}
+.faq__tab {
+  border: 0.1rem solid #4E4E4E;
+  border-radius: 10rem;
+}
+.faq__tab[aria-selected=true] {
+  color: #FFFFFF;
+  background-color: #000715;
+  border-color: #000715;
+}
+.faq__search {
+  width: 38.4rem;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-radius: 10rem;
+  background-color: #F4F5F9;
+}
+.faq__search .button__container {
+  width: 1.6rem;
+  height: 1.8rem;
+}
+.faq__search button {
+  inset: 0;
+}
+.faq__search button::before {
+  content: "";
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.faq__search i {
+  font-size: 1.6rem;
+}
+.faq__input {
+  font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .faq__input {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .faq__input {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .faq__input {
+    font-size: 1.4rem;
+  }
+}
+.faq__input {
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #00040C;
+  flex: 1;
+  border: none;
+  background-color: transparent;
+}
+.faq__input::placeholder {
+  color: #4E4E4E;
+}
+.faq__input:focus {
+  outline: none;
+}
+.faq__list {
+  border-top: 0.2rem solid #4E4E4E;
+}
+.faq__list .no-result {
+  font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .faq__list .no-result {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .faq__list .no-result {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .faq__list .no-result {
+    font-size: 1.4rem;
+  }
+}
+.faq__list .no-result {
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #4E4E4E;
+  margin-top: 6rem;
+  text-align: center;
+}
+.faq__item {
+  border: none;
+  box-shadow: none;
+  border-bottom: 0.1rem solid #C0C0C0;
+}
+.faq__item p {
+  margin-bottom: 0;
+}
+.faq__item .accordion-header .faq__title {
+  font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .faq__item .accordion-header .faq__title {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .faq__item .accordion-header .faq__title {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .faq__item .accordion-header .faq__title {
+    font-size: 1.4rem;
+  }
+}
+.faq__item .accordion-header .faq__title {
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: #000715;
+}
+.faq__item .accordion-header .accordion-button {
+  justify-content: start;
+  gap: 1.5rem;
+  padding: 3rem;
+  background-color: #FFFFFF;
+  box-shadow: none;
+}
+.faq__item .accordion-header .accordion-button[aria-expanded=true] {
+  box-shadow: none;
+  background-color: #F4F5F9;
+}
+.faq__item .accordion-body {
+  justify-content: left;
+  align-items: start;
+  gap: 1.5rem;
+  padding: 0 3rem 3rem 3rem;
+  background-color: #F4F5F9;
+}
+.faq__item .accordion-body .faq__desc {
+  font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .faq__item .accordion-body .faq__desc {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .faq__item .accordion-body .faq__desc {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .faq__item .accordion-body .faq__desc {
+    font-size: 1.4rem;
+  }
+}
+.faq__item .accordion-body .faq__desc {
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #000715;
+  white-space: pre-wrap;
+}
+.faq__item .accordion-body .faq__desc a {
+  text-decoration: underline;
+}
+.faq__label {
+  font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .faq__label {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .faq__label {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .faq__label {
+    font-size: 1.4rem;
+  }
+}
+.faq__label {
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  color: #000715;
+  font-family: "Noto Sans KR", sans-serif;
+}
+.faq__pagination {
+  gap: 0.5rem;
+}
+.faq__pagination .page-link {
+  border: none;
+  color: #C0C0C0;
+}
+.faq__pagination .page-link:focus {
+  box-shadow: none;
+}
+.faq__pagination .page-num-btn {
+  font-size: 1.6rem;
+}
+@media (max-width: 1023px) {
+  .faq__pagination .page-num-btn {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .faq__pagination .page-num-btn {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 479px) {
+  .faq__pagination .page-num-btn {
+    font-size: 1.4rem;
+  }
+}
+.faq__pagination .page-num-btn {
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #000715;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 10rem;
+}
+.faq__pagination .page-num-btn[aria-current=page] {
+  background-color: #000715;
+  color: #FFFFFF;
+}
+@media (max-width: 1440px) {
+  .faq__filter {
+    align-items: start;
+    flex-direction: column;
+  }
+  .faq__search {
+    width: 100%;
+  }
+}
+@media (max-width: 685px) {
+  .faq__tabs {
+    flex-direction: column;
+    align-items: start;
+  }
+}/*# sourceMappingURL=faq.css.map */

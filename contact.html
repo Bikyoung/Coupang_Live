@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" type="text/css">
     <!-- font-awesome 링크 연결 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/main.css" type="text/css">
     <title>쿠팡 라이브</title>
 </head>
 <body data-page="contact">
@@ -16,8 +15,8 @@
 
             <div class="header-load"></div>
 
-            <main class="w-100 only-section contact">
-                <div class="container-fluid position-relative section-inner container-default contact__container">
+            <main class="w-100 header-offset contact">
+                <div class="container-fluid position-relative section-inner-stack section-inner-width contact__container">
                         <!-- title-wrapper -->
                         <div class="contact__title-wrapper">
                             <h1 class="section__title contact__title">
@@ -33,73 +32,78 @@
                         <form class="d-flex flex-column contact__form" action="" method="POST" novalidate>
                             <fieldset class="d-grid user-info">
                                 <legend class="blind">사용자 정보</legend>
-
+                                <!-- category -->
                                 <div class="form-field">
                                     <label class="label" for="category">Category</label>
-                                    <select class="input" id="category" name="category" aria-required="true" required data-action="선택">
+                                    <select class="input" id="category" name="category" data-action="선택"  required aria-describedby="category-error">
                                         <option class="default-option" value="" selected>항목을 선택해주세요</option>
                                         <option value="seller">판매자</option>
                                         <option value="creator">크리에이터</option>
                                     </select>
-                                    <p class="error-message"></p>
+                                    <p class="error-message" id="category-error" role="alert"></p>
                                 </div>
+                                <!-- name -->
                                 <div class="form-field">
                                     <label class="label" for="name">Name</label>
-                                    <input type="text" class="input" id="name" name="name" placeholder="이름 또는 업체명을 입력해주세요" pattern="\S+" aria-required="true" required data-action="입력">
-                                    <p class="error-message"></p>
+                                    <input type="text" class="input" id="name" name="name" placeholder="이름 또는 업체명을 입력해주세요" data-action="입력" required aria-describedby="name-error">
+                                    <p class="error-message" id="name-error" role="alert"></p>
                                 </div>
+                                <!-- email -->
                                 <div class="form-field">
                                     <label class="label" for="email">Email</label>
-                                    <input type="email" class="input" id="email" name="email" placeholder="이메일을 입력해주세요" pattern="^[a-zA-Z0-9._%\+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" aria-required="true" required data-action="입력" data-format="이메일">
-                                    <p class="error-message"></p>
+                                    <input type="email" class="input" id="email" name="email" placeholder="이메일을 입력해주세요" pattern="^[a-zA-Z0-9._%\+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" data-action="입력" data-format="이메일" required aria-describedby="email-error">
+                                    <p class="error-message" id="email-error" role="alert"></p>
                                 </div>
+                                <!-- phone -->
                                 <div class="form-field">
                                     <label class="label" for="tel">Tel</label>
-                                    <input type="tel" class="input" id="tel" name="tel" placeholder="연락처를 입력해주세요 (숫자만)" pattern="^[0-9]{9,11}$" inputmode="numeric" aria-required="true" required  data-format="연락처" data-action="입력">
-                                    <p class="error-message"></p>
+                                    <input type="tel" class="input" id="tel" name="tel" placeholder="연락처를 입력해주세요 (숫자만)" pattern="^[0-9]{9,11}$" inputmode="numeric" data-format="연락처" data-action="입력" required aria-describedby="tel-error">
+                                    <p class="error-message" id="tel-error" role="alert"></p>
                                 </div>
                             </fieldset>
-                            
+
+                            <!-- detail -->
                             <div class="form-field form-field--message">
                                 <label class="label" for="details">Details</label>
-                                <textarea class="w-100 input" id="details" name="details" placeholder="문의할 내용을 입력해주세요" aria-required="true" required data-action="입력"></textarea>
-                                <p class="error-message"></p>
+                                <textarea class="w-100 input" id="details" name="details" placeholder="문의할 내용을 입력해주세요" data-action="입력" required aria-describedby="detail-error"></textarea>
+                                <p class="error-message" id="detail-error" role="alert"></p>
                             </div>
                             
+                            <!-- agreement -->
                             <div class="agreement">
-                                <p class="label">Agreements</p>
-                                <div class="d-flex flex-column agreement-content">
-                                    <div class="agreement-content__01">
-                                        <p class="agreement__title">
+                                <h2 class="label">Agreements</h2>
+                                <ul class="d-flex flex-column agreement__list">
+                                    <li class="agreement__item">
+                                        <h3 class="agreement__title">
                                             개인정보의 수집 및 이용목적
-                                        </p>
+                                        </h3>
                                         <p class="agreement__desc">
                                             당사는 고객 문의사항에 대한 답변을 드리기 위한 목적으로 귀하의 개인정보를 수집·이용합니다. 
                                         </p>
-                                    </div>
-                                    <div class="agreement-content__02">
-                                        <p class="agreement__title">
+                                    </li>
+                                    <li class="agreement__item">
+                                        <h3 class="agreement__title">
                                             수집하는 개인정보의 항목
-                                        </p>
+                                        </h3>
                                         <p class="agreement__desc">
                                             이름, 업체명, 이메일, 연락처, 문의 내용
                                         </p>
-                                    </div>
-                                    <div class="agreement-content__03">
-                                        <p class="agreement__title">
+                                    </li>
+                                    <li class="agreement__item">
+                                        <h3 class="agreement__title">
                                             수집한 개인정보의 보유 및 이용기간
-                                        </p>
+                                        </h3>
                                         <p class="agreement__desc">
                                             당사는 개인정보 수집 및 이용에 관한 동의 후 3년간 보유하고 이후 해당 정보를 지체없이 파기합니다.<br>
                                             단, 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 관계법령이 정한 일정한 기간동안 개인정보를 보관합니다.
                                         </p>
-                                    </div>
-                                </div>
+                                    </li>
+                                </ul>
                                 <label for="agreement__checkbox" class="position-relative flex-center agreement__check">
-                                    <input type="checkbox" class="input blind agreement__checkbox" id="agreement__checkbox" aria-required="true" required data-action="동의">
+                                    <input type="checkbox" class="input blind agreement__checkbox" id="agreement__checkbox" data-action="동의" required aria-describedby="agree-error">
                                     <i class="fa-regular fa-square-check agreement__custom-checkbox"></i>
                                     <span class="agreement__label">동의합니다</span>
-                                    <p class="position-absolute start-0 bottom-0 error-message agreement__error-message"></p>
+                                    <p class="position-absolute start-0 bottom-0 error-message agreement__error-message" id="agree-error" role="alert"></p>
                                 </label>
                             </div>
 

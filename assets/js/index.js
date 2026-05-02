@@ -1,3 +1,4 @@
+import "../styles/pages/index.scss";
 import { commonInit } from "./common.js";
 
 async function indexInit() {
@@ -64,61 +65,36 @@ async function indexInit() {
         }
     });
     
-    // ------------------------------ difference ------------------------------ 
-    const differenceItems = document.querySelector(".difference__items");
-    
-    // 해상도의 너비가 1023px 이하일 때, .difference__Items의 height를 설정하는 함수
-    function setHeightDifferenceItems() {
-        let paddingTop = "60px";
-    
-        if(window.matchMedia("(max-width: 1023px) and (min-width: 768px)").matches) {
-            paddingTop = "50px";
-        } else if(window.matchMedia("(max-width: 767px)").matches) {
-            paddingTop = "40px";
-        }
-    
-        differenceItems.style.height = `calc(100dvh - 2 * ${paddingTop})`;
-    }
-        
+    // ------------------------------ difference ------------------------------         
     // .difference__item들이 스크롤에 맞춰 순차적으로 보여지는 timeline
     const differenceTimeline = gsap.timeline({
         scrollTrigger: {
             trigger: ".difference__contents",
             start: "top top",
-            endTrigger: ".difference__item--03",
+            endTrigger: ".difference__item-03",
             end: "bottom top",
             pin: true,
             pinSpacing: true,
             anticipatePin: 1,
-            scrub: 1    
+            scrub: 1
         }
     });
     
     differenceTimeline
-        .to({}, { duration: 1, ease: "none"})   // .difference__item--01이 보여지는 시간을 확보
-        .to(".difference__item--01", { autoAlpha: 0, ease: "none"})
-        .to(".difference__item--02", { autoAlpha: 1, ease: "none"}, "<")
+        .to({}, { duration: 1, ease: "none"})   // .difference__item-01이 보여지는 시간을 확보
+        .to(".difference__item-01", { autoAlpha: 0, ease: "none"})
+        .to(".difference__item-02", { autoAlpha: 1, ease: "none"}, "<")
     
         .to({}, { duration: 0.8, ease: "none"})
-        .to(".difference__item--02", { autoAlpha: 0, ease: "none"})
-        .to(".difference__item--03", { autoAlpha: 1, ease: "none"}, "<")
+        .to(".difference__item-02", { autoAlpha: 0, ease: "none"})
+        .to(".difference__item-03", { autoAlpha: 1, ease: "none"}, "<")
     
-        // .difference__item--03이 보여짐과 동시에 timeline이 종료되는 것을 방지하여 .difference__item--03이 보여지는 시간을 확보
+        // .difference__item-03이 보여짐과 동시에 timeline이 종료되는 것을 방지하여 .difference__item-03이 보여지는 시간을 확보
         .to({}, { duration: 1, ease: "none"});  
     
 
     
     // ------------------------------ explore ------------------------------
-    const exploreSeller = document.querySelector(".explore__seller");
-    const exploreContents = document.querySelector(".explore__contents");
-    
-    // .exploreContents의 height를 설정하는 함수
-    function setHeightExploreContents() {
-        if(window.matchMedia("(max-width: 1023px)").matches) {
-            exploreContents.style.height = `${2* exploreSeller.offsetHeight}px`;
-        }
-    }
-    
     // .explore__seller와 .explore__creator가 반응형에 따라 스크롤에 맞춰 translate 되는 timeline
     ScrollTrigger.matchMedia({
     
@@ -154,7 +130,7 @@ async function indexInit() {
     });
     
     // ------------------------------ review ------------------------------
-    let reviewSwiper = new Swiper(".reviewSwiper", {
+    const swiper = new Swiper(".review__swiper", {
         slidesPerView: 1,
         navigation: {
             nextEl: ".swiper-button-next",
@@ -202,31 +178,30 @@ async function indexInit() {
                 spaceBetween: 115,
             }
         }
-        });
-    
-    // .reviewSwiper__slide-play 클릭 시 #reviewModal 열림
-    const reviewPlayBtns = document.querySelectorAll(".reviewSwiper__slide-play");
-    const youtubePlayer = document.querySelector("#youtubePlayer");
-    const reviewModalEl = document.querySelector("#reviewModal");
-    const reviewModal = new bootstrap.Modal(reviewModalEl);
-    
-    reviewPlayBtns.forEach((reviewPlayBtn) => {
-        reviewPlayBtn.addEventListener("click", () => {
-            let youtubeSrc = reviewPlayBtn.dataset.youtubeSrc;
-    
-            youtubePlayer.setAttribute("src", youtubeSrc);
-            reviewModal.show();
-        });
     });
     
-    // 페이지 첫 로드 시 실행
-    setHeightDifferenceItems();
-    setHeightExploreContents();
+    const reviewSwiper = document.querySelector(".review__swiper");
+    const modalTitle = document.querySelector(".modal-title");
+    const modalClose = document.querySelector(".modal-close");
+    const youtubePlayer = document.querySelector("#youtubePlayer");
     
-    // 화면 해상도가 변경될 때 .difference__item과 .explore__contents의 height를 재계산
-    window.addEventListener("resize", () => {
-        setHeightDifferenceItems();
-        setHeightExploreContents();
+    // .review__play 클릭 시 .modal에 영상 정보 전달 및 스크롤 일시 정지
+    reviewSwiper.addEventListener("click", (e) => {
+        const targetPlay = e.target.closest(".review__play");
+        if(!targetPlay) return;
+
+        const youtubeSrc = targetPlay.dataset.youtubeSrc;
+
+        modalTitle.textContent = targetPlay.dataset.modalTitle;
+        youtubePlayer.src = youtubeSrc;
+
+        ScrollSmoother.get().paused(true);
+    });
+
+    // .modal-close 클릭 시 .modal에 영상 정보 초기화 및 스크롤 일시 정지 해제
+    modalClose.addEventListener("click", () => {
+        youtubePlayer.src = "";
+        ScrollSmoother.get().paused(false);
     });
 }
 

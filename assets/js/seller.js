@@ -1,3 +1,5 @@
+import "../styles/pages/userCommon.scss";
+import "../styles/pages/seller.scss";
 import { commonInit } from "./common.js";
 import { userCommon } from "./userCommon.js";
 

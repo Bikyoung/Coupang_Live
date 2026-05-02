@@ -1,24 +1,29 @@
+import "../styles/pages/faq.scss";
 import { commonInit } from "./common.js";
 
 const faqTitle = document.querySelector(".faq__title");
-const faqUlTag = document.querySelector(".faq__list");
 const faqPaginationTag = document.querySelector(".faq__pagination");
-const faqTabs = document.querySelector(".faq__tabs");
+const faqTabList = document.querySelector(".faq__tabList");
 const faqTabArr = [...document.querySelectorAll(".faq__tab")];
 const faqInput = document.querySelector(".faq__input");
+const faqTabPanel = document.querySelector("#tabpanel-faq");
 const searchBtn = document.querySelector(".button__submit");
 const resetBtn = document.querySelector(".button__reset");
 
 let allFaqArr = [];
-let filterFaqArr;
+let filterFaqArr = null;
 let currentPage = 1;
+let lastPage = null;
+let pageNumBtnList = null;
+let pagePrevBtn = null;
+let pageNextBtn = null;
 
 // faq.html 첫 로드 시 실행할 초기화 함수
 async function faqInit() {
     await commonInit();
 
     faqTabArr.forEach((faqTab) => {
-        faqTab.setAttribute("disabled", true);
+        faqTab.disabled = true;
     });
 
     await getFaq();
@@ -27,53 +32,85 @@ async function faqInit() {
     renderPagination();
     renderFaq(sliceFaq());
 
+    pageNumBtnList = document.querySelectorAll(".page-num-btn");
+    pagePrevBtn = document.querySelector(".page-prev-btn");
+    pageNextBtn = document.querySelector(".page-next-btn");
+
     // 이벤트 리스너 등록
 
-    /* 해당 페이지 번호에 맞는 faq 데이터를 렌더링하는 클릭 이벤트를 페이지네이션에 등록 
-       이벤트 위임과 이벤트 버블링 활용 */
-    faqPaginationTag.addEventListener("click", (e) => {
-        const target = e.target.closest(".page-num-btn");
-        const pageNumBtnList = document.querySelectorAll(".page-num-btn");
+    const handlePageChange = (condition) => {
+        pageNumBtnList = document.querySelectorAll(".page-num-btn");
+        pagePrevBtn = document.querySelector(".page-prev-btn");
+        pageNextBtn = document.querySelector(".page-next-btn");
 
-        /* 클릭 이벤트가 발생한 요소를 포함한 상위 요소에 .page-num-btn이 없다면 콜백 함수 탈출 
-           = 페이지 번호 버튼을 클릭한 것이 아니라면 무시함 */
-        if (!target) {
-            return;
-        }
-
-        currentPage = Number(target.textContent);
         renderFaq(sliceFaq());
 
-        pageNumBtnList.forEach(btn => 
-            btn === target 
+        pageNumBtnList.forEach(btn => {
+            condition(btn)
             ? btn.setAttribute("aria-current", "page") 
-            : btn.removeAttribute("aria-current")
-        );
+            : btn.removeAttribute("aria-current");
+        });
+
+        currentPage === 1 
+        ? pagePrevBtn.setAttribute("disabled", "true")
+        : pagePrevBtn.removeAttribute("disabled");
         
+        currentPage === lastPage 
+        ? pageNextBtn.setAttribute("disabled", "true")
+        : pageNextBtn.removeAttribute("disabled");
+
         // 화면 상단으로 이동
         faqTitle.scrollIntoView({
             behavior: "smooth",
             block: "start"
         });
+    };
+    
+    // 해당 페이지 번호에 맞는 faq 데이터를 렌더링하는 클릭 이벤트를 페이지네이션에 등록
+    faqPaginationTag.addEventListener("click", (e) => {
+        const numTarget = e.target.closest(".page-num-btn");
+        const prevTarget = e.target.closest(".page-prev-btn");
+        const nextTarget = e.target.closest(".page-next-btn");
+
+        // 페이지 번호 버튼 클릭 시
+        if(numTarget) {
+            currentPage = Number(numTarget.dataset.num);
+            handlePageChange(btn => btn === numTarget);
+        } 
+        // 이전 페이지 버튼 클릭 시
+        else if(prevTarget) {
+            currentPage -= 1;
+            handlePageChange(btn => Number(btn.dataset.num) === currentPage);    
+        } 
+        // 다음 페이지 버튼 클릭 시
+        else if(nextTarget) {
+            currentPage += 1;
+            handlePageChange(btn => Number(btn.dataset.num) === currentPage);
+        } 
+        // 유효하지 않은 영역 클릭 시
+        else {
+            return;
+        }        
     });
 
     faqTabArr.forEach(tab => tab.removeAttribute("disabled"));
     
     // 카테고리 탭 버튼 클릭 시 필터링 및 렌더링을 수행하는 이벤트 등록
-    faqTabs.addEventListener("click", (e) => {
-        const target = e.target.closest(".faq__tab");
+    faqTabList.addEventListener("click", (e) => {
+        const tabTarget = e.target.closest(".faq__tab");
+        if (!tabTarget) return;
 
-        if(!target) {
-            return;
-        }
+        const tabTargetId = tabTarget.getAttribute("id");
+        const tabTargetValue = tabTarget.textContent;
 
         // 모든 .faq__tab을 선택 해제하고, 클릭한 탭만 선택 상태로 변경
-        faqTabArr.forEach(tab => tab.setAttribute("aria-selected", tab === target ? "true" : "false"));
-
+        faqTabArr.forEach(tab => tab.setAttribute("aria-selected", tab === tabTarget ? "true" : "false"));
+        faqTabPanel.setAttribute("aria-labelledby", tabTargetId);
+        
         // 각 .faq__tab에 데이터 필터링 및 렌더링을 수행하는 클릭 이벤트 등록
-        faqInput.value = "";
+        faqInput.value="";
         toggleSearchIcon();
-        filterFaq(target.textContent);
+        filterFaq(tabTargetValue);
     });
 
     // .faq__input에 검색어 입력을 통한 필터링 및 렌더링을 수행하는 이벤트 등록
@@ -93,7 +130,7 @@ async function faqInit() {
                 el.question.replace(/\s/g, "").includes(inputText));
 
             if(res.length === 0) {
-                faqUlTag.innerHTML = `<p class="no-result">검색 결과가 없습니다</p>`;
+                faqTabPanel.innerHTML = `<p class="no-result">검색 결과가 없습니다</p>`;
                 return;
             }
 
@@ -102,14 +139,7 @@ async function faqInit() {
         }
     });
 
-    [searchBtn, resetBtn].forEach(btn => 
-        btn.addEventListener("click", () => {
-            toggleSearchIcon();
-        })
-    );
-
     resetBtn.addEventListener("click", (e) => {
-        faqInput.value = "";
         currentPage = 1;
         
         toggleSearchIcon();
@@ -121,7 +151,7 @@ async function faqInit() {
 // faq.json 파일을 faq.js 파일에 연결하고 읽어와서 faqs 배열을 전역변수 faqList에 할당하는 비동기 함수
 async function getFaq() {
     try {
-        const res = await fetch("./assets/data/faq.json");
+        const res = await fetch("/data/faq.json");
 
         if(res.ok) {
             const data = await res.json();
@@ -159,34 +189,44 @@ function filterFaq(category) {
 
 // 현 카테고리의 faq 개수를 계산하고 페이지네이션을 화면에 렌더링 해주는 함수
 function renderPagination(arr=filterFaqArr) {
-    const lastPageNum = Math.ceil(arr.length / 10);
+    lastPage = Math.ceil(arr.length / 10);
     let htmlContent =  `<li class="page-item">
-                            <button type="button" class="page-link" href="#" aria-label="Previous" disabled>
+                            <button type="button" class="page-link page-prev-btn" aria-label="이전 페이지로 이동" disabled>
                                 <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="15 18 9 12 15 6"></polyline>
                                 </svg>
                             </button>
                         </li>`;
 
-    for(let n = 1; n <= lastPageNum; n++) {
+    for(let n = 1; n <= lastPage; n++) {
         if(n === 1) {
             htmlContent += `<li class="flex-center page-item">
-                                <button type="button" class="page-link page-num-btn" aria-label="${n}페이지로 이동" aria-current="page">${n}</button>
+                                <button type="button" class="page-link page-num-btn" data-num=${n} aria-label="${n}페이지로 이동" aria-current="page">${n}</button>
                             </li>`;
         } else {
             htmlContent += `<li class="flex-center page-item">
-                                <button type="button" class="page-link page-num-btn" aria-label="${n}페이지로 이동">${n}</button>
+                                <button type="button" class="page-link page-num-btn" data-num=${n} aria-label="${n}페이지로 이동">${n}</button>
                             </li>`;                
         }
     }
     
-    htmlContent += `<li class="page-item">
-                        <button type="button" class="page-link" href="#" aria-label="Previous" disabled>
-                            <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="9 18 15 12 9 6"></polyline>
-                            </svg>
-                        </button>
-                    </li>`;
+    if(lastPage === 1) {
+        htmlContent += `<li class="page-item">
+                            <button type="button" class="page-link page-next-btn" aria-label="다음 페이지로 이동" disabled>
+                                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </li>`;
+    } else {
+        htmlContent += `<li class="page-item">
+                            <button type="button" class="page-link page-next-btn" aria-label="다음 페이지로 이동">
+                                <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </li>`;
+    }
 
     faqPaginationTag.innerHTML = htmlContent;
 }
@@ -203,7 +243,7 @@ function renderFaq(arr) {
                                     <p class="faq__title">${item.question}</p>
                                 </button>
                             </h2>
-                            <div id="collapse${idx}" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div id="collapse${idx}" class="accordion-collapse collapse" data-bs-parent="#tabpanel-faq">
                                 <div class="flex-center accordion-body">
                                     <p class="faq__label">A</p>
                                     <p class="faq__desc">${item.answer}</p>
@@ -212,15 +252,15 @@ function renderFaq(arr) {
                         </li>`
     });
 
-    faqUlTag.innerHTML = htmlContent;
+    faqTabPanel.innerHTML = htmlContent;
 }
 
 // 검색창의 입력 상태에 따른 아이콘 토글 함수
 function toggleSearchIcon() {
-    const isEmpty = faqInput.value === "";
+    const isEmpty = faqInput.value.trim() === "";
 
-    searchBtn.classList.toggle("d-none", !isEmpty);
-    resetBtn.classList.toggle("d-none", isEmpty);
+    searchBtn.hidden = !isEmpty;
+    resetBtn.hidden = isEmpty;
 }
 
 faqInit();
