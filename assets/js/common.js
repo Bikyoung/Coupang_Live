@@ -54,7 +54,11 @@ function setAriaCurrent(navLinkList, currentPage) {
 // 페이지별 header의 스타일을 다르게 적용
 function applyHeaderStyle(header, currentPage) {
     if((currentPage === "faq") || (currentPage === "contact")) {
+        header.classList.remove("header--light");
         header.classList.add("header--dark");
+    } else {
+        header.classList.remove("header--dark");
+        header.classList.add("header--light");
     }
 }
 

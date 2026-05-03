@@ -78,13 +78,15 @@
         }
     }
 
-    .hamburger {
-        &-white {
-            @include abs.respond-show(md);
-        }
-
-        &-black {
-            display: none;
+    &--light {
+        .hamburger {
+            &-white {
+                @include abs.respond-show(md);
+            }
+    
+            &-black {
+                display: none;
+            }
         }
     }
 

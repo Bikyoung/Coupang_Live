@@ -167,7 +167,7 @@ body[data-page="creator"], body[data-page="seller"] {
         }
 
         @media (max-width: map.get(abs.$breakpoints, lg)) {
-            &__content {
+            &__panel {
                 flex-direction: column;
             }
 
