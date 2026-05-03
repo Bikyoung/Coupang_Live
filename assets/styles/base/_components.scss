@@ -39,14 +39,14 @@
         margin: 0 auto;
     }
 
-    &__nav {
-        &-item {
+    .nav {
+        &__item {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        &-link {
+        &__link {
             @include abs.respond-typo(body, body-lg, 500, 1.4, 0, map.get(abs.$colors, white));
             @include abs.respond-pd-x($xl: 2rem, $lg: 1rem);
     
@@ -91,7 +91,7 @@
     &--dark {
         border-color: map.get(abs.$colors, gray-100);
 
-        .header__nav-link {
+        .nav__link {
             color: map.get(abs.$colors, navy);
         }
 
@@ -108,7 +108,7 @@
 
 
     @media (max-width: map.get(abs.$breakpoints, md)) {
-        &__nav {
+        .nav {
             display: none;
         }
     }

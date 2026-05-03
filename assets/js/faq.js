@@ -139,9 +139,10 @@ async function faqInit() {
         }
     });
 
-    resetBtn.addEventListener("click", (e) => {
+    resetBtn.addEventListener("click", () => {
+        faqInput.value = null;
         currentPage = 1;
-        
+
         toggleSearchIcon();
         renderPagination();
         renderFaq(sliceFaq());    
@@ -258,7 +259,6 @@ function renderFaq(arr) {
 // 검색창의 입력 상태에 따른 아이콘 토글 함수
 function toggleSearchIcon() {
     const isEmpty = faqInput.value.trim() === "";
-
     searchBtn.hidden = !isEmpty;
     resetBtn.hidden = isEmpty;
 }

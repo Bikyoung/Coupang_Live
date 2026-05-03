@@ -8,7 +8,7 @@ export async function commonInit() {
         await loadComponent("footer");
 
         const header = document.querySelector(".header");
-        const navLinkList = document.querySelectorAll(".header__nav-link");
+        const navLinkList = document.querySelectorAll(".nav__link");
         const currentPage = document.querySelector("body").dataset.page;
         
         // 문의하기 페이지는 .floating-btn 로드 제외 
@@ -42,7 +42,7 @@ export async function commonInit() {
     }
 }
 
-// .header__nav-link에 aria-current="page" 설정
+// .header-nav__menu에 aria-current="page" 설정
 function setAriaCurrent(navLinkList, currentPage) {
     navLinkList.forEach(link => {
         if(link.dataset.menu === currentPage) {

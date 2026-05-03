@@ -122,7 +122,7 @@ export function userCommon() {
     // const liveTypeTabList = document.querySelectorAll(".liveType__tab");
     const liveTypeTabList = document.querySelector(".liveType__tabList");
     const liveTypeTabs = document.querySelectorAll(".liveType__tab");
-    const liveTypeContents = document.querySelectorAll(".liveType__content");
+    const liveTypePanelList = document.querySelectorAll(".liveType__panel");
 
     // 이벤트 위임을 통해 각 .liveType__tab 클릭 시, 연결된 콘텐츠를 표시 
     liveTypeTabList.addEventListener("click", (e) => {
@@ -137,7 +137,7 @@ export function userCommon() {
             tab.setAttribute("tabindex", (tab === targetTab ? "0" : "-1"));
         });
 
-        liveTypeContents.forEach(tabPanel => {
+        liveTypePanelList.forEach(tabPanel => {
             tabPanel.hidden = (tabPanel === targetTabPanel ? false : true);
             tabPanel.setAttribute("tabindex", tabPanel === targetTabPanel ? "0" : "-1");
         });
